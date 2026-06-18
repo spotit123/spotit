@@ -9,6 +9,7 @@ import 'screens/profile_screen.dart';
 import 'screens/add_spot_screen.dart';
 import 'screens/login_screen.dart';
 import 'services/db_service.dart';
+import 'services/google_places_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -130,6 +131,32 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
       _bars = barsList;
       _isLoading = false;
     });
+
+    // Avvia l'arricchimento in background dei dati con Google Places API
+    _enrichBarsWithGoogle(barsList);
+  }
+
+  Future<void> _enrichBarsWithGoogle(List<Bar> currentBars) async {
+    List<Bar> enriched = [];
+    bool changed = false;
+
+    for (var bar in currentBars) {
+      final googleBar = await GooglePlacesService.fetchRealGoogleData(bar);
+      enriched.add(googleBar);
+      // Se ci sono cambiamenti reali nei dati scaricati da Google (es. nuove foto o recensioni)
+      if (googleBar.reviewCount != bar.reviewCount || 
+          googleBar.rating != bar.rating || 
+          googleBar.galleryImages.length != bar.galleryImages.length) {
+        changed = true;
+      }
+    }
+
+    if (changed && mounted) {
+      setState(() {
+        _bars = enriched;
+      });
+      await DbService.saveBars(enriched);
+    }
   }
 
   void _toggleFavorite(String id) async {
