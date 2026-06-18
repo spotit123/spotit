@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpotIt Catania - Trova la tua Vibe</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Glowing background orbs -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+
+  <!-- Main Grid Container -->
+  <div class="app-container">
+    
+    <!-- Left Column: Landing Page Presentation -->
+    <div class="landing-content">
+      <div class="logo-area" style="margin-bottom: 16px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="logo-icon">
+            <span class="material-icons-round">local_bar</span>
+          </div>
+          <h1 class="logo-text">SpotIt Catania</h1>
+        </div>
+      </div>
+
+      <!-- View Toggle Buttons -->
+      <div class="view-toggles">
+        <button id="btn-show-landing" class="toggle-btn active">
+          <span class="material-icons-round" style="font-size: 16px;">explore</span>
+          <span>Landing Page</span>
+        </button>
+        <button id="btn-show-admin" class="toggle-btn admin-glow-btn">
+          <span class="material-icons-round" style="font-size: 16px;">admin_panel_settings</span>
+          <span>Dashboard Admin</span>
+        </button>
+      </div>
+
+      <!-- Landing Main View -->
+      <div id="landing-main-view">
+        <h2 class="landing-title">Trova la tua vibe nella notte catanese</h2>
+        <p class="landing-subtitle">
+          L'applicazione definitiva per scoprire i migliori bar, pub e mixology club di Catania in base alla musica, all'affollamento live e al target d'età in tempo reale.
+        </p>
+
+        <!-- Key Features List -->
+        <div class="feature-list">
+          <div class="feature-card">
+            <span class="material-icons-round">bolt</span>
+            <h3>Live Insights 📊</h3>
+            <p>Scopri l'età media, il gender ratio e la percentuale di affollamento in tempo reale prima di uscire.</p>
+          </div>
+          <div class="feature-card">
+            <span class="material-icons-round">theater_comedy</span>
+            <h3>Filtro Vibe & Mood 🎭</h3>
+            <p>Che sia Energetic, Chill o Underground, trova il posto perfetto per il tuo stato d'animo.</p>
+          </div>
+          <div class="feature-card">
+            <span class="material-icons-round">confirmation_number</span>
+            <h3>Prenotazione Smart 🎫</h3>
+            <p>Assicurati un tavolo gratis in pochi secondi con l'accesso prioritario salta-fila.</p>
+          </div>
+          <div class="feature-card">
+            <span class="material-icons-round">campaign</span>
+            <h3>Sondaggi Live 📣</h3>
+            <p>Aggiorna la community sull'atmosfera del locale in cui ti trovi con un clic.</p>
+          </div>
+        </div>
+
+        <!-- Live Catania Spotlights -->
+        <h3 style="font-family:'Outfit'; font-size:22px; margin-bottom:16px;">Top Spot a Catania stasera 🔥</h3>
+        <div id="landing-spots-grid" style="display:grid; grid-template-columns:1fr; gap:16px; margin-bottom:40px;">
+          <!-- Filled dynamically by JavaScript -->
+        </div>
+
+        <!-- App Download Simulation CTAs -->
+        <div class="cta-area">
+          <a href="#simulator" class="btn-download primary">
+            <span class="material-icons-round icon">phonelink</span>
+            <div>
+              <small>Prova Ora</small>
+              <span>Apri il Simulatore</span>
+            </div>
+          </a>
+          <a class="btn-download" onclick="alert('Grazie! L\'app Android (.apk) sarà presto disponibile per il download.')">
+            <span class="material-icons-round icon">android</span>
+            <div>
+              <small>Disponibile per</small>
+              <span>Android APK</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Admin Dashboard View -->
+      <div id="admin-dashboard-view" style="display: none;">
+        <h2 class="admin-title">Dashboard Admin 🌋</h2>
+        <p class="admin-subtitle">Monitora le attività e i dati inseriti sul portale in tempo reale</p>
+
+        <!-- KPI Stats Cards Grid -->
+        <div class="admin-stats-grid">
+          <div class="admin-stat-card">
+            <div class="stat-icon-wrapper bookings-color">
+              <span class="material-icons-round">confirmation_number</span>
+            </div>
+            <div class="stat-details">
+              <span class="stat-lbl">Prenotazioni</span>
+              <h3 class="stat-val" id="admin-stat-bookings">0</h3>
+            </div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="stat-icon-wrapper reviews-color">
+              <span class="material-icons-round">star</span>
+            </div>
+            <div class="stat-details">
+              <span class="stat-lbl">Recensioni</span>
+              <h3 class="stat-val" id="admin-stat-reviews">0</h3>
+            </div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="stat-icon-wrapper bars-color">
+              <span class="material-icons-round">store</span>
+            </div>
+            <div class="stat-details">
+              <span class="stat-lbl">Locali Spot</span>
+              <h3 class="stat-val" id="admin-stat-bars">5</h3>
+            </div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="stat-icon-wrapper users-color">
+              <span class="material-icons-round">people</span>
+            </div>
+            <div class="stat-details">
+              <span class="stat-lbl">Utenti Reg.</span>
+              <h3 class="stat-val" id="admin-stat-users">1</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Venue Management -->
+        <div class="admin-section">
+          <h3 class="admin-sec-title">Gestione Affollamento Live (Simulatore)</h3>
+          <p class="admin-sec-desc">Modifica l'affollamento e guarda i dati aggiornarsi all'istante nel simulatore iPhone a destra.</p>
+          <div class="admin-bars-control-list" id="admin-bars-control-list">
+            <!-- Dynamically populated bars with capacity controls -->
+          </div>
+        </div>
+
+        <!-- Data Tables Panel -->
+        <div class="admin-section">
+          <div class="admin-tabs">
+            <button class="admin-tab-btn active" data-tab="bookings">Prenotazioni</button>
+            <button class="admin-tab-btn" data-tab="reviews">Recensioni</button>
+            <button class="admin-tab-btn" data-tab="users">Utenti</button>
+          </div>
+          
+          <div class="admin-tab-content active" id="tab-bookings">
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Locale</th>
+                    <th>Utente</th>
+                    <th>Orario</th>
+                    <th>Persone</th>
+                    <th>Lista</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-table-bookings-body">
+                  <!-- Bookings list -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="admin-tab-content" id="tab-reviews">
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Locale</th>
+                    <th>Utente</th>
+                    <th>Voto</th>
+                    <th>Commento</th>
+                    <th>Azione</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-table-reviews-body">
+                  <!-- Reviews list -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="admin-tab-content" id="tab-users">
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Username</th>
+                    <th>Ruolo</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-table-users-body">
+                  <!-- Users list -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive Phone Simulator -->
+    <div class="phone-simulator-area" id="simulator">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          
+          <!-- SIMULATOR APP HEADER -->
+          <div class="phone-header">
+            <span class="logo" style="color:var(--text-white);">Spot<span style="color:var(--primary-color);">It</span></span>
+            <div class="profile-btn" id="profile-btn">
+              <img id="profile-btn-img" src="" alt="Profile">
+            </div>
+          </div>
+
+          <!-- SIMULATOR APP VIBE CHIPS -->
+          <div class="phone-vibes-row" id="vibe-chips-container">
+            <!-- Filled dynamically by JS -->
+          </div>
+
+          <!-- SIMULATOR APP SPOTS SCROLL LIST -->
+          <div class="phone-content" id="phone-content">
+            <!-- Filled dynamically by JS -->
+          </div>
+
+          <!-- SIMULATOR APP DETAIL VIEW (SLIDING SHEET) -->
+          <div class="phone-detail-sheet" id="detail-sheet">
+            <div class="phone-detail-header" id="detail-header-img">
+              <div class="phone-detail-back-btn" id="detail-back">
+                <span class="material-icons-round" style="font-size:18px;">arrow_back</span>
+              </div>
+              <div class="phone-detail-fav-btn" id="detail-fav-btn">
+                <span class="material-icons-round" style="font-size:18px;">favorite</span>
+              </div>
+            </div>
+            
+            <div class="phone-detail-scroll-area">
+              <div>
+                <h2 class="phone-detail-title" id="detail-title">Bar Name</h2>
+                <div class="phone-detail-reviews-info">
+                  <span class="stars">
+                    <span class="material-icons-round" style="font-size:12px;">star</span>
+                  </span>
+                  <span id="detail-rating-label">Rating</span>
+                </div>
+              </div>
+
+              <!-- Vibe Tags -->
+              <div>
+                <div class="phone-detail-section-title" style="margin-bottom:8px;">THE VIBE</div>
+                <div class="phone-detail-tags" id="detail-tags-row">
+                  <!-- Tags -->
+                </div>
+              </div>
+
+              <!-- Gallery row -->
+              <div>
+                <div class="phone-detail-section-title" style="margin-bottom:8px;">GALLERIA FOTO</div>
+                <div class="phone-detail-gallery-row" id="detail-gallery-row">
+                  <!-- Photos and Add Button -->
+                </div>
+              </div>
+
+              <!-- Live Insights -->
+              <div class="phone-detail-insights-box">
+                <div class="insights-box-header">
+                  <span>LIVE INSIGHTS</span>
+                  <span>Aggiornato 2m fa</span>
+                </div>
+                <div class="insights-metrics">
+                  <div class="metric-item age">
+                    <span class="material-icons-round icon">face</span>
+                    <div class="metric-text">
+                      <span class="metric-label">CROWD AGE</span>
+                      <span class="metric-value" id="detail-crowd-age">Gen Z</span>
+                    </div>
+                  </div>
+                  <div class="metric-item ratio">
+                    <span class="material-icons-round icon">people</span>
+                    <div class="metric-text">
+                      <span class="metric-label">GENDER RATIO</span>
+                      <span class="metric-value" id="detail-gender-ratio">50/50</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="insights-capacity-bar">
+                  <div class="capacity-bar-header">
+                    <span style="color:var(--text-grey);">Affollamento</span>
+                    <span style="font-weight:700;" id="detail-density-txt">50%</span>
+                  </div>
+                  <div class="capacity-progress">
+                    <div class="capacity-progress-value" id="detail-density-bar"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- About description -->
+              <div>
+                <div class="phone-detail-section-title" style="margin-bottom:6px;">ABOUT THE SPOT</div>
+                <p id="detail-description" style="font-size:11px; color:var(--text-grey); line-height:1.5;"></p>
+              </div>
+
+              <!-- Written Reviews section -->
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                  <div class="phone-detail-section-title">RECENSIONI CLIENTE</div>
+                  <button id="detail-add-review-btn" style="background:transparent; border:none; color:var(--primary-color); font-size:11px; font-weight:700; cursor:pointer;">
+                    + Scrivi
+                  </button>
+                </div>
+                <div class="phone-reviews-list" id="reviews-list">
+                  <!-- Review items -->
+                </div>
+              </div>
+
+              <!-- Map Navigation -->
+              <div>
+                <div class="phone-detail-section-title" style="margin-bottom:8px;">LOCATION</div>
+                <button class="phone-directions-btn" id="detail-directions-btn" style="width:100%;">
+                  <span class="material-icons-round" style="font-size:16px;">directions</span>
+                  <span>Apri Indicazioni Maps</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Detail view secure a table footer -->
+            <div class="phone-detail-footer">
+              <button class="btn-secure-table" id="detail-secure-btn">
+                <span class="material-icons-round" style="font-size:16px;">confirmation_number</span>
+                <span>Secure a Table</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- SIMULATOR APP BOOKING VIEW (SLIDING SHEET) -->
+          <div class="phone-booking-view" id="booking-view">
+            <div class="phone-booking-header">
+              <span class="material-icons-round back-icon" id="booking-back">arrow_back</span>
+              <h2>Secure Your Spot</h2>
+            </div>
+            
+            <div class="phone-booking-content">
+              <!-- Bar Mini Card -->
+              <div class="booking-bar-preview">
+                <img class="booking-bar-img" id="booking-bar-img" src="" alt="Bar image">
+                <div class="booking-bar-info">
+                  <h3 id="booking-bar-name">Bar Name</h3>
+                  <p id="booking-bar-desc">Description</p>
+                  <p id="booking-live-capacity" style="color:#00cc88; font-weight:700; margin-top:2px;">Live Capacity</p>
+                </div>
+              </div>
+
+              <!-- Date & Guest Pickers -->
+              <div class="booking-selector-row">
+                <div class="booking-selector-card">
+                  <span class="material-icons-round icon">calendar_today</span>
+                  <div class="selector-text">
+                    <span class="selector-label">DATA</span>
+                    <span class="selector-val">Oggi</span>
+                  </div>
+                </div>
+                <div class="booking-selector-card">
+                  <span class="material-icons-round icon">people</span>
+                  <div class="selector-text">
+                    <span class="selector-label">OSPITI</span>
+                    <span class="selector-val">2 Persone</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Time slots -->
+              <div>
+                <h3 style="font-size:12px; font-weight:700; margin-bottom:12px;">Seleziona Orario</h3>
+                <div class="time-slots-grid">
+                  <div class="time-slot-btn">20:00</div>
+                  <div class="time-slot-btn">20:30</div>
+                  <div class="time-slot-btn active">21:00</div>
+                  <div class="time-slot-btn">21:30</div>
+                  <div class="time-slot-btn">22:00</div>
+                  <div class="time-slot-btn">22:30</div>
+                </div>
+              </div>
+
+              <!-- Priority Guest List -->
+              <div style="background:var(--card-color); border:1px solid var(--border-color); border-radius:16px; padding:12px; display:flex; align-items:center; gap:10px;">
+                <input type="checkbox" id="priority-check" style="accent-color:var(--primary-color);" checked>
+                <label for="priority-check" style="font-size:11px; cursor:pointer;">
+                  <strong style="display:block; margin-bottom:2px;">Lista Ospiti Prioritaria</strong>
+                  <span style="color:var(--text-grey); font-size:10px;">Salta la fila ed entra direttamente</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Booking Confirmation Footer -->
+            <div class="booking-footer-bar">
+              <div class="booking-footer-price">
+                <span class="price-val">GRATIS</span>
+                <span class="price-sub">Nessun costo</span>
+              </div>
+              <button class="btn-confirm-booking" id="confirm-booking-btn">Conferma</button>
+            </div>
+          </div>
+
+          <!-- SIMULATOR APP USER PROFILE VIEW (SLIDING SHEET) -->
+          <div class="phone-profile-view" id="profile-view">
+            <div class="profile-card-header">
+              <div class="profile-back-btn" id="profile-back">
+                <span class="material-icons-round" style="font-size:18px;">arrow_back</span>
+              </div>
+              <div class="profile-avatar-container">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Avatar">
+              </div>
+            </div>
+            
+            <div class="phone-profile-content">
+              <div>
+                <h3 class="profile-name" id="prof-name">Alex Rivers</h3>
+                <p class="profile-username" id="prof-username">@vibe_seeker_99</p>
+                <p class="profile-bio">📍 Catania • 25 anni</p>
+              </div>
+
+              <!-- Badges -->
+              <div class="profile-badges">
+                <div class="profile-badge">
+                  <span class="material-icons-round" style="font-size:12px;">diamond</span>
+                  <span>Vibe Master</span>
+                </div>
+                <div class="profile-badge blue">
+                  <span class="material-icons-round" style="font-size:12px;">verified_user</span>
+                  <span>Pro Booker</span>
+                </div>
+              </div>
+
+              <!-- Stats row -->
+              <div class="profile-stats-grid">
+                <div class="stat-box">
+                  <div class="stat-box-val" id="prof-bookings-count">24</div>
+                  <div class="stat-box-lbl">Bookings</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-box-val" id="prof-favorites-count">12</div>
+                  <div class="stat-box-lbl">Favorites</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-box-val" id="prof-karma">4.8</div>
+                  <div class="stat-box-lbl">Karma</div>
+                </div>
+              </div>
+
+              <!-- Favorite Vibes -->
+              <div style="text-align:left;">
+                <h4 style="font-size:12px; font-weight:700; margin-bottom:8px;">Vibe Preferite</h4>
+                <div class="phone-detail-tags">
+                  <div class="phone-detail-tag">Chill</div>
+                  <div class="phone-detail-tag">Energetic</div>
+                  <div class="phone-detail-tag">Underground</div>
+                  <div class="phone-detail-tag">Neon</div>
+                </div>
+              </div>
+
+              <!-- Logout -->
+              <button class="btn-profile-logout" id="prof-logout-btn">Log Out 🚪</button>
+            </div>
+          </div>
+
+          <!-- SIMULATOR APP REVIEW DIALOG (MODAL OVERLAY) -->
+          <div class="phone-review-modal" id="review-modal">
+            <div class="review-modal-box">
+              <h3 style="font-size:14px; font-weight:700;">Lascia una Recensione ✍️</h3>
+              
+              <div class="review-stars-select">
+                <span class="material-icons-round review-star-btn active" data-value="1">star</span>
+                <span class="material-icons-round review-star-btn active" data-value="2">star</span>
+                <span class="material-icons-round review-star-btn active" data-value="3">star</span>
+                <span class="material-icons-round review-star-btn active" data-value="4">star</span>
+                <span class="material-icons-round review-star-btn active" data-value="5">star</span>
+              </div>
+
+              <textarea class="review-input-comment" id="review-input-text" placeholder="Scrivi qui cosa ne pensi del locale..."></textarea>
+              
+              <button class="btn-submit-review" id="submit-review-btn">Pubblica Recensione</button>
+            </div>
+          </div>
+
+          <!-- SIMULATOR APP SUCCESS DIALOG -->
+          <div class="sim-success-dialog" id="success-dialog">
+            <div class="dialog-box">
+              <span class="material-icons-round check-icon">check_circle</span>
+              <h3>Prenotazione Confermata! 🎉</h3>
+              <p>Il tuo tavolo è stato riservato con successo. Riceverai la priorità di ingresso saltando la fila all'ingresso!</p>
+              <button class="btn-dialog-close" id="success-close-btn">Ottimo</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Javascript Logic -->
+  <script src="app.js"></script>
+</body>
+</html>

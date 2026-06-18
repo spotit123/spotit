@@ -1,0 +1,1624 @@
+/* Stylesheet for SpotIt Catania Web Portal & Simulator */
+:root {
+  --bg-color: #090d16;
+  --card-color: #131b2e;
+  --primary-color: #0066ff;
+  --primary-glow: rgba(0, 102, 255, 0.4);
+  --accent-color: #ea580c;
+  --text-white: #ffffff;
+  --text-grey: #94a3b8;
+  --text-dark-grey: #64748b;
+  --border-color: rgba(255, 255, 255, 0.05);
+  --glass-bg: rgba(19, 27, 46, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.03);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background glowing orbs */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(0, 102, 255, 0.15);
+  top: -100px;
+  left: -100px;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: rgba(234, 88, 12, 0.08);
+  bottom: -150px;
+  right: -100px;
+}
+
+/* Container */
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  .app-container {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 40px;
+  }
+}
+
+/* Left Column: Landing Page Content */
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.logo-icon {
+  background: rgba(0, 102, 255, 0.1);
+  padding: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  box-shadow: 0 0 20px var(--primary-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon span {
+  color: var(--primary-color);
+  font-size: 28px;
+}
+
+.logo-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.landing-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ffffff 40%, #0066ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .landing-title {
+    font-size: 40px;
+  }
+}
+
+.landing-subtitle {
+  font-size: 18px;
+  color: var(--text-grey);
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Feature grid */
+.feature-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 600px) {
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature-card {
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  border-radius: 16px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 102, 255, 0.2);
+}
+
+.feature-card span {
+  color: var(--primary-color);
+  font-size: 24px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.feature-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.feature-card p {
+  font-size: 12px;
+  color: var(--text-grey);
+  line-height: 1.5;
+}
+
+/* Download buttons */
+.cta-area {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-download {
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  padding: 12px 24px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.3s, border-color 0.3s;
+  cursor: pointer;
+}
+
+.btn-download:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--text-dark-grey);
+}
+
+.btn-download.primary {
+  background: var(--primary-color);
+  border: none;
+  box-shadow: 0 4px 20px var(--primary-glow);
+}
+
+.btn-download.primary:hover {
+  background: #0052cc;
+  box-shadow: 0 4px 25px rgba(0, 102, 255, 0.6);
+}
+
+.btn-download span.icon {
+  font-size: 24px;
+}
+
+.btn-download div {
+  text-align: left;
+}
+
+.btn-download small {
+  font-size: 10px;
+  color: var(--text-grey);
+  display: block;
+}
+
+/* Right Column: Phone Simulator */
+.phone-simulator-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Outer phone frame (glowing) */
+.phone-frame {
+  width: 380px;
+  height: 780px;
+  background: #0f131c;
+  border: 12px solid #1e293b;
+  border-radius: 48px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 
+              0 0 40px rgba(0, 102, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 480px) {
+  .phone-frame {
+    width: 100%;
+    height: 700px;
+    border-width: 8px;
+    border-radius: 36px;
+  }
+}
+
+/* Phone screen status bar & notch */
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 24px;
+  background: #1e293b;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  z-index: 1000;
+}
+
+.phone-screen {
+  flex: 1;
+  background: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.phone-header {
+  padding: 30px 16px 12px 16px;
+  background: var(--bg-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.phone-header .logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.phone-header .profile-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1.5px solid var(--primary-color);
+}
+
+.phone-header .profile-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Vibe tags container inside phone */
+.phone-vibes-row {
+  padding: 12px 16px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+
+.phone-vibes-row::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+.vibe-chip {
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-white);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.vibe-chip.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Spots List inside phone */
+.phone-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 16px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Hide scrollbar for phone-content */
+.phone-content::-webkit-scrollbar {
+  width: 4px;
+}
+.phone-content::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 2px;
+}
+
+/* Bar Card Inside Phone */
+.sim-bar-card {
+  background: var(--card-color);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.sim-bar-card:active {
+  transform: scale(0.98);
+}
+
+.sim-card-image {
+  height: 140px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.sim-card-image::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(9, 13, 22, 0.9));
+}
+
+.sim-card-distance {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(9, 13, 22, 0.8);
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  z-index: 1;
+}
+
+.sim-card-fav {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(9, 13, 22, 0.8);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  color: var(--text-grey);
+}
+
+.sim-card-fav.active {
+  color: #ff2a74;
+}
+
+.sim-card-info {
+  padding: 16px;
+}
+
+.sim-card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.sim-card-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.sim-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffb800;
+}
+
+.sim-card-type {
+  font-size: 11px;
+  color: var(--text-grey);
+  margin-bottom: 12px;
+}
+
+.sim-card-vibe-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.sim-card-tag {
+  background: rgba(255, 255, 255, 0.04);
+  color: #bfdbfe;
+  font-size: 9px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.sim-card-insights-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.sim-card-music {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  color: var(--text-grey);
+}
+
+.sim-card-music span.icon {
+  font-size: 14px;
+  color: var(--primary-color);
+}
+
+.sim-card-capacity {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.sim-card-capacity.high {
+  color: #ff3366;
+}
+
+.sim-card-capacity.low {
+  color: #00cc88;
+}
+
+/* Detail view sheet inside phone */
+.phone-detail-sheet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-color);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.phone-detail-sheet.active {
+  transform: translateY(0);
+}
+
+.phone-detail-header {
+  height: 200px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.phone-detail-header::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(9, 13, 22, 1));
+}
+
+.phone-detail-back-btn {
+  position: absolute;
+  top: 36px;
+  left: 16px;
+  background: rgba(0, 0, 0, 0.5);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.phone-detail-fav-btn {
+  position: absolute;
+  top: 36px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.5);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-grey);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.phone-detail-fav-btn.active {
+  color: #ff2a74;
+}
+
+.phone-detail-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.phone-detail-scroll-area::-webkit-scrollbar {
+  width: 4px;
+}
+.phone-detail-scroll-area::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+}
+
+.phone-detail-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.phone-detail-reviews-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-grey);
+}
+
+.phone-detail-reviews-info span.stars {
+  color: #ffb800;
+  display: flex;
+}
+
+.phone-detail-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent-color);
+  text-transform: uppercase;
+}
+
+.phone-detail-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.phone-detail-tag {
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 11px;
+  color: #bfdbfe;
+  font-weight: 600;
+}
+
+/* Insights Box */
+.phone-detail-insights-box {
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.insights-box-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.insights-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.metric-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.metric-item span.icon {
+  font-size: 22px;
+}
+
+.metric-item.age span.icon { color: #ffb800; }
+.metric-item.ratio span.icon { color: #ff2a74; }
+
+.metric-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-label {
+  font-size: 9px;
+  color: var(--text-dark-grey);
+  font-weight: 600;
+}
+
+.metric-value {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.insights-capacity-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.capacity-bar-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+.capacity-progress {
+  height: 6px;
+  background: #1e293b;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.capacity-progress-value {
+  height: 100%;
+  background: var(--primary-color);
+}
+
+/* Gallery inside phone */
+.phone-detail-gallery-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.phone-detail-gallery-row::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-img {
+  width: 120px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.gallery-add-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  background: var(--card-color);
+  border: 1.5px dashed var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-grey);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Reviews Panel */
+.phone-reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.phone-review-item {
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.review-item-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.review-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-user-info {
+  flex: 1;
+}
+
+.review-username {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.review-date {
+  font-size: 9px;
+  color: var(--text-dark-grey);
+}
+
+.review-rating {
+  color: #ffb800;
+  font-size: 11px;
+}
+
+.review-comment {
+  font-size: 11px;
+  color: var(--text-grey);
+  line-height: 1.4;
+}
+
+/* Button maps directions inside phone */
+.phone-directions-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.phone-directions-btn:active {
+  background: rgba(0, 102, 255, 0.05);
+}
+
+/* Secure booking footer inside detail view */
+.phone-detail-footer {
+  padding: 12px 16px;
+  background: var(--card-color);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+}
+
+.btn-secure-table {
+  width: 100%;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+}
+
+.btn-secure-table:active {
+  background: #0052cc;
+}
+
+/* Booking View Overlay */
+.phone-booking-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-color);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.phone-booking-view.active {
+  transform: translateY(0);
+}
+
+.phone-booking-header {
+  padding: 30px 16px 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.phone-booking-header span.back-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.phone-booking-header h2 {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.phone-booking-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.booking-bar-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  border-radius: 16px;
+}
+
+.booking-bar-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.booking-bar-info h3 {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.booking-bar-info p {
+  font-size: 10px;
+  color: var(--text-grey);
+}
+
+.booking-selector-row {
+  display: flex;
+  gap: 10px;
+}
+
+.booking-selector-card {
+  flex: 1;
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.booking-selector-card span.icon {
+  font-size: 20px;
+  color: var(--primary-color);
+}
+
+.selector-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.selector-label {
+  font-size: 8px;
+  color: var(--text-dark-grey);
+  font-weight: 600;
+}
+
+.selector-val {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.time-slot-btn {
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+}
+
+.time-slot-btn.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.booking-footer-bar {
+  padding: 12px 16px;
+  background: var(--card-color);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.booking-footer-price {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-val {
+  font-size: 15px;
+  font-weight: 800;
+  color: #00cc88;
+}
+
+.price-sub {
+  font-size: 9px;
+  color: var(--text-grey);
+}
+
+.btn-confirm-booking {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Success Dialogue Dialog inside simulator */
+.sim-success-dialog {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(9, 13, 22, 0.85);
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.sim-success-dialog.active {
+  display: flex;
+}
+
+.dialog-box {
+  background: #0f172a;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 24px;
+  text-align: center;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.dialog-box span.check-icon {
+  font-size: 48px;
+  color: #00cc88;
+}
+
+.dialog-box h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.dialog-box p {
+  font-size: 12px;
+  color: var(--text-grey);
+  line-height: 1.5;
+}
+
+.btn-dialog-close {
+  width: 100%;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Review overlay dialog */
+.phone-review-modal {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(9, 13, 22, 0.8);
+  z-index: 30;
+  display: none;
+  align-items: flex-end;
+}
+
+.phone-review-modal.active {
+  display: flex;
+}
+
+.review-modal-box {
+  width: 100%;
+  background: #0f172a;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review-stars-select {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.review-star-btn {
+  font-size: 28px;
+  color: var(--text-dark-grey);
+  cursor: pointer;
+}
+
+.review-star-btn.active {
+  color: #ffb800;
+}
+
+.review-input-comment {
+  width: 100%;
+  height: 80px;
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: white;
+  padding: 12px;
+  font-size: 12px;
+  font-family: inherit;
+  resize: none;
+}
+
+.btn-submit-review {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Profile view screen inside phone */
+.phone-profile-view {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--bg-color);
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.phone-profile-view.active {
+  transform: translateY(0);
+}
+
+.profile-card-header {
+  height: 120px;
+  background: linear-gradient(135deg, #1e1b4b, #311042);
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.profile-back-btn {
+  position: absolute;
+  top: 36px;
+  left: 16px;
+  background: rgba(0, 0, 0, 0.5);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+}
+
+.profile-avatar-container {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 3px solid var(--bg-color);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+}
+
+.profile-avatar-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.phone-profile-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 40px 16px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+
+.profile-name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.profile-username {
+  font-size: 12px;
+  color: var(--text-grey);
+  margin-top: -12px;
+}
+
+.profile-bio {
+  font-size: 11px;
+  color: var(--text-dark-grey);
+}
+
+.profile-badges {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.profile-badge {
+  background: rgba(255, 184, 0, 0.1);
+  color: #ffb800;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.profile-badge.blue {
+  background: rgba(0, 102, 255, 0.1);
+  color: var(--primary-color);
+}
+
+.profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.stat-box {
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.stat-box-val {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+
+.stat-box-lbl {
+  font-size: 8px;
+  color: var(--text-grey);
+}
+
+.btn-profile-logout:active {
+  background: rgba(255, 51, 102, 0.05);
+}
+
+/* ==========================================
+   ADMIN DASHBOARD PREMIUM STYLING
+   ========================================== */
+
+/* VIEW TOGGLES */
+.view-toggles {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 16px;
+}
+
+.toggle-btn {
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-grey);
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-white);
+}
+
+.toggle-btn.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-white);
+  box-shadow: 0 0 15px rgba(0, 102, 255, 0.3);
+}
+
+.toggle-btn.admin-glow-btn {
+  border: 1px solid rgba(234, 88, 12, 0.3);
+}
+
+.toggle-btn.admin-glow-btn.active {
+  background: linear-gradient(135deg, #ea580c, #ef4444);
+  border-color: #ea580c;
+  box-shadow: 0 0 15px rgba(234, 88, 12, 0.4);
+}
+
+/* ADMIN DASHBOARD CONTAINER */
+.admin-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  background: linear-gradient(135deg, #ffffff, #ea580c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.admin-subtitle {
+  font-size: 13px;
+  color: var(--text-grey);
+  margin-bottom: 24px;
+}
+
+/* STATS GRID */
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1200px) {
+  .admin-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.admin-stat-card {
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: border-color 0.3s;
+}
+
+.admin-stat-card:hover {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.stat-icon-wrapper {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-icon-wrapper span {
+  font-size: 18px;
+}
+
+.bookings-color { background: rgba(0, 102, 255, 0.1); color: #0066ff; }
+.reviews-color { background: rgba(255, 184, 0, 0.1); color: #ffb800; }
+.bars-color { background: rgba(0, 204, 136, 0.1); color: #00cc88; }
+.users-color { background: rgba(168, 85, 247, 0.1); color: #a855f7; }
+
+.stat-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-lbl {
+  font-size: 9px;
+  color: var(--text-dark-grey);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-val {
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-white);
+  line-height: 1.2;
+}
+
+/* SECTION */
+.admin-section {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.admin-sec-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--text-white);
+}
+
+.admin-sec-desc {
+  font-size: 11px;
+  color: var(--text-grey);
+  margin-bottom: 16px;
+}
+
+/* CONTROL LIST */
+.admin-bars-control-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-bar-control-item {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.admin-bar-control-info {
+  flex: 1;
+}
+
+.control-bar-name {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.control-bar-type {
+  font-size: 9px;
+  color: var(--text-dark-grey);
+}
+
+.admin-bar-control-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.capacity-slider-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.capacity-slider-wrapper input[type="range"] {
+  width: 80px;
+  accent-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.capacity-percent-badge {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 32px;
+  text-align: right;
+}
+
+.capacity-percent-badge.high { color: #ff3366; }
+.capacity-percent-badge.low { color: #00cc88; }
+
+/* TABS */
+.admin-tabs {
+  display: flex;
+  gap: 6px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.admin-tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-grey);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.admin-tab-btn:hover {
+  color: var(--text-white);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.admin-tab-btn.active {
+  color: var(--primary-color);
+  background: rgba(0, 102, 255, 0.08);
+}
+
+.admin-tab-content {
+  display: none;
+}
+
+.admin-tab-content.active {
+  display: block;
+}
+
+/* TABLES */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-table th {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-dark-grey);
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.admin-table td {
+  font-size: 11px;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  vertical-align: middle;
+}
+
+.admin-table tr:hover td {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.admin-table .avatar-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-table .table-avatar {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.admin-table .priority-tag {
+  background: rgba(0, 102, 255, 0.1);
+  color: var(--primary-color);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 9px;
+}
+
+.admin-table .no-priority-tag {
+  color: var(--text-dark-grey);
+  font-size: 10px;
+}
+
+.admin-table .btn-delete-review {
+  background: transparent;
+  border: none;
+  color: #ff3366;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.admin-table .btn-delete-review:hover {
+  background: rgba(255, 51, 102, 0.1);
+}
+
