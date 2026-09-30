@@ -6,12 +6,14 @@ class BarCard extends StatelessWidget {
   final Bar bar;
   final VoidCallback onTap;
   final VoidCallback onFavoriteTap;
+  final int? matchScore; // 0-100, from the onboarding quiz
 
   const BarCard({
     super.key,
     required this.bar,
     required this.onTap,
     required this.onFavoriteTap,
+    this.matchScore,
   });
 
   @override
@@ -43,6 +45,7 @@ class BarCard extends StatelessWidget {
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) => Container(
                       height: 140,
+                      width: double.infinity,
                       color: Colors.grey[900],
                       child: const Icon(Icons.broken_image, color: Colors.grey),
                     ),
@@ -67,6 +70,26 @@ class BarCard extends StatelessWidget {
                     ],
                   ),
                 ),
+                if (matchScore != null)
+                  Positioned(
+                    bottom: 10,
+                    left: 12,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF0066FF),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Text(
+                        '✨ $matchScore% per te',
+                        style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontSize: 11,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
                 // Favorite Heart Button
                 Positioned(
                   top: 12,

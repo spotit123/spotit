@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/user_profile.dart';
 import '../models/bar.dart';
 import '../models/booking.dart';
+import '../models/quiz_answers.dart';
 import '../data/mock_data.dart';
 
 class DbService {
@@ -10,6 +11,8 @@ class DbService {
   static const String _keyBars = 'bars';
   static const String _keyBookings = 'bookings';
   static const String _keyUsers = 'registered_users';
+  static const String _keyQuiz = 'quiz_answers';
+  static const String _keyQuizDone = 'quiz_done';
 
   static SharedPreferences? _prefs;
 
@@ -106,12 +109,13 @@ class DbService {
     
     await prefs.setString(_keyUsers, jsonEncode(users));
     
-    // Create new profile for this user
+    // Create new profile for this user (age pre-filled from the quiz, if taken)
+    final quiz = await getQuiz();
     final profile = UserProfile(
       name: name,
       username: username.startsWith('@') ? username : '@$username',
       location: 'Madrid',
-      age: 22,
+      age: quiz?.approxAge ?? 22,
       bookingsCount: 0,
       favoritesCount: 0,
       karma: 5.0,
@@ -138,6 +142,34 @@ class DbService {
   static Future<void> saveUserProfile(UserProfile profile) async {
     final prefs = _prefs ?? await SharedPreferences.getInstance();
     await prefs.setString(_keyProfile, jsonEncode(profile.toJson()));
+  }
+
+  // Quiz di personalizzazione (legato al dispositivo, non viene cancellato al logout)
+  static Future<bool> isQuizDone() async {
+    final prefs = _prefs ?? await SharedPreferences.getInstance();
+    return prefs.getBool(_keyQuizDone) ?? false;
+  }
+
+  static Future<QuizAnswers?> getQuiz() async {
+    final prefs = _prefs ?? await SharedPreferences.getInstance();
+    final raw = prefs.getString(_keyQuiz);
+    if (raw == null) return null;
+    try {
+      return QuizAnswers.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Salva le risposte; con `null` (quiz saltato) segna solo il quiz come fatto.
+  static Future<void> saveQuiz(QuizAnswers? answers) async {
+    final prefs = _prefs ?? await SharedPreferences.getInstance();
+    if (answers == null) {
+      await prefs.remove(_keyQuiz);
+    } else {
+      await prefs.setString(_keyQuiz, jsonEncode(answers.toJson()));
+    }
+    await prefs.setBool(_keyQuizDone, true);
   }
 
   static Future<void> clearSession() async {

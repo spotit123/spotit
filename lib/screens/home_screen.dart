@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../models/bar.dart';
+import '../models/quiz_answers.dart';
+import '../services/recommendation_service.dart';
 import '../widgets/bar_card.dart';
 import 'detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final List<Bar> bars;
+  final QuizAnswers? quiz;
   final Function(String) onFavoriteToggle;
 
   const HomeScreen({
     super.key,
     required this.bars,
+    this.quiz,
     required this.onFavoriteToggle,
   });
 
@@ -42,6 +46,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
       return matchesSearch && matchesMood;
     }).toList();
+
+    // Con il quiz completato, i locali più adatti a te vengono per primi
+    final quiz = widget.quiz;
+    final scores = <String, int>{};
+    if (quiz != null) {
+      for (final bar in filteredBars) {
+        scores[bar.id] = RecommendationService.score(bar, quiz);
+      }
+      filteredBars.sort((a, b) => scores[b.id]!.compareTo(scores[a.id]!));
+    }
 
     return Scaffold(
       backgroundColor: const Color(0xFF090D16), // Dark background
@@ -100,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "What's the mood?",
+                    quiz != null ? 'Consigliati per te ✨' : "What's the mood?",
                     style: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -209,6 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         final bar = filteredBars[index];
                         return BarCard(
                           bar: bar,
+                          matchScore: scores[bar.id],
                           onTap: () {
                             Navigator.push(
                               context,

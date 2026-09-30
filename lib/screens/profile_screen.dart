@@ -12,6 +12,7 @@ class ProfileScreen extends StatefulWidget {
   final Function(UserProfile) onProfileUpdate;
   final Function(String) onFavoriteToggle;
   final VoidCallback onLogout;
+  final VoidCallback onRetakeQuiz;
 
   const ProfileScreen({
     super.key,
@@ -20,6 +21,7 @@ class ProfileScreen extends StatefulWidget {
     required this.onProfileUpdate,
     required this.onFavoriteToggle,
     required this.onLogout,
+    required this.onRetakeQuiz,
   });
 
   @override
@@ -568,6 +570,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     },
                   ),
             const SizedBox(height: 20),
+            // Retake quiz
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: SizedBox(
+                width: double.infinity,
+                height: 52,
+                child: OutlinedButton.icon(
+                  onPressed: widget.onRetakeQuiz,
+                  style: OutlinedButton.styleFrom(
+                    side: const BorderSide(color: Color(0xFF0066FF), width: 1.5),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                    foregroundColor: const Color(0xFF0066FF),
+                  ),
+                  icon: const Icon(Icons.auto_awesome, size: 18),
+                  label: Text(
+                    'Rifai il quiz ✨',
+                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 15),
+                  ),
+                ),
+              ),
+            ),
             // Log Out Button
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
