@@ -28,6 +28,13 @@ class DbService {
       await _prefs?.setBool('cleared_for_madrid', true);
     }
 
+    // Nuova lista locali di Madrid: ricarica i locali salvati da versioni precedenti
+    final hasMadridBars = _prefs?.getBool('bars_madrid_v2') ?? false;
+    if (!hasMadridBars) {
+      await _prefs?.remove(_keyBars);
+      await _prefs?.setBool('bars_madrid_v2', true);
+    }
+
     // Seed default user if not exists
     final usersRaw = _prefs?.getString(_keyUsers);
     if (usersRaw == null) {
