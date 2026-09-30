@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/user_profile.dart';
 import '../models/bar.dart';
 import '../models/booking.dart';
+import '../models/quiz_answers.dart';
 import '../data/mock_data.dart';
 
 class DbService {
@@ -10,12 +11,23 @@ class DbService {
   static const String _keyBars = 'bars';
   static const String _keyBookings = 'bookings';
   static const String _keyUsers = 'registered_users';
+  static const String _keyQuiz = 'quiz_answers';
+  static const String _keyQuizDone = 'quiz_done';
 
   static SharedPreferences? _prefs;
 
   static Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
     
+    // Forza la pulizia per il passaggio a Madrid
+    final hasClearedForMadrid = _prefs?.getBool('cleared_for_madrid') ?? false;
+    if (!hasClearedForMadrid) {
+      await _prefs?.remove(_keyBars);
+      await _prefs?.remove(_keyProfile);
+      await _prefs?.remove(_keyBookings);
+      await _prefs?.setBool('cleared_for_madrid', true);
+    }
+
     // Seed default user if not exists
     final usersRaw = _prefs?.getString(_keyUsers);
     if (usersRaw == null) {
@@ -37,7 +49,7 @@ class DbService {
       final profile = UserProfile(
         name: 'Administrator',
         username: '@admin',
-        location: 'Catania',
+        location: 'Madrid',
         age: 30,
         bookingsCount: 0,
         favoritesCount: 0,
@@ -60,7 +72,7 @@ class DbService {
             final profile = UserProfile(
               name: u['name'] ?? 'User',
               username: u['username'] ?? '@user',
-              location: 'Catania',
+              location: 'Madrid',
               age: 25,
               bookingsCount: 0,
               favoritesCount: 0,
@@ -97,12 +109,13 @@ class DbService {
     
     await prefs.setString(_keyUsers, jsonEncode(users));
     
-    // Create new profile for this user
+    // Create new profile for this user (age pre-filled from the quiz, if taken)
+    final quiz = await getQuiz();
     final profile = UserProfile(
       name: name,
       username: username.startsWith('@') ? username : '@$username',
-      location: 'Catania',
-      age: 22,
+      location: 'Madrid',
+      age: quiz?.approxAge ?? 22,
       bookingsCount: 0,
       favoritesCount: 0,
       karma: 5.0,
@@ -129,6 +142,34 @@ class DbService {
   static Future<void> saveUserProfile(UserProfile profile) async {
     final prefs = _prefs ?? await SharedPreferences.getInstance();
     await prefs.setString(_keyProfile, jsonEncode(profile.toJson()));
+  }
+
+  // Quiz di personalizzazione (legato al dispositivo, non viene cancellato al logout)
+  static Future<bool> isQuizDone() async {
+    final prefs = _prefs ?? await SharedPreferences.getInstance();
+    return prefs.getBool(_keyQuizDone) ?? false;
+  }
+
+  static Future<QuizAnswers?> getQuiz() async {
+    final prefs = _prefs ?? await SharedPreferences.getInstance();
+    final raw = prefs.getString(_keyQuiz);
+    if (raw == null) return null;
+    try {
+      return QuizAnswers.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Salva le risposte; con `null` (quiz saltato) segna solo il quiz come fatto.
+  static Future<void> saveQuiz(QuizAnswers? answers) async {
+    final prefs = _prefs ?? await SharedPreferences.getInstance();
+    if (answers == null) {
+      await prefs.remove(_keyQuiz);
+    } else {
+      await prefs.setString(_keyQuiz, jsonEncode(answers.toJson()));
+    }
+    await prefs.setBool(_keyQuizDone, true);
   }
 
   static Future<void> clearSession() async {

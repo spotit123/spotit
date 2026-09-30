@@ -12,13 +12,14 @@ class Bar {
   final double longitude;
   final String imageUrl;
   final double distance; // in km from user
+  final int priceLevel; // 1 = €, 2 = €€, 3 = €€€
   final List<String> popularDrinks;
   final String phone;
   final String website;
   final Map<String, String> openingHours;
   bool isFavorite;
 
-  // Catania Vibe Metrics
+  // Madrid Vibe Metrics
   final List<String> vibeTags;
   int crowdDensity; // Percentage e.g. 65
   String crowdAge;  // e.g. "Gen Z", "20s-30s"
@@ -42,6 +43,7 @@ class Bar {
     required this.longitude,
     required this.imageUrl,
     required this.distance,
+    this.priceLevel = 2,
     required this.popularDrinks,
     required this.phone,
     required this.website,
@@ -70,6 +72,7 @@ class Bar {
       'longitude': longitude,
       'imageUrl': imageUrl,
       'distance': distance,
+      'priceLevel': priceLevel,
       'popularDrinks': popularDrinks,
       'phone': phone,
       'website': website,
@@ -99,6 +102,7 @@ class Bar {
       longitude: (json['longitude'] as num).toDouble(),
       imageUrl: json['imageUrl'] as String,
       distance: (json['distance'] as num).toDouble(),
+      priceLevel: json['priceLevel'] as int? ?? 2,
       popularDrinks: List<String>.from(json['popularDrinks'] as List),
       phone: json['phone'] as String,
       website: json['website'] as String,

@@ -1,4 +1,4 @@
-/* JS logic for SpotIt Catania Simulator & Landing Page */
+/* JS logic for SpotIt Madrid Simulator & Landing Page */
 document.addEventListener('DOMContentLoaded', () => {
   // Default mock bars data
   const defaultBars = [
@@ -6,12 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
       id: '1',
       name: 'La Chiave',
       type: 'Indie / Cocktail Bar',
-      description: 'Storico ritrovo catanese con un suggestivo giardino interno. Atmosfera informale, ottima selezione musicale indie/rock e cocktail ricercati.',
+      description: 'Storico ritrovo madrileno con un suggestivo giardino interno. Atmosfera informale, ottima selezione musicale indie/rock e cocktail ricercati.',
       rating: 4.7,
       reviewCount: 940,
-      address: 'Via Gemmellaro 46, Catania',
-      latitude: 37.5082,
-      longitude: 15.0864,
+      address: 'Calle de Fuencarral 46, Madrid',
+      latitude: 40.4282,
+      longitude: -3.7020,
       imageUrl: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80',
       distance: 0.6,
       popularDrinks: ['Etna Mule', 'Negroni del Capo', 'Gin Tonic Siciliano'],
@@ -47,15 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
       id: '2',
       name: 'Vermut',
       type: 'Tapas & Vermutteria',
-      description: 'Locale specializzato in vermut artigianali e taglieri di salumi tipici. Clima conviviale e tavoli all\'aperto nella vivacissima Via Gemmellaro.',
+      description: 'Locale specializzato in vermut artigianali e taglieri tipici. Clima conviviale e tavoli all\'aperto nella vivacissima Malasaña.',
       rating: 4.6,
       reviewCount: 1120,
-      address: 'Via Gemmellaro 37, Catania',
-      latitude: 37.5083,
-      longitude: 15.0865,
+      address: 'Calle de San Vicente Ferrer 37, Madrid',
+      latitude: 40.4270,
+      longitude: -3.7025,
       imageUrl: 'https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80',
       distance: 0.7,
-      popularDrinks: ['Vermut Rosso Casa', 'Negroni Bianco', 'Milano-Catania'],
+      popularDrinks: ['Vermut Rojo', 'Negroni Blanco', 'Madrid Mule'],
       isFavorite: false,
       vibeTags: ['Chill', 'Energetic'],
       crowdDensity: 92,
@@ -83,9 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'Cocktail bar d\'alta gamma nascosto tra le vie del centro. Divani in velluto, luci soffuse e drink sartoriali creati su misura per te.',
       rating: 4.9,
       reviewCount: 310,
-      address: 'Via Santa Filomena 12, Catania',
-      latitude: 37.5098,
-      longitude: 15.0859,
+      address: 'Calle del Barco 12, Madrid',
+      latitude: 40.4223,
+      longitude: -3.7011,
       imageUrl: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80',
       distance: 0.9,
       popularDrinks: ['Smoked Boulevardier', 'Sartorial Sour', 'Old Fashioned Barrique'],
@@ -116,9 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'Enoteca storica situata in una caratteristica via pedonale. Atmosfera parigina, ottima selezione di vini dell\'Etna e taglieri gourmet.',
       rating: 4.5,
       reviewCount: 780,
-      address: 'Via Penninello 34, Catania',
-      latitude: 37.5074,
-      longitude: 15.0848,
+      address: 'Calle de Valverde 34, Madrid',
+      latitude: 40.4235,
+      longitude: -3.7032,
       imageUrl: 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=600&q=80',
       distance: 0.5,
       popularDrinks: ['Etna Rosso DOC', 'Nerello Mascalese'],
@@ -144,12 +144,12 @@ document.addEventListener('DOMContentLoaded', () => {
       id: '5',
       name: 'Agora Bar',
       type: 'Open Air Bar & Social',
-      description: 'Locale vivacissimo situato nei pressi dello storico mercato della Pescheria. Tavoli all\'aperto sulla piazza in pietra lavica con frequente musica dal vivo.',
+      description: 'Locale vivacissimo. Tavoli all\'aperto nella piazza con frequente musica dal vivo.',
       rating: 4.4,
       reviewCount: 1420,
-      address: 'Piazza Alonzo di Benedetto 2, Catania',
-      latitude: 37.5015,
-      longitude: 15.0867,
+      address: 'Plaza de San Ildefonso 2, Madrid',
+      latitude: 40.4245,
+      longitude: -3.7021,
       imageUrl: 'https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80',
       distance: 0.2,
       popularDrinks: ['Spritz Siculo', 'Zibibbo Cold'],
@@ -176,11 +176,11 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   // Initialize data from LocalStorage or use default
-  let bars = JSON.parse(localStorage.getItem('spotit_bars')) || defaultBars;
-  let userProfile = JSON.parse(localStorage.getItem('spotit_profile')) || {
+  let bars = JSON.parse(localStorage.getItem('spotit_madrid_bars')) || defaultBars;
+  let userProfile = JSON.parse(localStorage.getItem('spotit_madrid_profile')) || {
     name: 'Alex Rivers',
     username: '@vibe_seeker_99',
-    location: 'Catania',
+    location: 'Madrid',
     age: 25,
     bookingsCount: 24,
     favoritesCount: 12,
@@ -188,12 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Add persistent simulator collections
-  let bookings = JSON.parse(localStorage.getItem('spotit_bookings')) || [
+  let bookings = JSON.parse(localStorage.getItem('spotit_madrid_bookings')) || [
     { id: 'b1', barName: 'La Chiave', userName: 'Marco Rossini', time: '21:30', guestCount: 2, joinPriorityList: true, date: 'Oggi' },
     { id: 'b2', barName: 'Vermut', userName: 'Giulia Bianchi', time: '20:30', guestCount: 4, joinPriorityList: false, date: 'Ieri' }
   ];
 
-  let registeredUsers = JSON.parse(localStorage.getItem('spotit_users')) || [
+  let registeredUsers = JSON.parse(localStorage.getItem('spotit_madrid_users')) || [
     { name: 'Alex Rivers', username: '@vibe_seeker_99', role: 'Amministratore' },
     { name: 'Marco Rossini', username: '@marco_r', role: 'Utente Pro' },
     { name: 'Giulia Bianchi', username: '@giulia_b', role: 'Vibe Explorer' },
@@ -221,10 +221,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Save changes to localStorage and update views
   function saveData() {
-    localStorage.setItem('spotit_bars', JSON.stringify(bars));
-    localStorage.setItem('spotit_profile', JSON.stringify(userProfile));
-    localStorage.setItem('spotit_bookings', JSON.stringify(bookings));
-    localStorage.setItem('spotit_users', JSON.stringify(registeredUsers));
+    localStorage.setItem('spotit_madrid_bars', JSON.stringify(bars));
+    localStorage.setItem('spotit_madrid_profile', JSON.stringify(userProfile));
+    localStorage.setItem('spotit_madrid_bookings', JSON.stringify(bookings));
+    localStorage.setItem('spotit_madrid_users', JSON.stringify(registeredUsers));
     
     // Update Landing page spots stats dynamically too!
     renderLandingGrid();
@@ -731,7 +731,7 @@ document.addEventListener('DOMContentLoaded', () => {
           badge.className = `capacity-percent-badge ${val > 80 ? 'high' : 'low'}`;
           
           // Save and sync with local storage
-          localStorage.setItem('spotit_bars', JSON.stringify(bars));
+          localStorage.setItem('spotit_madrid_bars', JSON.stringify(bars));
           
           // Re-render simulator components
           renderSpots();

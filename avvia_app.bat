@@ -1,8 +1,8 @@
 @echo off
-title Avvio SpotIt Catania 🌋
+title Avvio SpotIt Madrid 🌋
 color 0B
 echo =======================================================
-echo              AVVIO DI SPOTIT CATANIA 🌋
+echo              AVVIO DI SPOTIT MADRID 🌋
 echo =======================================================
 echo.
 echo  [1] Avvia l'applicazione Flutter (Mobile UI su Chrome)

@@ -50,7 +50,7 @@ class _MapScreenState extends State<MapScreen> {
           FlutterMap(
             mapController: _mapController,
             options: MapOptions(
-              initialCenter: const LatLng(37.5026, 15.0873), // Catania Center
+              initialCenter: const LatLng(40.4270, -3.7020), // Madrid Center (Malasaña)
               initialZoom: 14.5,
               onTap: (tapPosition, point) {
                 setState(() {
@@ -131,7 +131,7 @@ class _MapScreenState extends State<MapScreen> {
                               child: TextField(
                                 style: GoogleFonts.poppins(color: Colors.white, fontSize: 14),
                                 decoration: InputDecoration(
-                                  hintText: 'Cerca locali a Catania...',
+                                  hintText: 'Cerca locali a Madrid...',
                                   hintStyle: GoogleFonts.poppins(color: Colors.grey[500], fontSize: 13),
                                   border: InputBorder.none,
                                 ),

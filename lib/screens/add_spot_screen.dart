@@ -55,13 +55,13 @@ class _AddSpotScreenState extends State<AddSpotScreen> {
         rating: 5.0, // New spots start with 5.0 rating
         reviewCount: 1,
         address: _addressController.text,
-        // Catania central geo bounds default
-        latitude: 37.5026 + (DateTime.now().millisecond % 100) * 0.0002, 
-        longitude: 15.0873 + (DateTime.now().millisecond % 100) * 0.0002,
+        // Madrid central geo bounds default
+        latitude: 40.4270 + (DateTime.now().millisecond % 100) * 0.0002, 
+        longitude: -3.7020 + (DateTime.now().millisecond % 100) * 0.0002,
         imageUrl: 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80', // Default gorgeous bar image
         distance: 1.2,
         popularDrinks: drinksList.isEmpty ? ['Cocktail della Casa'] : drinksList,
-        phone: _phoneController.text.isEmpty ? '+39 095 0000 000' : _phoneController.text,
+        phone: _phoneController.text.isEmpty ? '+34 910 000 000' : _phoneController.text,
         website: _websiteController.text.isEmpty ? 'N/D' : _websiteController.text,
         openingHours: {
           'Lunedì - Domenica': _hoursController.text.isEmpty ? '18:00 - 02:00' : _hoursController.text,
@@ -209,7 +209,7 @@ class _AddSpotScreenState extends State<AddSpotScreen> {
                 _buildTextField(
                   label: 'Telefono',
                   controller: _phoneController,
-                  hint: 'es. +39 095 1234 567',
+                  hint: 'es. +34 91 123 45 67',
                 ),
 
                 // Website

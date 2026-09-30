@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'models/bar.dart';
 import 'models/user_profile.dart';
+import 'models/quiz_answers.dart';
+import 'screens/onboarding_quiz_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/map_screen.dart';
 import 'screens/favorites_screen.dart';
@@ -26,6 +28,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool _isLoggedIn = false;
+  bool _quizDone = false;
   bool _isLoading = true;
 
   @override
@@ -36,8 +39,10 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> _checkLoginStatus() async {
     final profile = await DbService.getUserProfile();
+    final quizDone = await DbService.isQuizDone();
     setState(() {
       _isLoggedIn = profile != null;
+      _quizDone = quizDone;
       _isLoading = false;
     });
   }
@@ -45,6 +50,13 @@ class _MyAppState extends State<MyApp> {
   void _onLoginSuccess() {
     setState(() {
       _isLoggedIn = true;
+    });
+  }
+
+  void _onQuizComplete(QuizAnswers? answers) async {
+    await DbService.saveQuiz(answers);
+    setState(() {
+      _quizDone = true;
     });
   }
 
@@ -71,7 +83,7 @@ class _MyAppState extends State<MyApp> {
     }
 
     return MaterialApp(
-      title: 'SpotIt Catania',
+      title: 'SpotIt Madrid',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         primaryColor: const Color(0xFF0066FF), // Electric Blue
@@ -83,9 +95,11 @@ class _MyAppState extends State<MyApp> {
         ),
         textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
       ),
-      home: _isLoggedIn
-          ? MainNavigationWrapper(onLogout: _onLogout)
-          : LoginScreen(onLoginSuccess: _onLoginSuccess),
+      home: !_quizDone
+          ? OnboardingQuizScreen(onComplete: _onQuizComplete)
+          : _isLoggedIn
+              ? MainNavigationWrapper(onLogout: _onLogout)
+              : LoginScreen(onLoginSuccess: _onLoginSuccess),
     );
   }
 }
@@ -106,6 +120,7 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
   int _currentIndex = 0;
   List<Bar> _bars = [];
   UserProfile? _userProfile;
+  QuizAnswers? _quiz;
   bool _isLoading = true;
 
   @override
@@ -117,6 +132,7 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
   Future<void> _loadData() async {
     final profile = await DbService.getUserProfile();
     final barsList = await DbService.getBars();
+    final quiz = await DbService.getQuiz();
     
     // Auto-update user profile's favoritesCount to match actual favorites list
     final favCount = barsList.where((b) => b.isFavorite).length;
@@ -129,6 +145,7 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
     setState(() {
       _userProfile = updatedProfile;
       _bars = barsList;
+      _quiz = quiz;
       _isLoading = false;
     });
 
@@ -186,6 +203,23 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
     await DbService.saveBars(_bars);
   }
 
+  void _retakeQuiz() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (ctx) => OnboardingQuizScreen(
+          onComplete: (answers) async {
+            if (answers != null) {
+              await DbService.saveQuiz(answers);
+              if (mounted) setState(() => _quiz = answers);
+            }
+            if (ctx.mounted) Navigator.pop(ctx);
+          },
+        ),
+      ),
+    );
+  }
+
   void _updateProfile(UserProfile updated) async {
     setState(() {
       _userProfile = updated;
@@ -207,6 +241,7 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
     final List<Widget> screens = [
       HomeScreen(
         bars: _bars,
+        quiz: _quiz,
         onFavoriteToggle: _toggleFavorite,
       ),
       MapScreen(
@@ -221,7 +256,7 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
         profile: _userProfile ?? UserProfile(
           name: 'Anonymous',
           username: '@anonymous',
-          location: 'Catania',
+          location: 'Madrid',
           age: 25,
           bookingsCount: 0,
           favoritesCount: 0,
@@ -232,6 +267,7 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
         onProfileUpdate: _updateProfile,
         onFavoriteToggle: _toggleFavorite,
         onLogout: widget.onLogout,
+        onRetakeQuiz: _retakeQuiz,
       ),
     ];
 
@@ -240,7 +276,7 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
         index: _currentIndex,
         children: screens,
       ),
-      // Float shortcut button to Add Spot (Catania layout)
+      // Float shortcut button to Add Spot (Madrid layout)
       floatingActionButton: _currentIndex == 0
           ? FloatingActionButton(
               onPressed: () {

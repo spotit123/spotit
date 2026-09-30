@@ -1,4 +1,4 @@
-/* Stylesheet for SpotIt Catania Web Portal & Simulator */
+/* Stylesheet for SpotIt Madrid Web Portal & Simulator */
 :root {
   --bg-color: #090d16;
   --card-color: #131b2e;
@@ -1621,4 +1621,3 @@ body {
 .admin-table .btn-delete-review:hover {
   background: rgba(255, 51, 102, 0.1);
 }
-

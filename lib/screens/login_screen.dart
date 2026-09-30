@@ -129,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       const SizedBox(height: 16),
                       Text(
-                        'SpotIt Catania',
+                        'SpotIt Madrid',
                         style: GoogleFonts.outfit(
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
@@ -139,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       const SizedBox(height: 6),
                       Text(
-                        'Trova la tua vibe nella notte catanese',
+                        'Trova la tua vibe nella notte madrilena',
                         style: GoogleFonts.poppins(
                           color: Colors.grey[500],
                           fontSize: 14,

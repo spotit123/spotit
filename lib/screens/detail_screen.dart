@@ -668,7 +668,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
                       const SizedBox(height: 24),
 
-                      // Real-time Check-In Survey System (Catania Crowd feedback)
+                      // Real-time Check-In Survey System (Madrid Crowd feedback)
                       Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
@@ -980,7 +980,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             const SizedBox(width: 12),
                             Expanded(
                               child: Text(
-                                'Situato nella vivace zona nightlife di Catania. Ottima raggiungibilità a piedi.',
+                                'Situato nella vivace zona nightlife di Madrid. Ottima raggiungibilità a piedi.',
                                 style: GoogleFonts.poppins(color: Colors.grey[400], fontSize: 13),
                               ),
                             ),
