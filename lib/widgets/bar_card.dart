@@ -51,7 +51,8 @@ class BarCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                // Rating (top right, matching screenshot)
+                // Rating (top right, matching screenshot) - hidden until there are reviews
+                if (bar.reviewCount > 0)
                 Positioned(
                   top: 12,
                   right: 12,
