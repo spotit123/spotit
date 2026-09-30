@@ -18,7 +18,7 @@ class Bar {
   final Map<String, String> openingHours;
   bool isFavorite;
 
-  // Catania Vibe Metrics
+  // Madrid Vibe Metrics
   final List<String> vibeTags;
   int crowdDensity; // Percentage e.g. 65
   String crowdAge;  // e.g. "Gen Z", "20s-30s"

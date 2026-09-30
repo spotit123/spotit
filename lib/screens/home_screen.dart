@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         style: GoogleFonts.poppins(color: Colors.white, fontSize: 14),
                         decoration: InputDecoration(
-                          hintText: 'Cerca bar a Catania...',
+                          hintText: 'Cerca bar a Madrid...',
                           hintStyle: GoogleFonts.poppins(color: Colors.grey[600], fontSize: 13),
                           prefixIcon: const Icon(Icons.search, color: Colors.grey),
                           border: InputBorder.none,
@@ -175,7 +175,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
             const SizedBox(height: 12),
 
-            // Catania Bars List
+            // Madrid Bars List
             Expanded(
               child: filteredBars.isEmpty
                   ? Center(
