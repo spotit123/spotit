@@ -5,7 +5,7 @@ import '../models/review.dart';
 
 class GooglePlacesService {
   // CONFIGURA LA TUA CHIAVE API DI GOOGLE CLOUD QUI
-  // Esempio: static const String apiKey = 'AIzaSy...';
+  // Esempio: static const String apiKey = '';
   static const String apiKey = '';
 
   /// Carica i dettagli reali da Google Places per ciascun locale.

@@ -16,6 +16,15 @@ class DbService {
   static Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
     
+    // Forza la pulizia per il passaggio a Madrid
+    final hasClearedForMadrid = _prefs?.getBool('cleared_for_madrid') ?? false;
+    if (!hasClearedForMadrid) {
+      await _prefs?.remove(_keyBars);
+      await _prefs?.remove(_keyProfile);
+      await _prefs?.remove(_keyBookings);
+      await _prefs?.setBool('cleared_for_madrid', true);
+    }
+
     // Seed default user if not exists
     final usersRaw = _prefs?.getString(_keyUsers);
     if (usersRaw == null) {
@@ -37,7 +46,7 @@ class DbService {
       final profile = UserProfile(
         name: 'Administrator',
         username: '@admin',
-        location: 'Catania',
+        location: 'Madrid',
         age: 30,
         bookingsCount: 0,
         favoritesCount: 0,
@@ -60,7 +69,7 @@ class DbService {
             final profile = UserProfile(
               name: u['name'] ?? 'User',
               username: u['username'] ?? '@user',
-              location: 'Catania',
+              location: 'Madrid',
               age: 25,
               bookingsCount: 0,
               favoritesCount: 0,
@@ -101,7 +110,7 @@ class DbService {
     final profile = UserProfile(
       name: name,
       username: username.startsWith('@') ? username : '@$username',
-      location: 'Catania',
+      location: 'Madrid',
       age: 22,
       bookingsCount: 0,
       favoritesCount: 0,

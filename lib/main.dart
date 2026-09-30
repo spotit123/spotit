@@ -71,7 +71,7 @@ class _MyAppState extends State<MyApp> {
     }
 
     return MaterialApp(
-      title: 'SpotIt Catania',
+      title: 'SpotIt Madrid',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         primaryColor: const Color(0xFF0066FF), // Electric Blue
@@ -221,7 +221,7 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
         profile: _userProfile ?? UserProfile(
           name: 'Anonymous',
           username: '@anonymous',
-          location: 'Catania',
+          location: 'Madrid',
           age: 25,
           bookingsCount: 0,
           favoritesCount: 0,
@@ -240,7 +240,7 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
         index: _currentIndex,
         children: screens,
       ),
-      // Float shortcut button to Add Spot (Catania layout)
+      // Float shortcut button to Add Spot (Madrid layout)
       floatingActionButton: _currentIndex == 0
           ? FloatingActionButton(
               onPressed: () {
