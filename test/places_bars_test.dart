@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:spotit/data/mock_data.dart';
 import 'package:spotit/data/places_bars.dart';
 import 'package:spotit/services/db_service.dart';
 
@@ -35,20 +34,22 @@ void main() {
     expect(PlacesBars.parse('{"generatedAt": "", "bars": []}'), isNull);
   });
 
-  test('shipped data file is valid (empty until the first Google download)', () {
+  test('shipped data file is valid (empty until the first data download)', () {
     final raw = File('assets/data/malasana_bars.json').readAsStringSync();
     expect(() => PlacesBars.parse(raw), returnsNormally);
   });
 
-  test('getBars falls back to mock bars and keeps favorites across data versions', () async {
+  test('getBars returns bars and keeps favorites across reloads', () async {
     SharedPreferences.setMockInitialValues({});
     await DbService.init();
     final first = await DbService.getBars();
-    expect(first.length, mockBars.length);
+    // Dati scaricati se il file è compilato, altrimenti i locali di prova.
+    expect(first, isNotEmpty);
 
     first.first.isFavorite = true;
     await DbService.saveBars(first);
     final again = await DbService.getBars();
     expect(again.first.isFavorite, isTrue);
+    expect(again.length, first.length);
   });
 }
