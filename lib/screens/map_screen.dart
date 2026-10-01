@@ -73,6 +73,9 @@ class _MapScreenState extends State<MapScreen> {
                 urlTemplate: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', // PREMIUM dark style tile server!
                 userAgentPackageName: 'com.spotit.app',
               ),
+              const SimpleAttributionWidget(
+                source: Text('© OpenStreetMap contributors © CARTO'),
+              ),
               MarkerLayer(
                 markers: filteredBars.map((bar) {
                   final isSelected = _selectedBar?.id == bar.id;

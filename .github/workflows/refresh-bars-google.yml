@@ -1,7 +1,7 @@
-name: Refresh bars from OpenStreetMap
+name: Refresh bars from Google Places (optional, needs API key)
 
-# Gratis, nessuna chiave. Si lancia a mano: Actions -> questo workflow -> Run workflow.
-# Scarica i locali di Malasaña da OpenStreetMap, aggiorna il file dati e ripubblica il sito.
+# Si lancia a mano da Actions -> "Refresh bars from Google Places" -> Run workflow.
+# Serve il secret GOOGLE_PLACES_API_KEY (Settings -> Secrets and variables -> Actions).
 on:
   workflow_dispatch:
 
@@ -15,9 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Test transform
-        run: python3 tool/test_fetch_osm.py
-      - name: Download bars from OpenStreetMap
-        run: python3 tool/fetch_osm.py
+        run: python3 tool/test_fetch_places.py
+      - name: Download bars from Google Places
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+        run: python3 tool/fetch_places.py
       - name: Commit new data
         run: |
           git config user.name "github-actions[bot]"
@@ -26,7 +28,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Nessuna modifica"
           else
-            git commit -m "data: refresh Malasaña bars from OpenStreetMap"
+            git commit -m "data: refresh Malasaña bars from Google Places"
             git push
             gh workflow run deploy-web.yml --ref main
           fi
