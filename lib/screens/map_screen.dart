@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../models/bar.dart';
@@ -31,7 +32,7 @@ class _MapScreenState extends State<MapScreen> {
       _selectedBar = bar;
     });
     // Center map on selected bar
-    _mapController.move(LatLng(bar.latitude, bar.longitude), 15.0);
+    _mapController.move(LatLng(bar.latitude, bar.longitude), 16.5);
   }
 
   @override
@@ -40,7 +41,9 @@ class _MapScreenState extends State<MapScreen> {
     final filteredBars = widget.bars.where((bar) {
       if (_selectedVibe == 'Tutti') return true;
       if (_selectedVibe == 'Live Music') return bar.hasMusic;
-      return bar.vibeTags.any((v) => v.toLowerCase() == _selectedVibe.toLowerCase());
+      return bar.vibeTags.any(
+        (v) => v.toLowerCase() == _selectedVibe.toLowerCase(),
+      );
     }).toList();
 
     return Scaffold(
@@ -50,13 +53,18 @@ class _MapScreenState extends State<MapScreen> {
           FlutterMap(
             mapController: _mapController,
             options: MapOptions(
-              initialCenter: const LatLng(40.4270, -3.7020), // Madrid Center (Malasaña)
+              initialCenter: const LatLng(
+                40.4270,
+                -3.7020,
+              ), // Madrid Center (Malasaña)
               initialZoom: 14.5,
               // Con più locali, la mappa parte inquadrandoli tutti
               initialCameraFit: widget.bars.length > 1
                   ? CameraFit.bounds(
                       bounds: LatLngBounds.fromPoints(
-                        widget.bars.map((b) => LatLng(b.latitude, b.longitude)).toList(),
+                        widget.bars
+                            .map((b) => LatLng(b.latitude, b.longitude))
+                            .toList(),
                       ),
                       padding: const EdgeInsets.fromLTRB(48, 160, 48, 120),
                       maxZoom: 16,
@@ -79,43 +87,67 @@ class _MapScreenState extends State<MapScreen> {
               const SimpleAttributionWidget(
                 source: Text('© OpenStreetMap contributors'),
               ),
-              MarkerLayer(
-                markers: filteredBars.map((bar) {
-                  final isSelected = _selectedBar?.id == bar.id;
-                  return Marker(
-                    point: LatLng(bar.latitude, bar.longitude),
-                    width: 60,
-                    height: 60,
-                    child: GestureDetector(
-                      onTap: () => _selectBar(bar),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Icon(
-                            Icons.location_on,
-                            color: isSelected ? const Color(0xFF0066FF) : Colors.pink[400],
-                            size: isSelected ? 48 : 38,
-                          ),
-                          Positioned(
-                            top: isSelected ? 6 : 4,
-                            child: Container(
-                              padding: const EdgeInsets.all(2),
-                              decoration: const BoxDecoration(
-                                color: Colors.white,
-                                shape: BoxShape.circle,
-                              ),
-                              child: const Icon(
-                                Icons.local_bar,
-                                size: 12,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                        ],
+              MarkerClusterLayerWidget(
+                options: MarkerClusterLayerOptions(
+                  maxClusterRadius: 55,
+                  size: const Size(46, 46),
+                  disableClusteringAtZoom: 16,
+                  padding: const EdgeInsets.all(60),
+                  builder: (context, markers) => Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF0066FF),
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.white, width: 2),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      '${markers.length}',
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
                       ),
                     ),
-                  );
-                }).toList(),
+                  ),
+                  markers: filteredBars.map((bar) {
+                    final isSelected = _selectedBar?.id == bar.id;
+                    return Marker(
+                      point: LatLng(bar.latitude, bar.longitude),
+                      width: 60,
+                      height: 60,
+                      child: GestureDetector(
+                        onTap: () => _selectBar(bar),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Icon(
+                              Icons.location_on,
+                              color: isSelected
+                                  ? const Color(0xFF0066FF)
+                                  : Colors.pink[400],
+                              size: isSelected ? 48 : 38,
+                            ),
+                            Positioned(
+                              top: isSelected ? 6 : 4,
+                              child: Container(
+                                padding: const EdgeInsets.all(2),
+                                decoration: const BoxDecoration(
+                                  color: Colors.white,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: const Icon(
+                                  Icons.local_bar,
+                                  size: 12,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                ),
               ),
             ],
           ),
@@ -141,14 +173,24 @@ class _MapScreenState extends State<MapScreen> {
                         ),
                         child: Row(
                           children: [
-                            const Icon(Icons.search, color: Colors.grey, size: 20),
+                            const Icon(
+                              Icons.search,
+                              color: Colors.grey,
+                              size: 20,
+                            ),
                             const SizedBox(width: 8),
                             Expanded(
                               child: TextField(
-                                style: GoogleFonts.poppins(color: Colors.white, fontSize: 14),
+                                style: GoogleFonts.poppins(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                ),
                                 decoration: InputDecoration(
                                   hintText: 'Cerca locali a Madrid...',
-                                  hintStyle: GoogleFonts.poppins(color: Colors.grey[500], fontSize: 13),
+                                  hintStyle: GoogleFonts.poppins(
+                                    color: Colors.grey[500],
+                                    fontSize: 13,
+                                  ),
                                   border: InputBorder.none,
                                 ),
                               ),
@@ -166,7 +208,11 @@ class _MapScreenState extends State<MapScreen> {
                         shape: BoxShape.circle,
                         border: Border.all(color: const Color(0xFF1E293B)),
                       ),
-                      child: const Icon(Icons.tune, color: Colors.white, size: 20),
+                      child: const Icon(
+                        Icons.tune,
+                        color: Colors.white,
+                        size: 20,
+                      ),
                     ),
                   ],
                 ),
@@ -181,7 +227,7 @@ class _MapScreenState extends State<MapScreen> {
                     itemBuilder: (context, index) {
                       final vibe = _vibes[index];
                       final isSelected = _selectedVibe == vibe;
-                      
+
                       IconData vibeIcon = Icons.local_fire_department;
                       Color iconColor = Colors.orange;
                       if (vibe == 'Chill') {
@@ -204,12 +250,19 @@ class _MapScreenState extends State<MapScreen> {
                             });
                           },
                           child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 14,
+                              vertical: 6,
+                            ),
                             decoration: BoxDecoration(
-                              color: isSelected ? const Color(0xFF1A2B4C) : const Color(0xFF090D16).withOpacity(0.9),
+                              color: isSelected
+                                  ? const Color(0xFF1A2B4C)
+                                  : const Color(0xFF090D16).withOpacity(0.9),
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(
-                                color: isSelected ? const Color(0xFF0066FF) : const Color(0xFF1E293B),
+                                color: isSelected
+                                    ? const Color(0xFF0066FF)
+                                    : const Color(0xFF1E293B),
                               ),
                             ),
                             child: Row(
@@ -221,7 +274,9 @@ class _MapScreenState extends State<MapScreen> {
                                   style: GoogleFonts.poppins(
                                     color: Colors.white,
                                     fontSize: 12,
-                                    fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+                                    fontWeight: isSelected
+                                        ? FontWeight.bold
+                                        : FontWeight.w500,
                                   ),
                                 ),
                               ],
@@ -263,12 +318,16 @@ class _MapScreenState extends State<MapScreen> {
                               width: 72,
                               height: 72,
                               fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) => Container(
-                                width: 72,
-                                height: 72,
-                                color: Colors.grey[800],
-                                child: const Icon(Icons.broken_image, color: Colors.grey),
-                              ),
+                              errorBuilder: (context, error, stackTrace) =>
+                                  Container(
+                                    width: 72,
+                                    height: 72,
+                                    color: Colors.grey[800],
+                                    child: const Icon(
+                                      Icons.broken_image,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
                             ),
                           ),
                           const SizedBox(width: 16),
@@ -318,12 +377,15 @@ class _MapScreenState extends State<MapScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => BookingScreen(bar: _selectedBar!),
+                                builder: (context) =>
+                                    BookingScreen(bar: _selectedBar!),
                               ),
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF0066FF), // Electric blue
+                            backgroundColor: const Color(
+                              0xFF0066FF,
+                            ), // Electric blue
                             foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25),
