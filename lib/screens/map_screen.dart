@@ -71,6 +71,8 @@ class _MapScreenState extends State<MapScreen> {
             children: [
               TileLayer(
                 urlTemplate: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', // PREMIUM dark style tile server!
+                // Se il server CARTO non risponde, si usa la mappa standard di OpenStreetMap
+                fallbackUrl: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                 userAgentPackageName: 'com.spotit.app',
               ),
               const SimpleAttributionWidget(
