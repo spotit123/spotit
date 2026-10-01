@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PIZZA CONTRO I PICCIONI</title>
+<style>
+  body{margin:0;background:#222;color:#fff;font-family:monospace;text-align:center}
+  canvas{background:#87ceeb;max-width:100%;touch-action:none;border:4px solid #fff}
+  h1{margin:8px;font-size:20px}
+</style>
+</head>
+<body>
+<h1>🍕 PIZZA CONTRO I PICCIONI 🐦</h1>
+<div>Muovi col mouse/dito. Mangia la pizza, schiva i piccioni. Più mangi, più sei grasso.</div>
+<canvas id="c" width="480" height="640"></canvas>
+<script>
+const c=document.getElementById('c'),x=c.getContext('2d');
+let me,items,score,over,t;
+const frasi=["Che schifo!","Glub.","Nonna approva.","Piccione-fobia!","Ancora?!","Sono un'anatra?","BURP"];
+let msg="",msgT=0;
+function reset(){me={x:240,y:560,r:20};items=[];score=0;over=false;t=0;}
+reset();
+function move(e){const r=c.getBoundingClientRect(),p=e.touches?e.touches[0]:e;
+  me.x=(p.clientX-r.left)*c.width/r.width;e.preventDefault();}
+c.addEventListener('mousemove',move);
+c.addEventListener('touchmove',move,{passive:false});
+c.addEventListener('touchstart',move,{passive:false});
+c.addEventListener('click',()=>{if(over)reset()});
+addEventListener('keydown',e=>{if(over&&e.key==' ')reset();
+  if(e.key=='ArrowLeft')me.x-=30;if(e.key=='ArrowRight')me.x+=30;});
+function say(s){msg=s;msgT=60}
+function loop(){
+  t++;
+  if(!over){
+    if(t%25==0)items.push({x:Math.random()*460+10,y:-20,pizza:Math.random()<.5,vy:2+Math.random()*2+score/80});
+    for(const i of items){i.y+=i.vy;
+      if(Math.hypot(i.x-me.x,i.y-me.y)<me.r+15){
+        i.dead=true;
+        if(i.pizza){score++;me.r+=1.5;if(score%5==0)say(frasi[Math.random()*frasi.length|0]);}
+        else{over=true;}
+      }}
+    items=items.filter(i=>!i.dead&&i.y<680);
+    me.x=Math.max(me.r,Math.min(480-me.r,me.x));
+  }
+  x.clearRect(0,0,480,640);
+  x.font="30px serif";x.textAlign="center";
+  for(const i of items)x.fillText(i.pizza?"🍕":"🐦",i.x,i.y+10);
+  x.font=me.r*1.8+"px serif";
+  x.save();x.translate(me.x,me.y);x.rotate(Math.sin(t/8)*.2);
+  x.fillText(over?"💀":"🐷",0,me.r*.6);x.restore();
+  x.font="20px monospace";x.fillStyle="#000";x.textAlign="left";
+  x.fillText("Pizze: "+score+"  Ciccia: "+Math.round(me.r*5)+" kg",10,26);
+  if(msgT>0){msgT--;x.textAlign="center";x.fillText(msg,me.x,me.y-me.r*2-10);}
+  if(over){x.textAlign="center";x.font="36px monospace";
+    x.fillText("SEI STATO PICCIONATO",240,280);
+    x.font="20px monospace";x.fillText("Tocca o premi SPAZIO per riprovare",240,320);}
+  requestAnimationFrame(loop);
+}
+loop();
+</script>
+</body>
+</html>
