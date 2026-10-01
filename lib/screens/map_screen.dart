@@ -52,6 +52,16 @@ class _MapScreenState extends State<MapScreen> {
             options: MapOptions(
               initialCenter: const LatLng(40.4270, -3.7020), // Madrid Center (Malasaña)
               initialZoom: 14.5,
+              // Con più locali, la mappa parte inquadrandoli tutti
+              initialCameraFit: widget.bars.length > 1
+                  ? CameraFit.bounds(
+                      bounds: LatLngBounds.fromPoints(
+                        widget.bars.map((b) => LatLng(b.latitude, b.longitude)).toList(),
+                      ),
+                      padding: const EdgeInsets.fromLTRB(48, 160, 48, 120),
+                      maxZoom: 16,
+                    )
+                  : null,
               onTap: (tapPosition, point) {
                 setState(() {
                   _selectedBar = null;

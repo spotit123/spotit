@@ -5,6 +5,7 @@ import '../models/bar.dart';
 import '../models/booking.dart';
 import '../models/quiz_answers.dart';
 import '../data/mock_data.dart';
+import '../data/places_bars.dart';
 
 class DbService {
   static const String _keyProfile = 'user_profile';
@@ -13,6 +14,7 @@ class DbService {
   static const String _keyUsers = 'registered_users';
   static const String _keyQuiz = 'quiz_answers';
   static const String _keyQuizDone = 'quiz_done';
+  static const String _keyBarsVersion = 'bars_data_version';
 
   static SharedPreferences? _prefs;
 
@@ -187,21 +189,41 @@ class DbService {
   }
 
   // Bars Methods
+  static List<Bar>? _decodeBars(String? raw) {
+    if (raw == null) return null;
+    try {
+      final List<dynamic> list = jsonDecode(raw);
+      return list.map((item) => Bar.fromJson(item)).toList();
+    } catch (e) {
+      return null; // dati corrotti: si riparte da quelli di default
+    }
+  }
+
   static Future<List<Bar>> getBars() async {
     final prefs = _prefs ?? await SharedPreferences.getInstance();
-    final raw = prefs.getString(_keyBars);
-    if (raw != null) {
-      try {
-        final List<dynamic> list = jsonDecode(raw);
-        return list.map((item) => Bar.fromJson(item)).toList();
-      } catch (e) {
-        // Fallback to mock data if there's any corruption
-      }
+    final stored = _decodeBars(prefs.getString(_keyBars));
+
+    // I locali vengono da Google Places se il file dati è compilato, altrimenti
+    // dai locali di prova. La versione cambia a ogni nuovo download dei dati.
+    final places = await PlacesBars.load();
+    final version = places?.version ?? 'mock';
+    if (stored != null && prefs.getString(_keyBarsVersion) == version) {
+      return stored;
     }
-    // Seed with mock data
-    final barsList = List<Bar>.from(mockBars);
-    await saveBars(barsList);
-    return barsList;
+
+    final seed = List<Bar>.from(places?.bars ?? mockBars);
+    if (stored != null) {
+      // Conserva preferiti e locali aggiunti dall'utente (id = timestamp).
+      final favorites = {for (final b in stored.where((b) => b.isFavorite)) b.id};
+      for (final bar in seed) {
+        if (favorites.contains(bar.id)) bar.isFavorite = true;
+      }
+      final seedIds = {for (final b in seed) b.id};
+      seed.addAll(stored.where((b) => b.id.length >= 10 && !seedIds.contains(b.id)));
+    }
+    await saveBars(seed);
+    await prefs.setString(_keyBarsVersion, version);
+    return seed;
   }
 
   static Future<void> saveBars(List<Bar> bars) async {
