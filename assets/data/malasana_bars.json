@@ -1,6 +1,2708 @@
 {
-  "generatedAt": "",
-  "source": "Google Places API (New)",
+  "generatedAt": "2026-10-01T09:54:14+00:00",
+  "source": "OpenStreetMap contributors (ODbL)",
   "area": "Malasaña, Madrid",
-  "bars": []
+  "bars": [
+    {
+      "id": "osm_node_5591808621",
+      "name": "100 Gaviotas",
+      "type": "Pub",
+      "description": "Pub a Malasaña, in Calle de Eguilaz 10.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Eguilaz 10, Madrid",
+      "latitude": 40.4297067,
+      "longitude": -3.7005653,
+      "imageUrl": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.4,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 660786337",
+      "website": "https://www.100gaviotasbar.com/",
+      "openingHours": {
+        "Orari": "Ven-Sab 16:30-03:30; Dom, Mar-Gio 18:30-03:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Underground"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 1,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_10564464605",
+      "name": "360º Rooftop Bar",
+      "type": "Pub",
+      "description": "Located on the floor 26 of the Hotel Riu Plaza España, the 360° Sky Bar offers a wide selection of drinks and huge windows with panoramic views of Madrid.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle del Maestro Guerrero, Madrid",
+      "latitude": 40.4240513,
+      "longitude": -3.7110872,
+      "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.0,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 919 19 33 93",
+      "website": "https://www.riu360rooftopbar.com/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Rooftop",
+        "Underground"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 1,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2585147466",
+      "name": "Bodega de la Ardosa",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de Colón 13.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Colón 13, Madrid",
+      "latitude": 40.4237686,
+      "longitude": -3.7017746,
+      "imageUrl": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.8,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 915 214 979",
+      "website": "http://www.laardosa.es/",
+      "openingHours": {
+        "Orari": "Lun-Ven 08:30-02:00; Sab-Dom 11:45-02:30"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_4422659890",
+      "name": "Boyberry Gay Bar",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de Valverde 3.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Valverde 3, Madrid",
+      "latitude": 40.4206686,
+      "longitude": -3.7023215,
+      "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.4,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 91 704 9101",
+      "website": "http://mad.boyberry.com/madrid/",
+      "openingHours": {
+        "Orari": "Lun-Gio 12:00-03:00; Ven 12:00-03:30; Sab-Dom 15:00-03:30"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2583954354",
+      "name": "Casa Julio",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de la Madera 37.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de la Madera 37, Madrid",
+      "latitude": 40.4243081,
+      "longitude": -3.7036592,
+      "imageUrl": "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.8,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 915 227 274",
+      "website": "http://www.barcasajulio.es/",
+      "openingHours": {
+        "Orari": "Lun-Sab 13:00-15:30, 18:30-23:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2328318812",
+      "name": "Fábrica Maravillas",
+      "type": "Pub",
+      "description": "Pub a Malasaña, in Calle de Valverde 29.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Valverde 29, Madrid",
+      "latitude": 40.4227179,
+      "longitude": -3.7017205,
+      "imageUrl": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.7,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 915 218 753",
+      "website": "http://www.fmaravillas.com/",
+      "openingHours": {
+        "Orari": "Lun-Mer 18:00-00:00; Gio 18:00-01:00; Ven 18:00-02:00; Sab 12:30-02:00; Dom 12:30-00:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Underground"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 1,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_4821324021",
+      "name": "Naked Bar Madrid",
+      "type": "Discoteca",
+      "description": "Discoteca a Malasaña, in Calle de Monteleón 5.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Monteleón 5, Madrid",
+      "latitude": 40.4280954,
+      "longitude": -3.7051262,
+      "imageUrl": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.3,
+      "popularDrinks": [
+        "Cubata",
+        "Chupito"
+      ],
+      "phone": "+34615463551",
+      "website": "https://nakedbarmadrid.com/",
+      "openingHours": {
+        "Orari": "Lun-Ven 18:00-03:00; Sab-Dom 18:00-03:30"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Energetic",
+        "Neon"
+      ],
+      "crowdDensity": 85,
+      "crowdAge": "Gen Z / Students",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Elettronica / Pop",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_11822292021",
+      "name": "Stardust Club",
+      "type": "Discoteca",
+      "description": "Sesiones de tecno a cargo de DJs en una animada discoteca.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Isabel La Católica 6, Madrid",
+      "latitude": 40.4211316,
+      "longitude": -3.7090024,
+      "imageUrl": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.7,
+      "popularDrinks": [
+        "Cubata",
+        "Chupito"
+      ],
+      "phone": "N/D",
+      "website": "https://stardustclub.es",
+      "openingHours": {
+        "Orari": "Ven, Sab 00:00-06:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Energetic",
+        "Neon"
+      ],
+      "crowdDensity": 85,
+      "crowdAge": "Gen Z / Students",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Elettronica / Pop",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2631415858",
+      "name": "1862 Dry Bar",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle del Pez 27.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle del Pez 27, Madrid",
+      "latitude": 40.4241414,
+      "longitude": -3.7065971,
+      "imageUrl": "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.8,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 609 53 11 51",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Lun-Gio 15:30-02:00; Ven-Sab 15:30-02:30; Dom 15:30-22:30"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2632228958",
+      "name": "Aquí Santoña",
+      "type": "Pub",
+      "description": "Pub a Malasaña, in Calle de San Bernardo 28.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de San Bernardo 28, Madrid",
+      "latitude": 40.4233222,
+      "longitude": -3.7073691,
+      "imageUrl": "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.8,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 911 27 56 79",
+      "website": "https://aquisantona.com/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Underground"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 1,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2702466187",
+      "name": "Café La Palma",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de la Palma 62.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de la Palma 62, Madrid",
+      "latitude": 40.4267717,
+      "longitude": -3.7079918,
+      "imageUrl": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.2,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 91 522 50 31",
+      "website": "https://www.cafelapalma.com/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2669198770",
+      "name": "Café Moderno",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Plaza de las Comendadoras 1. Con tavoli all'aperto.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Plaza de las Comendadoras 1, Madrid",
+      "latitude": 40.427306,
+      "longitude": -3.70847,
+      "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.2,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 604 54 52 51",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Lun 17:00-01:30; Mar-Gio 09:30-01:30; Ven-Sab 09:30-02:00; Dom 09:30-23:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_4424621390",
+      "name": "Churrería La Mejor de Fuencarral",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle del Divino Pastor 3. Cucina: churro.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle del Divino Pastor 3, Madrid",
+      "latitude": 40.4272213,
+      "longitude": -3.7020042,
+      "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.2,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 914497813",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Lun-Dom 08:00-22:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_1012470349",
+      "name": "Circo de las Tapas",
+      "type": "Taberna & Tapas",
+      "description": "Taberna & Tapas a Malasaña, in Corredera Baja de San Pablo 21.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Corredera Baja de San Pablo 21, Madrid",
+      "latitude": 40.4223378,
+      "longitude": -3.7041548,
+      "imageUrl": "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.6,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 911886014",
+      "website": "https://www.circodelastapas.com/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "30s-50s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_3523878160",
+      "name": "Coto",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de Hernán Cortés 21.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Hernán Cortés 21, Madrid",
+      "latitude": 40.4233515,
+      "longitude": -3.6993691,
+      "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.8,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34915230363",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Lun-Dom 19:00-06:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_6426921933",
+      "name": "De Vinos",
+      "type": "Enoteca / Vermuteria",
+      "description": "Taberna de vinos, con selección de vinos españoles e internacionales.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de la Palma 76, Madrid",
+      "latitude": 40.4268662,
+      "longitude": -3.7089376,
+      "imageUrl": "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.2,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "N/D",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Mar-Ven 20:00-24:00; Sab 00:00-02:30,13:30-24:00; Dom 00:00-02:30,13:00-16:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "30s-50s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_3237847438",
+      "name": "José Alfredo",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de Silva 22.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Silva 22, Madrid",
+      "latitude": 40.4216068,
+      "longitude": -3.7058565,
+      "imageUrl": "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.6,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 915214960",
+      "website": "https://josealfredobar.com/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2717079189",
+      "name": "La Buena Cerveza",
+      "type": "Pub",
+      "description": "Pub a Malasaña, in Calle de Hernán Cortés 7.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Hernán Cortés 7, Madrid",
+      "latitude": 40.4235401,
+      "longitude": -3.7001696,
+      "imageUrl": "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.8,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 91 006 0524",
+      "website": "https://www.labuenacerveza.com/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Underground"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 1,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2671241930",
+      "name": "La Carmencita",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de San Vicente Ferrer 51.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de San Vicente Ferrer 51, Madrid",
+      "latitude": 40.4260905,
+      "longitude": -3.7074034,
+      "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.1,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 915 23 80 73",
+      "website": "https://www.carmencitabar.com/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_9737645880",
+      "name": "La Taberna de Cascajares",
+      "type": "Pub",
+      "description": "Pub a Malasaña, in Plaza de la Marina Española 2.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Plaza de la Marina Española 2, Madrid",
+      "latitude": 40.4206503,
+      "longitude": -3.7113833,
+      "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.8,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 915 41 22 21",
+      "website": "http://www.restaurantesenador.es/?module=seccion&code=1",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Underground"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 1,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_6553934900",
+      "name": "Lula Club",
+      "type": "Discoteca",
+      "description": "Discoteca a Malasaña, in Gran Vía 54.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Gran Vía 54, Madrid",
+      "latitude": 40.4212349,
+      "longitude": -3.7071374,
+      "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.6,
+      "popularDrinks": [
+        "Cubata",
+        "Chupito"
+      ],
+      "phone": "+34917378040",
+      "website": "https://lula.club/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Energetic",
+        "Neon"
+      ],
+      "crowdDensity": 85,
+      "crowdAge": "Gen Z / Students",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Elettronica / Pop",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2651748585",
+      "name": "Next Level",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de los Tudescos 4.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de los Tudescos 4, Madrid",
+      "latitude": 40.4211294,
+      "longitude": -3.7054495,
+      "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.5,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "N/D",
+      "website": "https://nextlevelarcadebar.com/",
+      "openingHours": {
+        "Orari": "Dom-Gio 18:00-01:00; Ven-Sab 18:00-03:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2583979989",
+      "name": "Pepe Botella",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de San Andrés 12.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de San Andrés 12, Madrid",
+      "latitude": 40.4266342,
+      "longitude": -3.7036422,
+      "imageUrl": "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.1,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 91 522 43 09",
+      "website": "http://www.cafepepebotella.es/es/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2725509709",
+      "name": "Rustika",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle del Limón 11.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle del Limón 11, Madrid",
+      "latitude": 40.426245,
+      "longitude": -3.7106678,
+      "imageUrl": "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.2,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 619248255",
+      "website": "http://www.rustikacafe.net/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_3693017821",
+      "name": "Súper Pop Bar",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de la Reina 17.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de la Reina 17, Madrid",
+      "latitude": 40.4202392,
+      "longitude": -3.6997082,
+      "imageUrl": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.5,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34605962624",
+      "website": "https://www.superpopbar.com/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_674492243",
+      "name": "Tempo II",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de San Bernardo 66.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de San Bernardo 66, Madrid",
+      "latitude": 40.4264722,
+      "longitude": -3.706712,
+      "imageUrl": "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.1,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 91 531 37 68",
+      "website": "http://www.pubtempo2.com/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_3631781469",
+      "name": "The Toast Tap Room",
+      "type": "Pub",
+      "description": "Pub a Malasaña, in Calle de San Vicente Ferrer 33.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de San Vicente Ferrer 33, Madrid",
+      "latitude": 40.4257623,
+      "longitude": -3.7043061,
+      "imageUrl": "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.0,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 915 32 67 91",
+      "website": "https://thetoast.es/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Underground"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 1,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2696236496",
+      "name": "Velvet",
+      "type": "Discoteca",
+      "description": "Discoteca a Malasaña, in Calle de Jacometrezo 6.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Jacometrezo 6, Madrid",
+      "latitude": 40.4203387,
+      "longitude": -3.7076421,
+      "imageUrl": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.5,
+      "popularDrinks": [
+        "Cubata",
+        "Chupito"
+      ],
+      "phone": "+34 633414887",
+      "website": "https://www.velvetdisco.es/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Energetic",
+        "Neon"
+      ],
+      "crowdDensity": 85,
+      "crowdAge": "Gen Z / Students",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Elettronica / Pop",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_4821323922",
+      "name": "At Substation",
+      "type": "Discoteca",
+      "description": "Discoteca a Malasaña, in Calle de Montserrat 30.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Montserrat 30, Madrid",
+      "latitude": 40.4279566,
+      "longitude": -3.7091508,
+      "imageUrl": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.3,
+      "popularDrinks": [
+        "Cubata",
+        "Chupito"
+      ],
+      "phone": "N/D",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Lun-Gio 22:00-04:00; Ven-Sab 23:30-06:30; Dom 20:00-04:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Energetic",
+        "Neon"
+      ],
+      "crowdDensity": 85,
+      "crowdAge": "Gen Z / Students",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Elettronica / Pop",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2614536500",
+      "name": "Bar Amor",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de Manuela Malasaña 22.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Manuela Malasaña 22, Madrid",
+      "latitude": 40.4288359,
+      "longitude": -3.7047351,
+      "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.3,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 915 94 48 29",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_1738786261",
+      "name": "Bar Hawaii",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de Pérez Galdós.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Pérez Galdós, Madrid",
+      "latitude": 40.4223805,
+      "longitude": -3.6999707,
+      "imageUrl": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.7,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 915 23 14 08",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2645855662",
+      "name": "Cazador",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de Pozas 7.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Pozas 7, Madrid",
+      "latitude": 40.4249537,
+      "longitude": -3.7066713,
+      "imageUrl": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.9,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "N/D",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Lun-Gio 17:00-02:00; Ven-Sab 17:00-02:30; Dom 12:00-01:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_3357952294",
+      "name": "El Café Sin Nombre",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle del Conde Duque 10.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle del Conde Duque 10, Madrid",
+      "latitude": 40.4261217,
+      "longitude": -3.7112841,
+      "imageUrl": "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.2,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 915 59 18 94",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2639591612",
+      "name": "El Intruso",
+      "type": "Discoteca",
+      "description": "Discoteca a Malasaña, in Calle de Augusto Figueroa 3.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Augusto Figueroa 3, Madrid",
+      "latitude": 40.4230276,
+      "longitude": -3.7001733,
+      "imageUrl": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.7,
+      "popularDrinks": [
+        "Cubata",
+        "Chupito"
+      ],
+      "phone": "N/D",
+      "website": "https://www.intrusobar.com/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Energetic",
+        "Neon"
+      ],
+      "crowdDensity": 85,
+      "crowdAge": "Gen Z / Students",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Elettronica / Pop",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2682145885",
+      "name": "El Jardín Secreto",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle del Conde Duque 2.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle del Conde Duque 2, Madrid",
+      "latitude": 40.4258228,
+      "longitude": -3.7114957,
+      "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.2,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "N/D",
+      "website": "https://www.eljardinsecretomadrid.com/main/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2665127467",
+      "name": "El Perro de la Parte de Atrás del Coche",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de la Puebla 15.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de la Puebla 15, Madrid",
+      "latitude": 40.4222647,
+      "longitude": -3.7039415,
+      "imageUrl": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.6,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 618 78 30 54",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2630111358",
+      "name": "El Pez Gato",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle del Pez 40.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle del Pez 40, Madrid",
+      "latitude": 40.4243641,
+      "longitude": -3.7071197,
+      "imageUrl": "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.9,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "N/D",
+      "website": "https://pezgatomadrid.es/",
+      "openingHours": {
+        "Orari": "Mer,Gio 20:00-03:00; Ven 19:00-03:30; Sab 18:00-03:30; Dom 19:00-03:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2703977221",
+      "name": "El Rincón",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle del Espíritu Santo 26.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle del Espíritu Santo 26, Madrid",
+      "latitude": 40.4254446,
+      "longitude": -3.7035854,
+      "imageUrl": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.0,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "N/D",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Lun-Gio 09:00-01:00, Ven 09:00-02:00, Sab 09:30-02:00, Dom 09:30-01:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2686612542",
+      "name": "Estupenda",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de San Roque 14.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de San Roque 14, Madrid",
+      "latitude": 40.4225907,
+      "longitude": -3.7046441,
+      "imageUrl": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.6,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 605 96 24 05",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2692581973",
+      "name": "Gorila",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Corredera Baja de San Pablo 47.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Corredera Baja de San Pablo 47, Madrid",
+      "latitude": 40.4232668,
+      "longitude": -3.7028673,
+      "imageUrl": "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.7,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 910 07 08 88",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_3471768254",
+      "name": "Juicy Avenue",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de Fuencarral 93.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Fuencarral 93, Madrid",
+      "latitude": 40.4267374,
+      "longitude": -3.7017099,
+      "imageUrl": "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.1,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "N/D",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Lun-Gio 08:00-00:30, Ven-Dom 08:00-24:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2669198769",
+      "name": "Kramer",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Plaza de las Comendadoras 1. Con tavoli all'aperto.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Plaza de las Comendadoras 1, Madrid",
+      "latitude": 40.4271434,
+      "longitude": -3.7084532,
+      "imageUrl": "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.2,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 604 54 52 51",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_11301877227",
+      "name": "Kurgan",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle del Dos de Mayo 6.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle del Dos de Mayo 6, Madrid",
+      "latitude": 40.4261779,
+      "longitude": -3.7041516,
+      "imageUrl": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.0,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "N/D",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Ven,Sab 21:00-03:30"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_8808911717",
+      "name": "La Cueva Rusa",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de la Ballesta 15.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de la Ballesta 15, Madrid",
+      "latitude": 40.4219652,
+      "longitude": -3.7034784,
+      "imageUrl": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.6,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "N/D",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Dom, Mar-Gio 18:00-23:00; Ven-Sab 17:00-23:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2614530657",
+      "name": "La Mejor Flor",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de Manuela Malasaña 22.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Manuela Malasaña 22, Madrid",
+      "latitude": 40.4288293,
+      "longitude": -3.7046661,
+      "imageUrl": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.3,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 912 82 09 70",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_3359367685",
+      "name": "La Parada",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle del Acuerdo 31.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle del Acuerdo 31, Madrid",
+      "latitude": 40.4287851,
+      "longitude": -3.707997,
+      "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.4,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 914 48 20 08",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2653869273",
+      "name": "La Pasa",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de San Bernardo 73.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de San Bernardo 73, Madrid",
+      "latitude": 40.4271352,
+      "longitude": -3.7065848,
+      "imageUrl": "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.2,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 910 81 29 79",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_3244468586",
+      "name": "La Prudencia",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle del Espíritu Santo 40.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle del Espíritu Santo 40, Madrid",
+      "latitude": 40.4256321,
+      "longitude": -3.7052605,
+      "imageUrl": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.0,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 915 22 30 97",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2653722452",
+      "name": "Los más canallas",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de San Bernardo 46.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de San Bernardo 46, Madrid",
+      "latitude": 40.4247569,
+      "longitude": -3.7073196,
+      "imageUrl": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.9,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 913 611 401",
+      "website": "http://www.elgatocanallamadrid.com/",
+      "openingHours": {
+        "Orari": "Lun-Dom 08:00-02:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_9825800817",
+      "name": "Manaquí Bar",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle del Molino de Viento 1.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle del Molino de Viento 1, Madrid",
+      "latitude": 40.4233519,
+      "longitude": -3.7037847,
+      "imageUrl": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.7,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "N/D",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Mar-Sab 07:00-02:30"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2694452206",
+      "name": "Marta, cariño!",
+      "type": "Discoteca",
+      "description": "Discoteca a Malasaña, in Calle de Silva 4.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Silva 4, Madrid",
+      "latitude": 40.4206157,
+      "longitude": -3.7077304,
+      "imageUrl": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.5,
+      "popularDrinks": [
+        "Cubata",
+        "Chupito"
+      ],
+      "phone": "+34 915479394",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Energetic",
+        "Neon"
+      ],
+      "crowdDensity": 85,
+      "crowdAge": "Gen Z / Students",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Elettronica / Pop",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2731037267",
+      "name": "Master Plató",
+      "type": "Discoteca",
+      "description": "Discoteca a Malasaña, in Plaza de los Mostenses.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Plaza de los Mostenses, Madrid",
+      "latitude": 40.4229097,
+      "longitude": -3.7089795,
+      "imageUrl": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.8,
+      "popularDrinks": [
+        "Cubata",
+        "Chupito"
+      ],
+      "phone": "N/D",
+      "website": "https://www.masterplato-karaoke.es/",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Energetic",
+        "Neon"
+      ],
+      "crowdDensity": 85,
+      "crowdAge": "Gen Z / Students",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Elettronica / Pop",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2629831948",
+      "name": "Picnic",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de Minas 1.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Minas 1, Madrid",
+      "latitude": 40.4242762,
+      "longitude": -3.706259,
+      "imageUrl": "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.9,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 915 21 08 89",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2777306942",
+      "name": "Sideral",
+      "type": "Pub",
+      "description": "Pub a Malasaña, in Calle de San Joaquín 9.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de San Joaquín 9, Madrid",
+      "latitude": 40.4243379,
+      "longitude": -3.7017337,
+      "imageUrl": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.8,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 695 94 39 92",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Underground"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 1,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_10614989245",
+      "name": "Siroco",
+      "type": "Discoteca",
+      "description": "Discoteca a Malasaña, in Calle de San Dimas 3.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de San Dimas 3, Madrid",
+      "latitude": 40.4269196,
+      "longitude": -3.7077365,
+      "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.2,
+      "popularDrinks": [
+        "Cubata",
+        "Chupito"
+      ],
+      "phone": "N/D",
+      "website": "https://siroco.es",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Energetic",
+        "Neon"
+      ],
+      "crowdDensity": 85,
+      "crowdAge": "Gen Z / Students",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Elettronica / Pop",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_5779713588",
+      "name": "Taberna La Española",
+      "type": "Taberna & Tapas",
+      "description": "Taberna & Tapas a Malasaña, in Calle de Hortaleza. Cucina: regional, tortilla, burger, sandwich, breakfast.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Hortaleza, Madrid",
+      "latitude": 40.420999,
+      "longitude": -3.7004917,
+      "imageUrl": "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.5,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "N/D",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "08:00-24:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "30s-50s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_5113733921",
+      "name": "Terraza de la Reina",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Plaza de Pedro Zerolo.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Plaza de Pedro Zerolo, Madrid",
+      "latitude": 40.4207926,
+      "longitude": -3.6994787,
+      "imageUrl": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.6,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "N/D",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Lun-Dom 10:00-23:00"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2585483388",
+      "name": "Triskel",
+      "type": "Pub",
+      "description": "Pub a Malasaña, in Calle de San Vicente Ferrer 5.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de San Vicente Ferrer 5, Madrid",
+      "latitude": 40.4255113,
+      "longitude": -3.7018334,
+      "imageUrl": "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.0,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 915 23 27 83",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Underground"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 1,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2815481540",
+      "name": "Verbena Bar",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de Velarde 24.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Velarde 24, Madrid",
+      "latitude": 40.426906,
+      "longitude": -3.7034375,
+      "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+      "distance": 1.1,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 914 26 64 91",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    },
+    {
+      "id": "osm_node_2769265445",
+      "name": "Wharf 73",
+      "type": "Bar",
+      "description": "Bar a Malasaña, in Calle de Colón 12.",
+      "rating": 0.0,
+      "reviewCount": 0,
+      "address": "Calle de Colón 12, Madrid",
+      "latitude": 40.4238524,
+      "longitude": -3.7013629,
+      "imageUrl": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+      "distance": 0.8,
+      "popularDrinks": [
+        "Cerveza",
+        "Cubata"
+      ],
+      "phone": "+34 649 76 76 76",
+      "website": "N/D",
+      "openingHours": {
+        "Orari": "Non disponibili"
+      },
+      "isFavorite": false,
+      "vibeTags": [
+        "Chill"
+      ],
+      "crowdDensity": 65,
+      "crowdAge": "20s-30s",
+      "genderRatio": "N/D",
+      "hasMusic": true,
+      "musicType": "Musica di sottofondo",
+      "reviews": [],
+      "galleryImages": [
+        "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      ],
+      "priceLevel": 2,
+      "estimated": [
+        "crowdAge",
+        "crowdDensity",
+        "genderRatio",
+        "hasMusic",
+        "photos",
+        "priceLevel",
+        "rating"
+      ]
+    }
+  ]
 }
