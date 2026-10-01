@@ -46,7 +46,7 @@ class _MapScreenState extends State<MapScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          // Flutter Map with dark/gray style tiles (using carto dark tiles for premium dark style map!)
+          // Flutter Map con tessere OpenStreetMap scurite per il tema dell'app
           FlutterMap(
             mapController: _mapController,
             options: MapOptions(
@@ -70,13 +70,14 @@ class _MapScreenState extends State<MapScreen> {
             ),
             children: [
               TileLayer(
-                urlTemplate: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', // PREMIUM dark style tile server!
-                // Se il server CARTO non risponde, si usa la mappa standard di OpenStreetMap
-                fallbackUrl: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                // Mappa standard di OpenStreetMap (gratis, senza chiave), scurita per il tema dell'app.
+                // CARTO non è più utilizzabile senza chiave API.
+                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                tileBuilder: darkModeTileBuilder,
                 userAgentPackageName: 'com.spotit.app',
               ),
               const SimpleAttributionWidget(
-                source: Text('© OpenStreetMap contributors © CARTO'),
+                source: Text('© OpenStreetMap contributors'),
               ),
               MarkerLayer(
                 markers: filteredBars.map((bar) {
