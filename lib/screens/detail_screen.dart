@@ -891,7 +891,14 @@ class _DetailScreenState extends State<DetailScreen> {
                                         children: [
                                           CircleAvatar(
                                             radius: 18,
-                                            backgroundImage: NetworkImage(review.userAvatar),
+                                            backgroundImage: review.userAvatar.isEmpty
+                                                ? null
+                                                : NetworkImage(review.userAvatar),
+                                            child: review.userAvatar.isEmpty
+                                                ? Text(
+                                                    review.userName.isEmpty ? '?' : review.userName[0].toUpperCase(),
+                                                  )
+                                                : null,
                                           ),
                                           const SizedBox(width: 12),
                                           Expanded(

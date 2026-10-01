@@ -1,0 +1,54 @@
+{
+  "id": "TEST_PLACE_1",
+  "name": "Bar di Prova",
+  "type": "Bar",
+  "description": "Locale con musica rock e indie.",
+  "rating": 4.4,
+  "reviewCount": 1200,
+  "address": "Calle di Prova 1, 28004 Madrid, Spagna",
+  "latitude": 40.4265,
+  "longitude": -3.704,
+  "imageUrl": "https://example.com/p1.jpg",
+  "distance": 1.1,
+  "popularDrinks": [
+    "Cocktail",
+    "Birra"
+  ],
+  "phone": "910 00 00 00",
+  "website": "https://example.com",
+  "openingHours": {
+    "Lunedì": "19:00–02:00",
+    "Martedì": "Chiuso"
+  },
+  "isFavorite": false,
+  "vibeTags": [
+    "Energetic",
+    "Neon",
+    "Live Music",
+    "Underground"
+  ],
+  "crowdDensity": 83,
+  "crowdAge": "Gen Z / Students",
+  "genderRatio": "N/D",
+  "hasMusic": true,
+  "musicType": "Rock / Indie",
+  "reviews": [
+    {
+      "id": "TEST_PLACE_1_0",
+      "userName": "Mario",
+      "userAvatar": "",
+      "rating": 5.0,
+      "comment": "Ottimo posto",
+      "date": "un mese fa"
+    }
+  ],
+  "galleryImages": [
+    "https://example.com/p1.jpg"
+  ],
+  "priceLevel": 1,
+  "estimated": [
+    "crowdAge",
+    "crowdDensity",
+    "genderRatio"
+  ]
+}

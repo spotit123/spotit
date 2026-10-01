@@ -1,0 +1,36 @@
+name: Refresh bars from Google Places
+
+# Si lancia a mano da Actions -> "Refresh bars from Google Places" -> Run workflow.
+# Serve il secret GOOGLE_PLACES_API_KEY (Settings -> Secrets and variables -> Actions).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test transform
+        run: python3 tool/test_fetch_places.py
+      - name: Download bars from Google Places
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+        run: python3 tool/fetch_places.py
+      - name: Commit new data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/malasana_bars.json
+          if git diff --cached --quiet; then
+            echo "Nessuna modifica"
+          else
+            git commit -m "data: refresh Malasaña bars from Google Places"
+            git push
+            gh workflow run deploy-web.yml --ref main
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
