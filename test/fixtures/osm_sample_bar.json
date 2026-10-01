@@ -1,0 +1,45 @@
+{
+  "id": "osm_node_101",
+  "name": "Pub di Prova",
+  "type": "Pub",
+  "description": "Pub a Malasaña, in Calle di Prova 5. Con tavoli all'aperto. Con musica dal vivo.",
+  "rating": 0.0,
+  "reviewCount": 0,
+  "address": "Calle di Prova 5, Madrid",
+  "latitude": 40.427,
+  "longitude": -3.704,
+  "imageUrl": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80",
+  "distance": 1.1,
+  "popularDrinks": [
+    "Cerveza",
+    "Cubata"
+  ],
+  "phone": "+34 910 00 00 00",
+  "website": "https://example.com",
+  "openingHours": {
+    "Orari": "Lun-Dom 19:00-02:30"
+  },
+  "isFavorite": false,
+  "vibeTags": [
+    "Live Music",
+    "Underground"
+  ],
+  "crowdDensity": 65,
+  "crowdAge": "20s-30s",
+  "genderRatio": "N/D",
+  "hasMusic": true,
+  "musicType": "Musica dal vivo",
+  "reviews": [],
+  "galleryImages": [
+    "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80"
+  ],
+  "priceLevel": 1,
+  "estimated": [
+    "crowdAge",
+    "crowdDensity",
+    "genderRatio",
+    "photos",
+    "priceLevel",
+    "rating"
+  ]
+}

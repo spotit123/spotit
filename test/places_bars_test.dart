@@ -22,6 +22,15 @@ void main() {
     expect(b.reviews.single.userName, 'Mario');
   });
 
+  test('OpenStreetMap JSON is parsed too', () {
+    final bar = jsonDecode(File('test/fixtures/osm_sample_bar.json').readAsStringSync());
+    final raw = jsonEncode({'generatedAt': '2026-10-01T10:00:00+00:00', 'bars': [bar]});
+    final b = PlacesBars.parse(raw)!.bars.single;
+    expect(b.name, 'Pub di Prova');
+    expect(b.rating, 0.0);
+    expect(b.musicType, 'Musica dal vivo');
+  });
+
   test('an empty data file means "use the mock bars"', () {
     expect(PlacesBars.parse('{"generatedAt": "", "bars": []}'), isNull);
   });
