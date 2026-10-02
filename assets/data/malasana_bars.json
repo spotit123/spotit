@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T09:54:14+00:00",
+  "generatedAt": "2026-10-02T11:07:00+00:00",
   "source": "OpenStreetMap contributors (ODbL)",
   "area": "Malasaña, Madrid",
   "bars": [
@@ -8,6 +8,11 @@
       "name": "100 Gaviotas",
       "type": "Pub",
       "description": "Pub a Malasaña, in Calle de Eguilaz 10.",
+      "descriptions": {
+        "it": "Pub a Malasaña, in Calle de Eguilaz 10.",
+        "en": "Pub in Malasaña, on Calle de Eguilaz 10.",
+        "es": "Pub en Malasaña, en Calle de Eguilaz 10."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Eguilaz 10, Madrid",
@@ -53,6 +58,7 @@
       "name": "360º Rooftop Bar",
       "type": "Pub",
       "description": "Located on the floor 26 of the Hotel Riu Plaza España, the 360° Sky Bar offers a wide selection of drinks and huge windows with panoramic views of Madrid.",
+      "descriptions": {},
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle del Maestro Guerrero, Madrid",
@@ -99,6 +105,11 @@
       "name": "Bodega de la Ardosa",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de Colón 13.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de Colón 13.",
+        "en": "Bar in Malasaña, on Calle de Colón 13.",
+        "es": "Bar en Malasaña, en Calle de Colón 13."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Colón 13, Madrid",
@@ -144,6 +155,11 @@
       "name": "Boyberry Gay Bar",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de Valverde 3.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de Valverde 3.",
+        "en": "Bar in Malasaña, on Calle de Valverde 3.",
+        "es": "Bar en Malasaña, en Calle de Valverde 3."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Valverde 3, Madrid",
@@ -189,6 +205,11 @@
       "name": "Casa Julio",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de la Madera 37.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de la Madera 37.",
+        "en": "Bar in Malasaña, on Calle de la Madera 37.",
+        "es": "Bar en Malasaña, en Calle de la Madera 37."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de la Madera 37, Madrid",
@@ -234,6 +255,11 @@
       "name": "Fábrica Maravillas",
       "type": "Pub",
       "description": "Pub a Malasaña, in Calle de Valverde 29.",
+      "descriptions": {
+        "it": "Pub a Malasaña, in Calle de Valverde 29.",
+        "en": "Pub in Malasaña, on Calle de Valverde 29.",
+        "es": "Pub en Malasaña, en Calle de Valverde 29."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Valverde 29, Madrid",
@@ -279,6 +305,11 @@
       "name": "Naked Bar Madrid",
       "type": "Discoteca",
       "description": "Discoteca a Malasaña, in Calle de Monteleón 5.",
+      "descriptions": {
+        "it": "Discoteca a Malasaña, in Calle de Monteleón 5.",
+        "en": "Nightclub in Malasaña, on Calle de Monteleón 5.",
+        "es": "Discoteca en Malasaña, en Calle de Monteleón 5."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Monteleón 5, Madrid",
@@ -324,6 +355,7 @@
       "name": "Stardust Club",
       "type": "Discoteca",
       "description": "Sesiones de tecno a cargo de DJs en una animada discoteca.",
+      "descriptions": {},
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Isabel La Católica 6, Madrid",
@@ -369,6 +401,11 @@
       "name": "1862 Dry Bar",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle del Pez 27.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle del Pez 27.",
+        "en": "Bar in Malasaña, on Calle del Pez 27.",
+        "es": "Bar en Malasaña, en Calle del Pez 27."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle del Pez 27, Madrid",
@@ -414,6 +451,11 @@
       "name": "Aquí Santoña",
       "type": "Pub",
       "description": "Pub a Malasaña, in Calle de San Bernardo 28.",
+      "descriptions": {
+        "it": "Pub a Malasaña, in Calle de San Bernardo 28.",
+        "en": "Pub in Malasaña, on Calle de San Bernardo 28.",
+        "es": "Pub en Malasaña, en Calle de San Bernardo 28."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de San Bernardo 28, Madrid",
@@ -459,6 +501,11 @@
       "name": "Café La Palma",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de la Palma 62.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de la Palma 62.",
+        "en": "Bar in Malasaña, on Calle de la Palma 62.",
+        "es": "Bar en Malasaña, en Calle de la Palma 62."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de la Palma 62, Madrid",
@@ -504,6 +551,11 @@
       "name": "Café Moderno",
       "type": "Bar",
       "description": "Bar a Malasaña, in Plaza de las Comendadoras 1. Con tavoli all'aperto.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Plaza de las Comendadoras 1. Con tavoli all'aperto.",
+        "en": "Bar in Malasaña, on Plaza de las Comendadoras 1. With outdoor seating.",
+        "es": "Bar en Malasaña, en Plaza de las Comendadoras 1. Con terraza."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Plaza de las Comendadoras 1, Madrid",
@@ -549,6 +601,11 @@
       "name": "Churrería La Mejor de Fuencarral",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle del Divino Pastor 3. Cucina: churro.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle del Divino Pastor 3. Cucina: churro.",
+        "en": "Bar in Malasaña, on Calle del Divino Pastor 3. Cuisine: churro.",
+        "es": "Bar en Malasaña, en Calle del Divino Pastor 3. Cocina: churro."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle del Divino Pastor 3, Madrid",
@@ -594,6 +651,11 @@
       "name": "Circo de las Tapas",
       "type": "Taberna & Tapas",
       "description": "Taberna & Tapas a Malasaña, in Corredera Baja de San Pablo 21.",
+      "descriptions": {
+        "it": "Taberna & Tapas a Malasaña, in Corredera Baja de San Pablo 21.",
+        "en": "Tavern & tapas in Malasaña, on Corredera Baja de San Pablo 21.",
+        "es": "Taberna y tapas en Malasaña, en Corredera Baja de San Pablo 21."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Corredera Baja de San Pablo 21, Madrid",
@@ -639,6 +701,11 @@
       "name": "Coto",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de Hernán Cortés 21.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de Hernán Cortés 21.",
+        "en": "Bar in Malasaña, on Calle de Hernán Cortés 21.",
+        "es": "Bar en Malasaña, en Calle de Hernán Cortés 21."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Hernán Cortés 21, Madrid",
@@ -684,6 +751,7 @@
       "name": "De Vinos",
       "type": "Enoteca / Vermuteria",
       "description": "Taberna de vinos, con selección de vinos españoles e internacionales.",
+      "descriptions": {},
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de la Palma 76, Madrid",
@@ -729,6 +797,11 @@
       "name": "José Alfredo",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de Silva 22.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de Silva 22.",
+        "en": "Bar in Malasaña, on Calle de Silva 22.",
+        "es": "Bar en Malasaña, en Calle de Silva 22."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Silva 22, Madrid",
@@ -774,6 +847,11 @@
       "name": "La Buena Cerveza",
       "type": "Pub",
       "description": "Pub a Malasaña, in Calle de Hernán Cortés 7.",
+      "descriptions": {
+        "it": "Pub a Malasaña, in Calle de Hernán Cortés 7.",
+        "en": "Pub in Malasaña, on Calle de Hernán Cortés 7.",
+        "es": "Pub en Malasaña, en Calle de Hernán Cortés 7."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Hernán Cortés 7, Madrid",
@@ -819,6 +897,11 @@
       "name": "La Carmencita",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de San Vicente Ferrer 51.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de San Vicente Ferrer 51.",
+        "en": "Bar in Malasaña, on Calle de San Vicente Ferrer 51.",
+        "es": "Bar en Malasaña, en Calle de San Vicente Ferrer 51."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de San Vicente Ferrer 51, Madrid",
@@ -864,6 +947,11 @@
       "name": "La Taberna de Cascajares",
       "type": "Pub",
       "description": "Pub a Malasaña, in Plaza de la Marina Española 2.",
+      "descriptions": {
+        "it": "Pub a Malasaña, in Plaza de la Marina Española 2.",
+        "en": "Pub in Malasaña, on Plaza de la Marina Española 2.",
+        "es": "Pub en Malasaña, en Plaza de la Marina Española 2."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Plaza de la Marina Española 2, Madrid",
@@ -909,6 +997,11 @@
       "name": "Lula Club",
       "type": "Discoteca",
       "description": "Discoteca a Malasaña, in Gran Vía 54.",
+      "descriptions": {
+        "it": "Discoteca a Malasaña, in Gran Vía 54.",
+        "en": "Nightclub in Malasaña, on Gran Vía 54.",
+        "es": "Discoteca en Malasaña, en Gran Vía 54."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Gran Vía 54, Madrid",
@@ -954,6 +1047,11 @@
       "name": "Next Level",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de los Tudescos 4.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de los Tudescos 4.",
+        "en": "Bar in Malasaña, on Calle de los Tudescos 4.",
+        "es": "Bar en Malasaña, en Calle de los Tudescos 4."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de los Tudescos 4, Madrid",
@@ -999,6 +1097,11 @@
       "name": "Pepe Botella",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de San Andrés 12.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de San Andrés 12.",
+        "en": "Bar in Malasaña, on Calle de San Andrés 12.",
+        "es": "Bar en Malasaña, en Calle de San Andrés 12."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de San Andrés 12, Madrid",
@@ -1044,6 +1147,11 @@
       "name": "Rustika",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle del Limón 11.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle del Limón 11.",
+        "en": "Bar in Malasaña, on Calle del Limón 11.",
+        "es": "Bar en Malasaña, en Calle del Limón 11."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle del Limón 11, Madrid",
@@ -1089,6 +1197,11 @@
       "name": "Súper Pop Bar",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de la Reina 17.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de la Reina 17.",
+        "en": "Bar in Malasaña, on Calle de la Reina 17.",
+        "es": "Bar en Malasaña, en Calle de la Reina 17."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de la Reina 17, Madrid",
@@ -1134,6 +1247,11 @@
       "name": "Tempo II",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de San Bernardo 66.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de San Bernardo 66.",
+        "en": "Bar in Malasaña, on Calle de San Bernardo 66.",
+        "es": "Bar en Malasaña, en Calle de San Bernardo 66."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de San Bernardo 66, Madrid",
@@ -1179,6 +1297,11 @@
       "name": "The Toast Tap Room",
       "type": "Pub",
       "description": "Pub a Malasaña, in Calle de San Vicente Ferrer 33.",
+      "descriptions": {
+        "it": "Pub a Malasaña, in Calle de San Vicente Ferrer 33.",
+        "en": "Pub in Malasaña, on Calle de San Vicente Ferrer 33.",
+        "es": "Pub en Malasaña, en Calle de San Vicente Ferrer 33."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de San Vicente Ferrer 33, Madrid",
@@ -1224,6 +1347,11 @@
       "name": "Velvet",
       "type": "Discoteca",
       "description": "Discoteca a Malasaña, in Calle de Jacometrezo 6.",
+      "descriptions": {
+        "it": "Discoteca a Malasaña, in Calle de Jacometrezo 6.",
+        "en": "Nightclub in Malasaña, on Calle de Jacometrezo 6.",
+        "es": "Discoteca en Malasaña, en Calle de Jacometrezo 6."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Jacometrezo 6, Madrid",
@@ -1269,6 +1397,11 @@
       "name": "At Substation",
       "type": "Discoteca",
       "description": "Discoteca a Malasaña, in Calle de Montserrat 30.",
+      "descriptions": {
+        "it": "Discoteca a Malasaña, in Calle de Montserrat 30.",
+        "en": "Nightclub in Malasaña, on Calle de Montserrat 30.",
+        "es": "Discoteca en Malasaña, en Calle de Montserrat 30."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Montserrat 30, Madrid",
@@ -1314,6 +1447,11 @@
       "name": "Bar Amor",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de Manuela Malasaña 22.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de Manuela Malasaña 22.",
+        "en": "Bar in Malasaña, on Calle de Manuela Malasaña 22.",
+        "es": "Bar en Malasaña, en Calle de Manuela Malasaña 22."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Manuela Malasaña 22, Madrid",
@@ -1359,6 +1497,11 @@
       "name": "Bar Hawaii",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de Pérez Galdós.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de Pérez Galdós.",
+        "en": "Bar in Malasaña, on Calle de Pérez Galdós.",
+        "es": "Bar en Malasaña, en Calle de Pérez Galdós."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Pérez Galdós, Madrid",
@@ -1404,6 +1547,11 @@
       "name": "Cazador",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de Pozas 7.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de Pozas 7.",
+        "en": "Bar in Malasaña, on Calle de Pozas 7.",
+        "es": "Bar en Malasaña, en Calle de Pozas 7."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Pozas 7, Madrid",
@@ -1449,6 +1597,11 @@
       "name": "El Café Sin Nombre",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle del Conde Duque 10.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle del Conde Duque 10.",
+        "en": "Bar in Malasaña, on Calle del Conde Duque 10.",
+        "es": "Bar en Malasaña, en Calle del Conde Duque 10."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle del Conde Duque 10, Madrid",
@@ -1494,6 +1647,11 @@
       "name": "El Intruso",
       "type": "Discoteca",
       "description": "Discoteca a Malasaña, in Calle de Augusto Figueroa 3.",
+      "descriptions": {
+        "it": "Discoteca a Malasaña, in Calle de Augusto Figueroa 3.",
+        "en": "Nightclub in Malasaña, on Calle de Augusto Figueroa 3.",
+        "es": "Discoteca en Malasaña, en Calle de Augusto Figueroa 3."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Augusto Figueroa 3, Madrid",
@@ -1539,6 +1697,11 @@
       "name": "El Jardín Secreto",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle del Conde Duque 2.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle del Conde Duque 2.",
+        "en": "Bar in Malasaña, on Calle del Conde Duque 2.",
+        "es": "Bar en Malasaña, en Calle del Conde Duque 2."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle del Conde Duque 2, Madrid",
@@ -1584,6 +1747,11 @@
       "name": "El Perro de la Parte de Atrás del Coche",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de la Puebla 15.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de la Puebla 15.",
+        "en": "Bar in Malasaña, on Calle de la Puebla 15.",
+        "es": "Bar en Malasaña, en Calle de la Puebla 15."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de la Puebla 15, Madrid",
@@ -1629,6 +1797,11 @@
       "name": "El Pez Gato",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle del Pez 40.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle del Pez 40.",
+        "en": "Bar in Malasaña, on Calle del Pez 40.",
+        "es": "Bar en Malasaña, en Calle del Pez 40."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle del Pez 40, Madrid",
@@ -1674,6 +1847,11 @@
       "name": "El Rincón",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle del Espíritu Santo 26.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle del Espíritu Santo 26.",
+        "en": "Bar in Malasaña, on Calle del Espíritu Santo 26.",
+        "es": "Bar en Malasaña, en Calle del Espíritu Santo 26."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle del Espíritu Santo 26, Madrid",
@@ -1719,6 +1897,11 @@
       "name": "Estupenda",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de San Roque 14.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de San Roque 14.",
+        "en": "Bar in Malasaña, on Calle de San Roque 14.",
+        "es": "Bar en Malasaña, en Calle de San Roque 14."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de San Roque 14, Madrid",
@@ -1764,6 +1947,11 @@
       "name": "Gorila",
       "type": "Bar",
       "description": "Bar a Malasaña, in Corredera Baja de San Pablo 47.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Corredera Baja de San Pablo 47.",
+        "en": "Bar in Malasaña, on Corredera Baja de San Pablo 47.",
+        "es": "Bar en Malasaña, en Corredera Baja de San Pablo 47."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Corredera Baja de San Pablo 47, Madrid",
@@ -1809,6 +1997,11 @@
       "name": "Juicy Avenue",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de Fuencarral 93.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de Fuencarral 93.",
+        "en": "Bar in Malasaña, on Calle de Fuencarral 93.",
+        "es": "Bar en Malasaña, en Calle de Fuencarral 93."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Fuencarral 93, Madrid",
@@ -1854,6 +2047,11 @@
       "name": "Kramer",
       "type": "Bar",
       "description": "Bar a Malasaña, in Plaza de las Comendadoras 1. Con tavoli all'aperto.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Plaza de las Comendadoras 1. Con tavoli all'aperto.",
+        "en": "Bar in Malasaña, on Plaza de las Comendadoras 1. With outdoor seating.",
+        "es": "Bar en Malasaña, en Plaza de las Comendadoras 1. Con terraza."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Plaza de las Comendadoras 1, Madrid",
@@ -1899,6 +2097,11 @@
       "name": "Kurgan",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle del Dos de Mayo 6.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle del Dos de Mayo 6.",
+        "en": "Bar in Malasaña, on Calle del Dos de Mayo 6.",
+        "es": "Bar en Malasaña, en Calle del Dos de Mayo 6."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle del Dos de Mayo 6, Madrid",
@@ -1944,6 +2147,11 @@
       "name": "La Cueva Rusa",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de la Ballesta 15.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de la Ballesta 15.",
+        "en": "Bar in Malasaña, on Calle de la Ballesta 15.",
+        "es": "Bar en Malasaña, en Calle de la Ballesta 15."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de la Ballesta 15, Madrid",
@@ -1989,6 +2197,11 @@
       "name": "La Mejor Flor",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de Manuela Malasaña 22.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de Manuela Malasaña 22.",
+        "en": "Bar in Malasaña, on Calle de Manuela Malasaña 22.",
+        "es": "Bar en Malasaña, en Calle de Manuela Malasaña 22."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Manuela Malasaña 22, Madrid",
@@ -2034,6 +2247,11 @@
       "name": "La Parada",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle del Acuerdo 31.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle del Acuerdo 31.",
+        "en": "Bar in Malasaña, on Calle del Acuerdo 31.",
+        "es": "Bar en Malasaña, en Calle del Acuerdo 31."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle del Acuerdo 31, Madrid",
@@ -2079,6 +2297,11 @@
       "name": "La Pasa",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de San Bernardo 73.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de San Bernardo 73.",
+        "en": "Bar in Malasaña, on Calle de San Bernardo 73.",
+        "es": "Bar en Malasaña, en Calle de San Bernardo 73."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de San Bernardo 73, Madrid",
@@ -2124,6 +2347,11 @@
       "name": "La Prudencia",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle del Espíritu Santo 40.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle del Espíritu Santo 40.",
+        "en": "Bar in Malasaña, on Calle del Espíritu Santo 40.",
+        "es": "Bar en Malasaña, en Calle del Espíritu Santo 40."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle del Espíritu Santo 40, Madrid",
@@ -2169,6 +2397,11 @@
       "name": "Los más canallas",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de San Bernardo 46.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de San Bernardo 46.",
+        "en": "Bar in Malasaña, on Calle de San Bernardo 46.",
+        "es": "Bar en Malasaña, en Calle de San Bernardo 46."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de San Bernardo 46, Madrid",
@@ -2214,6 +2447,11 @@
       "name": "Manaquí Bar",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle del Molino de Viento 1.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle del Molino de Viento 1.",
+        "en": "Bar in Malasaña, on Calle del Molino de Viento 1.",
+        "es": "Bar en Malasaña, en Calle del Molino de Viento 1."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle del Molino de Viento 1, Madrid",
@@ -2259,6 +2497,11 @@
       "name": "Marta, cariño!",
       "type": "Discoteca",
       "description": "Discoteca a Malasaña, in Calle de Silva 4.",
+      "descriptions": {
+        "it": "Discoteca a Malasaña, in Calle de Silva 4.",
+        "en": "Nightclub in Malasaña, on Calle de Silva 4.",
+        "es": "Discoteca en Malasaña, en Calle de Silva 4."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Silva 4, Madrid",
@@ -2304,6 +2547,11 @@
       "name": "Master Plató",
       "type": "Discoteca",
       "description": "Discoteca a Malasaña, in Plaza de los Mostenses.",
+      "descriptions": {
+        "it": "Discoteca a Malasaña, in Plaza de los Mostenses.",
+        "en": "Nightclub in Malasaña, on Plaza de los Mostenses.",
+        "es": "Discoteca en Malasaña, en Plaza de los Mostenses."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Plaza de los Mostenses, Madrid",
@@ -2349,6 +2597,11 @@
       "name": "Picnic",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de Minas 1.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de Minas 1.",
+        "en": "Bar in Malasaña, on Calle de Minas 1.",
+        "es": "Bar en Malasaña, en Calle de Minas 1."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Minas 1, Madrid",
@@ -2394,6 +2647,11 @@
       "name": "Sideral",
       "type": "Pub",
       "description": "Pub a Malasaña, in Calle de San Joaquín 9.",
+      "descriptions": {
+        "it": "Pub a Malasaña, in Calle de San Joaquín 9.",
+        "en": "Pub in Malasaña, on Calle de San Joaquín 9.",
+        "es": "Pub en Malasaña, en Calle de San Joaquín 9."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de San Joaquín 9, Madrid",
@@ -2439,6 +2697,11 @@
       "name": "Siroco",
       "type": "Discoteca",
       "description": "Discoteca a Malasaña, in Calle de San Dimas 3.",
+      "descriptions": {
+        "it": "Discoteca a Malasaña, in Calle de San Dimas 3.",
+        "en": "Nightclub in Malasaña, on Calle de San Dimas 3.",
+        "es": "Discoteca en Malasaña, en Calle de San Dimas 3."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de San Dimas 3, Madrid",
@@ -2484,6 +2747,11 @@
       "name": "Taberna La Española",
       "type": "Taberna & Tapas",
       "description": "Taberna & Tapas a Malasaña, in Calle de Hortaleza. Cucina: regional, tortilla, burger, sandwich, breakfast.",
+      "descriptions": {
+        "it": "Taberna & Tapas a Malasaña, in Calle de Hortaleza. Cucina: regional, tortilla, burger, sandwich, breakfast.",
+        "en": "Tavern & tapas in Malasaña, on Calle de Hortaleza. Cuisine: regional, tortilla, burger, sandwich, breakfast.",
+        "es": "Taberna y tapas en Malasaña, en Calle de Hortaleza. Cocina: regional, tortilla, burger, sandwich, breakfast."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Hortaleza, Madrid",
@@ -2529,6 +2797,11 @@
       "name": "Terraza de la Reina",
       "type": "Bar",
       "description": "Bar a Malasaña, in Plaza de Pedro Zerolo.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Plaza de Pedro Zerolo.",
+        "en": "Bar in Malasaña, on Plaza de Pedro Zerolo.",
+        "es": "Bar en Malasaña, en Plaza de Pedro Zerolo."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Plaza de Pedro Zerolo, Madrid",
@@ -2574,6 +2847,11 @@
       "name": "Triskel",
       "type": "Pub",
       "description": "Pub a Malasaña, in Calle de San Vicente Ferrer 5.",
+      "descriptions": {
+        "it": "Pub a Malasaña, in Calle de San Vicente Ferrer 5.",
+        "en": "Pub in Malasaña, on Calle de San Vicente Ferrer 5.",
+        "es": "Pub en Malasaña, en Calle de San Vicente Ferrer 5."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de San Vicente Ferrer 5, Madrid",
@@ -2619,6 +2897,11 @@
       "name": "Verbena Bar",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de Velarde 24.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de Velarde 24.",
+        "en": "Bar in Malasaña, on Calle de Velarde 24.",
+        "es": "Bar en Malasaña, en Calle de Velarde 24."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Velarde 24, Madrid",
@@ -2664,6 +2947,11 @@
       "name": "Wharf 73",
       "type": "Bar",
       "description": "Bar a Malasaña, in Calle de Colón 12.",
+      "descriptions": {
+        "it": "Bar a Malasaña, in Calle de Colón 12.",
+        "en": "Bar in Malasaña, on Calle de Colón 12.",
+        "es": "Bar en Malasaña, en Calle de Colón 12."
+      },
       "rating": 0.0,
       "reviewCount": 0,
       "address": "Calle de Colón 12, Madrid",
