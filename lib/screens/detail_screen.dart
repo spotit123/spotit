@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../services/share_service.dart';
 import '../models/bar.dart';
 import '../models/review.dart';
 import '../services/db_service.dart';
@@ -60,6 +61,18 @@ class _DetailScreenState extends State<DetailScreen> {
         backgroundColor: Colors.green[800],
       ),
     );
+  }
+
+  Future<void> _shareBar() async {
+    final ok = await shareOnWhatsApp(barShareText(widget.bar));
+    if (!ok && mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Impossibile aprire WhatsApp.', style: GoogleFonts.poppins()),
+          backgroundColor: Colors.redAccent,
+        ),
+      );
+    }
   }
 
   Future<void> _openMapDirections() async {
@@ -422,10 +435,14 @@ class _DetailScreenState extends State<DetailScreen> {
                       const SizedBox(height: 6),
                       Row(
                         children: [
-                          const Icon(Icons.star, color: Colors.amber, size: 16),
-                          const SizedBox(width: 4),
+                          if (bar.reviewCount > 0) ...[
+                            const Icon(Icons.star, color: Colors.amber, size: 16),
+                            const SizedBox(width: 4),
+                          ],
                           Text(
-                            '${bar.rating} (${bar.reviewCount} recensioni) • ${bar.type}',
+                            bar.reviewCount > 0
+                                ? '${bar.rating} (${bar.reviewCount} recensioni) • ${bar.type}'
+                                : '${bar.type} • ancora nessuna recensione',
                             style: GoogleFonts.poppins(
                               color: Colors.grey[400],
                               fontSize: 13,
@@ -953,22 +970,44 @@ class _DetailScreenState extends State<DetailScreen> {
                               letterSpacing: 1.2,
                             ),
                           ),
-                          InkWell(
-                            onTap: _openMapDirections,
-                            child: Row(
-                              children: [
-                                const Icon(Icons.directions, color: Color(0xFF0066FF), size: 16),
-                                const SizedBox(width: 4),
-                                Text(
-                                  'Indicazioni',
-                                  style: GoogleFonts.poppins(
-                                    color: const Color(0xFF0066FF),
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                          Row(
+                            children: [
+                              InkWell(
+                                onTap: _shareBar,
+                                child: Row(
+                                  children: [
+                                    const Icon(Icons.share, color: Color(0xFF25D366), size: 16),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      'Condividi',
+                                      style: GoogleFonts.poppins(
+                                        color: const Color(0xFF25D366),
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                              const SizedBox(width: 16),
+                              InkWell(
+                                onTap: _openMapDirections,
+                                child: Row(
+                                  children: [
+                                    const Icon(Icons.directions, color: Color(0xFF0066FF), size: 16),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      'Indicazioni',
+                                      style: GoogleFonts.poppins(
+                                        color: const Color(0xFF0066FF),
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -987,7 +1026,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             const SizedBox(width: 12),
                             Expanded(
                               child: Text(
-                                'Situato nella vivace zona nightlife di Madrid. Ottima raggiungibilità a piedi.',
+                                widget.bar.address,
                                 style: GoogleFonts.poppins(color: Colors.grey[400], fontSize: 13),
                               ),
                             ),
@@ -1032,7 +1071,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 ),
                 icon: const Icon(Icons.calendar_today_outlined, size: 18),
                 label: Text(
-                  'Secure a Table',
+                  'Richiedi un tavolo',
                   style: GoogleFonts.poppins(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,

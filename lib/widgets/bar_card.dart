@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../models/bar.dart';
+import '../services/opening_hours.dart';
+import '../utils/geo.dart';
 
 class BarCard extends StatelessWidget {
   final Bar bar;
   final VoidCallback onTap;
   final VoidCallback onFavoriteTap;
   final int? matchScore; // 0-100, from the onboarding quiz
+  final double? distanceKm; // distanza dall'utente, se ha dato la posizione
+  final OpenStatus? openStatus; // aperto/chiuso adesso
 
   const BarCard({
     super.key,
@@ -14,6 +18,8 @@ class BarCard extends StatelessWidget {
     required this.onTap,
     required this.onFavoriteTap,
     this.matchScore,
+    this.distanceKm,
+    this.openStatus,
   });
 
   @override
@@ -152,20 +158,51 @@ class BarCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   
-                  // Distance
+                  // Distance + open/closed
                   Row(
                     children: [
                       const Icon(Icons.location_on, size: 14, color: Colors.grey),
                       const SizedBox(width: 4),
-                      Text(
-                        '${bar.distance} km',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          color: Colors.grey[400],
+                      Flexible(
+                        child: Text(
+                          distanceKm != null
+                              ? '${formatDistance(distanceKm!)} · ${walkMinutes(distanceKm!)} min a piedi'
+                              : '${bar.distance} km dal centro',
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            color: Colors.grey[400],
+                          ),
                         ),
                       ),
                     ],
                   ),
+                  if (openStatus?.label != null) ...[
+                    const SizedBox(height: 4),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.circle,
+                          size: 9,
+                          color: openStatus!.state == OpenState.open ? Colors.greenAccent[400] : Colors.redAccent,
+                        ),
+                        const SizedBox(width: 6),
+                        Flexible(
+                          child: Text(
+                            openStatus!.label!,
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.poppins(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: openStatus!.state == OpenState.open
+                                  ? Colors.greenAccent[400]
+                                  : Colors.redAccent[100],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                   const SizedBox(height: 12),
 
                   // Vibe & Music Badges (matching screenshot)
