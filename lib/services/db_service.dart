@@ -36,39 +36,10 @@ class DbService {
       await _prefs?.remove(_keyBars);
       await _prefs?.setBool('bars_madrid_v2', true);
     }
-
-    // Seed default user if not exists
-    final usersRaw = _prefs?.getString(_keyUsers);
-    if (usersRaw == null) {
-      final defaultUsers = [
-        {
-          'email': 'alex@spotit.com',
-          'password': 'password123',
-          'name': 'Alex Rivers',
-          'username': '@vibe_seeker_99',
-        }
-      ];
-      await _prefs?.setString(_keyUsers, jsonEncode(defaultUsers));
-    }
   }
 
   // Auth Methods
   static Future<bool> login(String email, String password) async {
-    if (email.trim() == 'admin@spotit.com' && password == 'admin123') {
-      final profile = UserProfile(
-        name: 'Administrator',
-        username: '@admin',
-        location: 'Madrid',
-        age: 30,
-        bookingsCount: 0,
-        favoritesCount: 0,
-        karma: 5.0,
-        preferredVibes: ['Chill', 'Energetic', 'Underground', 'Neon', 'Rooftop'],
-      );
-      await saveUserProfile(profile);
-      return true;
-    }
-
     final prefs = _prefs ?? await SharedPreferences.getInstance();
     final usersRaw = prefs.getString(_keyUsers);
     if (usersRaw != null) {
@@ -95,6 +66,21 @@ class DbService {
       }
     }
     return false;
+  }
+
+  /// Entra senza account: crea un profilo "Ospite" sul dispositivo.
+  static Future<void> continueAsGuest() async {
+    final quiz = await getQuiz();
+    await saveUserProfile(UserProfile(
+      name: 'Ospite',
+      username: '@ospite',
+      location: 'Madrid',
+      age: quiz?.approxAge ?? 25,
+      bookingsCount: 0,
+      favoritesCount: 0,
+      karma: 0,
+      preferredVibes: [],
+    ));
   }
 
   static Future<bool> signUp(String email, String password, String name, String username) async {

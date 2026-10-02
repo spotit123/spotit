@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../models/bar.dart';
 import '../models/booking.dart';
 import '../services/db_service.dart';
+import '../services/share_service.dart';
 
 class BookingScreen extends StatefulWidget {
   final Bar bar;
@@ -21,7 +23,7 @@ class _BookingScreenState extends State<BookingScreen> {
   int _guestCount = 2;
   String _selectedTime = '21:00';
   final List<String> _timeSlots = ['20:00', '20:30', '21:00', '21:30', '22:00', '22:30'];
-  bool _joinPriorityList = false;
+  final bool _joinPriorityList = false;
   final _requestsController = TextEditingController();
 
   @override
@@ -62,7 +64,7 @@ class _BookingScreenState extends State<BookingScreen> {
               const Icon(Icons.check_circle_outline, size: 64, color: Colors.green),
               const SizedBox(height: 16),
               Text(
-                'Prenotazione Confermata! 🎉',
+                'Richiesta salvata 📌',
                 style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: 20,
@@ -71,7 +73,7 @@ class _BookingScreenState extends State<BookingScreen> {
               ),
               const SizedBox(height: 12),
               Text(
-                'Hai riservato un tavolo per $_guestCount persone il giorno ${_selectedDate.day}/${_selectedDate.month} alle $_selectedTime presso ${widget.bar.name}.',
+                'Abbiamo salvato la tua richiesta per $_guestCount persone il ${_selectedDate.day}/${_selectedDate.month} alle $_selectedTime da ${widget.bar.name}.\n\nIl locale non è ancora stato avvisato: per confermare il tavolo contattalo direttamente.',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
                   color: Colors.grey[400],
@@ -79,22 +81,47 @@ class _BookingScreenState extends State<BookingScreen> {
                 ),
               ),
               const SizedBox(height: 24),
+              if (widget.bar.phone != 'N/D') ...[
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton.icon(
+                    onPressed: () => launchUrl(Uri(scheme: 'tel', path: widget.bar.phone.replaceAll(' ', ''))),
+                    icon: const Icon(Icons.phone, size: 18),
+                    label: Text('Chiama il locale', style: GoogleFonts.poppins(fontWeight: FontWeight.bold)),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF0066FF),
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 8),
+              ],
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
+                child: OutlinedButton.icon(
+                  onPressed: () => shareOnWhatsApp(
+                    'Ci vediamo da ${widget.bar.name} il ${_selectedDate.day}/${_selectedDate.month} alle $_selectedTime? '
+                    'Siamo in $_guestCount 🍻\n📍 ${widget.bar.address}\n${mapsLink(widget.bar)}',
+                  ),
+                  icon: const Icon(Icons.share, size: 18, color: Color(0xFF25D366)),
+                  label: Text('Avvisa gli amici su WhatsApp',
+                      style: GoogleFonts.poppins(color: const Color(0xFF25D366), fontWeight: FontWeight.bold)),
+                  style: OutlinedButton.styleFrom(
+                    side: const BorderSide(color: Color(0xFF25D366)),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+              SizedBox(
+                width: double.infinity,
+                child: TextButton(
                   onPressed: () {
                     Navigator.pop(context); // Close dialog
                     Navigator.pop(context, true); // Close booking screen and return true
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF0066FF),
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                  ),
-                  child: Text(
-                    'Ottimo',
-                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
-                  ),
+                  child: Text('Chiudi', style: GoogleFonts.poppins(color: Colors.grey[400], fontWeight: FontWeight.bold)),
                 ),
               ),
             ],
@@ -145,7 +172,7 @@ class _BookingScreenState extends State<BookingScreen> {
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
-          'Secure Your Spot',
+          'Richiedi un tavolo',
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -255,7 +282,7 @@ class _BookingScreenState extends State<BookingScreen> {
 
               const SizedBox(height: 24),
               Text(
-                'Dettagli Prenotazione',
+                'Dettagli della richiesta',
                 style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: 15,
@@ -439,27 +466,6 @@ class _BookingScreenState extends State<BookingScreen> {
 
               const SizedBox(height: 20),
 
-              // Priority Guest List Checkbox
-              CheckboxListTile(
-                value: _joinPriorityList,
-                onChanged: (val) {
-                  setState(() {
-                    _joinPriorityList = val!;
-                  });
-                },
-                title: Text(
-                  'Entra nella Lista Ospiti Prioritaria',
-                  style: GoogleFonts.poppins(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text(
-                  'Salta la fila all\'ingresso ed entra direttamente',
-                  style: GoogleFonts.poppins(color: Colors.grey[500], fontSize: 12),
-                ),
-                activeColor: const Color(0xFF0066FF),
-                checkColor: Colors.white,
-                contentPadding: EdgeInsets.zero,
-                controlAffinity: ListTileControlAffinity.leading,
-              ),
 
               const SizedBox(height: 32),
 

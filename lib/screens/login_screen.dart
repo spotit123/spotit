@@ -34,6 +34,11 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
+  Future<void> _continueAsGuest() async {
+    await DbService.continueAsGuest();
+    widget.onLoginSuccess();
+  }
+
   Future<void> _submitForm() async {
     if (!_formKey.currentState!.validate()) return;
 
@@ -199,7 +204,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           label: 'Email',
                           controller: _emailController,
                           icon: Icons.email_outlined,
-                          hint: 'alex@spotit.com',
+                          hint: 'nome@email.com',
                           keyboardType: TextInputType.emailAddress,
                           validator: (val) {
                             if (val == null || val.trim().isEmpty) {
@@ -233,27 +238,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           validator: (val) => val!.length < 6 ? 'La password deve avere almeno 6 caratteri' : null,
                         ),
-
-                        // Forgot Password Link (Only for Login)
-                        if (!_isSignUp) ...[
-                          const SizedBox(height: 10),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: TextButton(
-                              onPressed: () {
-                                _showError('Funzionalità di recupero simulata. Usa password123');
-                              },
-                              child: Text(
-                                'Password dimenticata?',
-                                style: GoogleFonts.poppins(
-                                  color: const Color(0xFF0066FF),
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
 
                         const SizedBox(height: 24),
 
@@ -293,58 +277,34 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(height: 20),
 
                         // Quick info tip
-                        if (!_isSignUp)
-                          Center(
-                            child: Text(
-                              '💡 Info di test: alex@spotit.com / password123',
-                              style: GoogleFonts.poppins(
-                                color: Colors.grey[500],
-                                fontSize: 12,
-                                fontStyle: FontStyle.italic,
-                              ),
-                            ),
-                          ),
                       ],
                     ),
                   ),
                 ),
                 const SizedBox(height: 24),
 
-                // Social Logins simulation
+                // Entra senza account
                 Center(
                   child: Column(
                     children: [
                       Text(
-                        'oppure continua con',
-                        style: GoogleFonts.poppins(
-                          color: Colors.grey[600],
-                          fontSize: 12,
-                        ),
+                        'oppure',
+                        style: GoogleFonts.poppins(color: Colors.grey[600], fontSize: 12),
                       ),
-                      const SizedBox(height: 16),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          _buildSocialButton(
-                            icon: Icons.g_mobiledata_rounded,
-                            label: 'Google',
-                            onPressed: () {
-                              _emailController.text = 'alex@spotit.com';
-                              _passwordController.text = 'password123';
-                              _submitForm();
-                            },
-                          ),
-                          const SizedBox(width: 16),
-                          _buildSocialButton(
-                            icon: Icons.apple,
-                            label: 'Apple',
-                            onPressed: () {
-                              _emailController.text = 'alex@spotit.com';
-                              _passwordController.text = 'password123';
-                              _submitForm();
-                            },
-                          ),
-                        ],
+                      const SizedBox(height: 12),
+                      OutlinedButton.icon(
+                        onPressed: _isLoading ? null : _continueAsGuest,
+                        icon: const Icon(Icons.explore_outlined, size: 18),
+                        label: Text(
+                          'Continua come ospite',
+                          style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
+                        ),
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          side: const BorderSide(color: Color(0xFF1E293B), width: 1.5),
+                          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                        ),
                       ),
                     ],
                   ),
@@ -436,41 +396,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildSocialButton({
-    required IconData icon,
-    required String label,
-    required VoidCallback onPressed,
-  }) {
-    return InkWell(
-      onTap: onPressed,
-      borderRadius: BorderRadius.circular(14),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-        decoration: BoxDecoration(
-          color: const Color(0xFF131B2E),
-          borderRadius: BorderRadius.circular(14),
-          border: Border.all(
-            color: Colors.white.withOpacity(0.05),
-          ),
-        ),
-        child: Row(
-          children: [
-            Icon(icon, color: Colors.white, size: 20),
-            const SizedBox(width: 8),
-            Text(
-              label,
-              style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-                fontSize: 13,
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

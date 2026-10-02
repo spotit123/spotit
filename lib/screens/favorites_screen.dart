@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../models/bar.dart';
 import '../widgets/bar_card.dart';
+import '../services/opening_hours.dart';
+import '../services/share_service.dart';
 import 'detail_screen.dart';
 
 class FavoritesScreen extends StatefulWidget {
@@ -35,6 +37,21 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
             color: Colors.white,
           ),
         ),
+        actions: [
+          if (favoriteBars.isNotEmpty)
+            TextButton.icon(
+              onPressed: () => shareOnWhatsApp(plansShareText(favoriteBars)),
+              icon: const Icon(Icons.share, size: 16, color: Color(0xFF25D366)),
+              label: Text(
+                'Manda agli amici',
+                style: GoogleFonts.poppins(
+                  color: const Color(0xFF25D366),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                ),
+              ),
+            ),
+        ],
       ),
       body: favoriteBars.isEmpty
           ? Center(
@@ -72,6 +89,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                 final bar = favoriteBars[index];
                 return BarCard(
                   bar: bar,
+                  openStatus: openStatus(bar.openingHours, DateTime.now()),
                   onTap: () {
                     Navigator.push(
                       context,
