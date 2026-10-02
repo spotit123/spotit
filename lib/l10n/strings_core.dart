@@ -1,0 +1,120 @@
+// Ordine delle colonne: [italiano, inglese, spagnolo]
+const Map<String, List<String>> coreStrings = {
+  // --- navigazione ---
+  'nav.places': ['Locali', 'Places', 'Locales'],
+  'nav.map': ['Mappa', 'Map', 'Mapa'],
+  'nav.favorites': ['Preferiti', 'Favorites', 'Favoritos'],
+  'nav.profile': ['Profilo', 'Profile', 'Perfil'],
+  // --- giorni ---
+  'day.0': ['Lun', 'Mon', 'Lun'],
+  'day.1': ['Mar', 'Tue', 'Mar'],
+  'day.2': ['Mer', 'Wed', 'Mié'],
+  'day.3': ['Gio', 'Thu', 'Jue'],
+  'day.4': ['Ven', 'Fri', 'Vie'],
+  'day.5': ['Sab', 'Sat', 'Sáb'],
+  'day.6': ['Dom', 'Sun', 'Dom'],
+  'unit.years': ['anni', 'years', 'años'],
+  // --- aperto / chiuso ---
+  'open.until': ['Aperto · chiude alle {t}', 'Open · closes at {t}', 'Abierto · cierra a las {t}'],
+  'open.at': ['Chiuso · apre alle {t}', 'Closed · opens at {t}', 'Cerrado · abre a las {t}'],
+  'open.tomorrow': ['Chiuso · apre domani alle {t}', 'Closed · opens tomorrow at {t}', 'Cerrado · abre mañana a las {t}'],
+  'open.day': ['Chiuso · apre {d} alle {t}', 'Closed · opens {d} at {t}', 'Cerrado · abre el {d} a las {t}'],
+  'open.closed': ['Chiuso', 'Closed', 'Cerrado'],
+  // --- lingua ---
+  'lang.title': ['Lingua', 'Language', 'Idioma'],
+  // --- vibe ---
+  'vibe.Tutti': ['Tutti', 'All', 'Todos'],
+  'vibe.Energetic': ['Energico', 'Energetic', 'Enérgico'],
+  'vibe.Chill': ['Relax', 'Chill', 'Chill'],
+  'vibe.Jazz': ['Jazz', 'Jazz', 'Jazz'],
+  'vibe.Live Music': ['Musica dal vivo', 'Live music', 'Música en vivo'],
+  'vibe.Underground': ['Underground', 'Underground', 'Underground'],
+  'vibe.Neon': ['Neon', 'Neon', 'Neón'],
+  'vibe.Rooftop': ['Rooftop', 'Rooftop', 'Azotea'],
+  // --- tipi di locale (dai dati) ---
+  'type.Bar': ['Bar', 'Bar', 'Bar'],
+  'type.Pub': ['Pub', 'Pub', 'Pub'],
+  'type.Discoteca': ['Discoteca', 'Nightclub', 'Discoteca'],
+  'type.Cocktail bar': ['Cocktail bar', 'Cocktail bar', 'Coctelería'],
+  'type.Enoteca / Vermuteria': ['Enoteca / Vermuteria', 'Wine & vermouth bar', 'Vinoteca / Vermutería'],
+  'type.Taberna & Tapas': ['Taverna e tapas', 'Tavern & tapas', 'Taberna y tapas'],
+  "type.Birreria all'aperto": ["Birreria all'aperto", 'Beer garden', 'Cervecería al aire libre'],
+  // --- musica (dai dati) ---
+  'music.None': ['Senza musica', 'No music', 'Sin música'],
+  'music.Musica di sottofondo': ['Musica di sottofondo', 'Background music', 'Música ambiental'],
+  'music.Musica dal vivo': ['Musica dal vivo', 'Live music', 'Música en vivo'],
+  'music.Elettronica / Pop': ['Elettronica / Pop', 'Electronic / Pop', 'Electrónica / Pop'],
+  'music.Techno / House': ['Techno / House', 'Techno / House', 'Techno / House'],
+  'music.Reggaeton / Pop': ['Reggaeton / Pop', 'Reggaeton / Pop', 'Reguetón / Pop'],
+  'music.Jazz / Soul': ['Jazz / Soul', 'Jazz / Soul', 'Jazz / Soul'],
+  'music.Rock / Indie': ['Rock / Indie', 'Rock / Indie', 'Rock / Indie'],
+  'music.Pop': ['Pop', 'Pop', 'Pop'],
+  // --- bevande (dai dati) ---
+  'drink.Cocktail': ['Cocktail', 'Cocktails', 'Cócteles'],
+  'drink.Birra': ['Birra', 'Beer', 'Cerveza'],
+  'drink.Vino': ['Vino', 'Wine', 'Vino'],
+  // --- età (dai dati) ---
+  'age.Gen Z / Students': ['Gen Z / Studenti', 'Gen Z / Students', 'Gen Z / Estudiantes'],
+  'age.Gen Z': ['Gen Z', 'Gen Z', 'Gen Z'],
+  'age.Professionals': ['Professionisti', 'Professionals', 'Profesionales'],
+  // --- home ---
+  'home.search': ['Cerca bar a Madrid...', 'Search bars in Madrid...', 'Buscar bares en Madrid...'],
+  'home.mood': ['Che atmosfera cerchi?', "What's the mood?", '¿Qué ambiente buscas?'],
+  'home.forYou': ['Consigliati per te ✨', 'Picked for you ✨', 'Elegidos para ti ✨'],
+  'home.seeAll': ['Vedi tutti', 'See all', 'Ver todos'],
+  'home.noBars': ['Nessun bar trovato', 'No bars found', 'No se encontraron bares'],
+  'home.noBarsHint': ['Prova a cambiare i filtri', 'Try changing the filters', 'Prueba a cambiar los filtros'],
+  'home.hiddenNoHours': [
+    '{n} locali senza orari non vengono mostrati',
+    '{n} places without opening hours are not shown',
+    '{n} locales sin horario no se muestran'
+  ],
+  'home.locationError': [
+    'Non riesco a leggere la tua posizione. Controlla che il permesso sia attivo.',
+    "I can't read your location. Check that permission is enabled.",
+    'No puedo leer tu ubicación. Comprueba que el permiso esté activado.'
+  ],
+  'filter.openNow': ['🟢 Aperto ora', '🟢 Open now', '🟢 Abierto ahora'],
+  'filter.nearMe': ['📍 Vicino a me', '📍 Near me', '📍 Cerca de mí'],
+  'filter.locating': ['📍 Cerco…', '📍 Locating…', '📍 Buscando…'],
+  'filter.music': ['🎶 Con musica', '🎶 With music', '🎶 Con música'],
+  // --- card ---
+  'card.fromCenter': ['{km} km dal centro', '{km} km from the center', '{km} km del centro'],
+  'card.walk': ['{d} · {m} min a piedi', '{d} · {m} min on foot', '{d} · {m} min a pie'],
+  'card.match': ['✨ {n}% per te', '✨ {n}% for you', '✨ {n}% para ti'],
+  // --- mappa ---
+  'map.search': ['Cerca locali a Madrid...', 'Search places in Madrid...', 'Buscar locales en Madrid...'],
+  'map.book': ['Richiedi un tavolo', 'Request a table', 'Pedir mesa'],
+  // --- preferiti ---
+  'fav.title': ['I tuoi Preferiti ❤️', 'Your Favorites ❤️', 'Tus Favoritos ❤️'],
+  'fav.share': ['Manda agli amici', 'Send to friends', 'Enviar a amigos'],
+  'fav.empty': ['Nessun preferito salvato', 'No favorites saved', 'Ningún favorito guardado'],
+  'fav.emptyHint': [
+    "Aggiungi i tuoi bar preferiti toccando il cuore sui dettagli o sulla lista.",
+    'Add your favorite bars by tapping the heart on the details or in the list.',
+    'Añade tus bares favoritos tocando el corazón en los detalles o en la lista.'
+  ],
+  // --- login ---
+  'login.tagline': ['Trova la tua vibe nella notte madrilena', 'Find your vibe in the Madrid night', 'Encuentra tu vibra en la noche madrileña'],
+  'login.signIn': ['Accedi', 'Sign in', 'Entrar'],
+  'login.signUp': ['Registrati', 'Sign up', 'Regístrate'],
+  'login.createAccount': ['Crea Account', 'Create account', 'Crear cuenta'],
+  'login.fullName': ['Nome Completo', 'Full name', 'Nombre completo'],
+  'login.fullNameHint': ['Es: Alex Rivers', 'E.g. Alex Rivers', 'Ej: Alex Rivers'],
+  'login.username': ['Username', 'Username', 'Usuario'],
+  'login.usernameHint': ['Es: vibe_seeker', 'E.g. vibe_seeker', 'Ej: vibe_seeker'],
+  'login.email': ['Email', 'Email', 'Correo'],
+  'login.password': ['Password', 'Password', 'Contraseña'],
+  'login.or': ['oppure', 'or', 'o'],
+  'login.guest': ['Continua come ospite', 'Continue as guest', 'Continuar como invitado'],
+  'login.haveAccount': ['Hai già un account?', 'Already have an account?', '¿Ya tienes cuenta?'],
+  'login.noAccount': ['Non hai ancora un account?', "Don't have an account yet?", '¿Aún no tienes cuenta?'],
+  'login.errTaken': ['Email già registrata o dati non validi', 'Email already registered or invalid data', 'Correo ya registrado o datos no válidos'],
+  'login.errBad': ['Email o password errate', 'Wrong email or password', 'Correo o contraseña incorrectos'],
+  'login.errGeneric': ['Si è verificato un errore improvviso. Riprova.', 'Something went wrong. Please try again.', 'Ha ocurrido un error. Inténtalo de nuevo.'],
+  'login.errName': ['Inserisci il tuo nome', 'Enter your name', 'Introduce tu nombre'],
+  'login.errUsername': ['Inserisci un username', 'Enter a username', 'Introduce un usuario'],
+  'login.errEmailEmpty': ['Inserisci la tua email', 'Enter your email', 'Introduce tu correo'],
+  'login.errEmailInvalid': ['Inserisci un indirizzo email valido', 'Enter a valid email address', 'Introduce un correo válido'],
+  'login.errPassword': ['La password deve avere almeno 6 caratteri', 'Password must be at least 6 characters', 'La contraseña debe tener al menos 6 caracteres'],
+};

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../l10n/l10n.dart';
 import '../models/bar.dart';
 import '../services/opening_hours.dart';
 import '../utils/geo.dart';
@@ -11,6 +12,7 @@ class BarCard extends StatelessWidget {
   final int? matchScore; // 0-100, from the onboarding quiz
   final double? distanceKm; // distanza dall'utente, se ha dato la posizione
   final OpenStatus? openStatus; // aperto/chiuso adesso
+  final List<String> reasons; // perché è consigliato (dal quiz), già tradotti
 
   const BarCard({
     super.key,
@@ -20,6 +22,7 @@ class BarCard extends StatelessWidget {
     this.matchScore,
     this.distanceKm,
     this.openStatus,
+    this.reasons = const [],
   });
 
   @override
@@ -88,7 +91,7 @@ class BarCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Text(
-                        '✨ $matchScore% per te',
+                        tr('card.match', {'n': matchScore!}),
                         style: GoogleFonts.poppins(
                           color: Colors.white,
                           fontSize: 11,
@@ -166,8 +169,8 @@ class BarCard extends StatelessWidget {
                       Flexible(
                         child: Text(
                           distanceKm != null
-                              ? '${formatDistance(distanceKm!)} · ${walkMinutes(distanceKm!)} min a piedi'
-                              : '${bar.distance} km dal centro',
+                              ? tr('card.walk', {'d': formatDistance(distanceKm!), 'm': walkMinutes(distanceKm!)})
+                              : tr('card.fromCenter', {'km': bar.distance}),
                           overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.poppins(
                             fontSize: 12,
@@ -208,16 +211,16 @@ class BarCard extends StatelessWidget {
                   // Vibe & Music Badges (matching screenshot)
                   Row(
                     children: [
-                      _buildOutlineBadge(bar.vibeTags.first),
+                      _buildOutlineBadge(trVibe(bar.vibeTags.first)),
                       const SizedBox(width: 8),
-                      _buildOutlineBadge(bar.musicType == 'None' ? 'No Music' : bar.musicType),
+                      _buildOutlineBadge(trMusic(bar.musicType)),
                     ],
                   ),
                   const SizedBox(height: 12),
 
                   // Description
                   Text(
-                    bar.description,
+                    bar.localDescription,
                     style: GoogleFonts.poppins(
                       fontSize: 12,
                       color: Colors.grey[500],
@@ -226,6 +229,28 @@ class BarCard extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
+                  // Perché è consigliato: i due motivi più importanti
+                  if (reasons.isNotEmpty) ...[
+                    const SizedBox(height: 10),
+                    for (final reason in reasons.take(2))
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 2),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.check, size: 13, color: Color(0xFF25D366)),
+                            const SizedBox(width: 6),
+                            Expanded(
+                              child: Text(
+                                reason,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.poppins(fontSize: 11, color: Colors.grey[400]),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                  ],
                 ],
               ),
             ),

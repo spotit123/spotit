@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../l10n/l10n.dart';
+import '../widgets/lang_button.dart';
 import '../services/db_service.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -58,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (success) {
           widget.onLoginSuccess();
         } else {
-          _showError('Email già registrata o dati non validi');
+          _showError(tr('login.errTaken'));
         }
       } else {
         final success = await DbService.login(
@@ -69,11 +71,11 @@ class _LoginScreenState extends State<LoginScreen> {
         if (success) {
           widget.onLoginSuccess();
         } else {
-          _showError('Email o password errate');
+          _showError(tr('login.errBad'));
         }
       }
     } catch (e) {
-      _showError('Si è verificato un errore improvviso. Riprova.');
+      _showError(tr('login.errGeneric'));
     } finally {
       if (mounted) {
         setState(() {
@@ -108,7 +110,8 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 30),
+                const Align(alignment: Alignment.centerRight, child: LangButton()),
+                const SizedBox(height: 14),
                 // Premium Glowing Logo Area
                 Center(
                   child: Column(
@@ -144,7 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       const SizedBox(height: 6),
                       Text(
-                        'Trova la tua vibe nella notte madrilena',
+                        tr('login.tagline'),
                         style: GoogleFonts.poppins(
                           color: Colors.grey[500],
                           fontSize: 14,
@@ -171,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          _isSignUp ? 'Registrati' : 'Accedi',
+                          _isSignUp ? tr('login.signUp') : tr('login.signIn'),
                           style: GoogleFonts.poppins(
                             color: Colors.white,
                             fontSize: 20,
@@ -183,35 +186,35 @@ class _LoginScreenState extends State<LoginScreen> {
                         // Conditionally show Name and Username
                         if (_isSignUp) ...[
                           _buildTextField(
-                            label: 'Nome Completo',
+                            label: tr('login.fullName'),
                             controller: _nameController,
                             icon: Icons.person_outline,
-                            hint: 'Es: Alex Rivers',
-                            validator: (val) => val!.trim().isEmpty ? 'Inserisci il tuo nome' : null,
+                            hint: tr('login.fullNameHint'),
+                            validator: (val) => val!.trim().isEmpty ? tr('login.errName') : null,
                           ),
                           const SizedBox(height: 16),
                           _buildTextField(
-                            label: 'Username',
+                            label: tr('login.username'),
                             controller: _usernameController,
                             icon: Icons.alternate_email,
-                            hint: 'Es: vibe_seeker',
-                            validator: (val) => val!.trim().isEmpty ? 'Inserisci un username' : null,
+                            hint: tr('login.usernameHint'),
+                            validator: (val) => val!.trim().isEmpty ? tr('login.errUsername') : null,
                           ),
                           const SizedBox(height: 16),
                         ],
 
                         _buildTextField(
-                          label: 'Email',
+                          label: tr('login.email'),
                           controller: _emailController,
                           icon: Icons.email_outlined,
-                          hint: 'nome@email.com',
+                          hint: 'email@example.com',
                           keyboardType: TextInputType.emailAddress,
                           validator: (val) {
                             if (val == null || val.trim().isEmpty) {
-                              return 'Inserisci la tua email';
+                              return tr('login.errEmailEmpty');
                             }
                             if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(val.trim())) {
-                              return 'Inserisci un indirizzo email valido';
+                              return tr('login.errEmailInvalid');
                             }
                             return null;
                           },
@@ -219,7 +222,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(height: 16),
 
                         _buildTextField(
-                          label: 'Password',
+                          label: tr('login.password'),
                           controller: _passwordController,
                           icon: Icons.lock_outline,
                           hint: '••••••••',
@@ -236,7 +239,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               });
                             },
                           ),
-                          validator: (val) => val!.length < 6 ? 'La password deve avere almeno 6 caratteri' : null,
+                          validator: (val) => val!.length < 6 ? tr('login.errPassword') : null,
                         ),
 
                         const SizedBox(height: 24),
@@ -265,7 +268,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   )
                                 : Text(
-                                    _isSignUp ? 'Crea Account' : 'Accedi',
+                                    _isSignUp ? tr('login.createAccount') : tr('login.signIn'),
                                     style: GoogleFonts.poppins(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
@@ -288,7 +291,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     children: [
                       Text(
-                        'oppure',
+                        tr('login.or'),
                         style: GoogleFonts.poppins(color: Colors.grey[600], fontSize: 12),
                       ),
                       const SizedBox(height: 12),
@@ -296,7 +299,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: _isLoading ? null : _continueAsGuest,
                         icon: const Icon(Icons.explore_outlined, size: 18),
                         label: Text(
-                          'Continua come ospite',
+                          tr('login.guest'),
                           style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
                         ),
                         style: OutlinedButton.styleFrom(
@@ -317,7 +320,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        _isSignUp ? 'Hai già un account?' : 'Non hai ancora un account?',
+                        _isSignUp ? tr('login.haveAccount') : tr('login.noAccount'),
                         style: GoogleFonts.poppins(color: Colors.grey[500], fontSize: 14),
                       ),
                       TextButton(
@@ -328,7 +331,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           });
                         },
                         child: Text(
-                          _isSignUp ? 'Accedi' : 'Registrati',
+                          _isSignUp ? tr('login.signIn') : tr('login.signUp'),
                           style: GoogleFonts.poppins(
                             color: const Color(0xFF0066FF),
                             fontWeight: FontWeight.bold,

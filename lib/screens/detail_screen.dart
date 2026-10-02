@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../l10n/l10n.dart';
+import '../services/recommendation_service.dart';
 import '../services/share_service.dart';
 import '../models/bar.dart';
 import '../models/review.dart';
@@ -27,6 +29,19 @@ class _DetailScreenState extends State<DetailScreen> {
   String _surveyAge = '20s-30s';
   String _surveyMusic = 'Soft';
   bool _surveySubmitted = false;
+
+  // Perché questo locale è consigliato (solo se l'utente ha fatto il quiz)
+  List<String> _reasons = [];
+
+  @override
+  void initState() {
+    super.initState();
+    DbService.getQuiz().then((quiz) {
+      if (quiz != null && mounted) {
+        setState(() => _reasons = RecommendationService.match(widget.bar, quiz).reasons);
+      }
+    });
+  }
 
   void _submitSurvey() async {
     setState(() {
@@ -55,7 +70,7 @@ class _DetailScreenState extends State<DetailScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          'Sondaggio inviato! Informazioni aggiornate per ${widget.bar.name}.',
+          tr('detail.surveySent', {'name': widget.bar.name}),
           style: GoogleFonts.poppins(),
         ),
         backgroundColor: Colors.green[800],
@@ -68,7 +83,7 @@ class _DetailScreenState extends State<DetailScreen> {
     if (!ok && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Impossibile aprire WhatsApp.', style: GoogleFonts.poppins()),
+          content: Text(tr('detail.noWhatsapp'), style: GoogleFonts.poppins()),
           backgroundColor: Colors.redAccent,
         ),
       );
@@ -89,7 +104,7 @@ class _DetailScreenState extends State<DetailScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Impossibile aprire Google Maps per questo locale.', style: GoogleFonts.poppins()),
+            content: Text(tr('detail.noMaps'), style: GoogleFonts.poppins()),
             backgroundColor: Colors.redAccent,
           ),
         );
@@ -122,12 +137,12 @@ class _DetailScreenState extends State<DetailScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Aggiungi Foto Locale 📸',
+                tr('detail.addPhoto'),
                 style: GoogleFonts.poppins(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               Text(
-                'Tocca un\'immagine per caricarla nella galleria del locale (simulato)',
+                tr('detail.addPhotoHint'),
                 style: GoogleFonts.poppins(color: Colors.grey[500], fontSize: 12),
               ),
               const SizedBox(height: 20),
@@ -208,7 +223,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Lascia una Recensione ✍️',
+                    tr('detail.writeReview'),
                     style: GoogleFonts.poppins(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 16),
@@ -240,7 +255,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     maxLines: 3,
                     style: GoogleFonts.poppins(color: Colors.white),
                     decoration: InputDecoration(
-                      hintText: 'Cosa ne pensi di questo locale? Com\'è l\'atmosfera stasera?',
+                      hintText: tr('detail.reviewHint'),
                       hintStyle: GoogleFonts.poppins(color: Colors.grey[600], fontSize: 13),
                       filled: true,
                       fillColor: const Color(0xFF1E293B),
@@ -441,8 +456,8 @@ class _DetailScreenState extends State<DetailScreen> {
                           ],
                           Text(
                             bar.reviewCount > 0
-                                ? '${bar.rating} (${bar.reviewCount} recensioni) • ${bar.type}'
-                                : '${bar.type} • ancora nessuna recensione',
+                                ? tr('detail.reviewsLine', {'r': bar.rating, 'n': bar.reviewCount, 'type': trType(bar.type)})
+                                : tr('detail.noReviewsLine', {'type': trType(bar.type)}),
                             style: GoogleFonts.poppins(
                               color: Colors.grey[400],
                               fontSize: 13,
@@ -455,7 +470,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
                       // THE VIBE Tags Section (matching screenshot 4)
                       Text(
-                        'THE VIBE',
+                        tr('detail.vibe'),
                         style: GoogleFonts.poppins(
                           color: Colors.amber[600],
                           fontSize: 13,
@@ -475,7 +490,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               border: Border.all(color: const Color(0xFF1E293B)),
                             ),
                             child: Text(
-                              vibe,
+                              trVibe(vibe),
                               style: GoogleFonts.poppins(
                                 color: Colors.blue[100],
                                 fontSize: 12,
@@ -488,12 +503,44 @@ class _DetailScreenState extends State<DetailScreen> {
 
                       const SizedBox(height: 24),
 
+                      // Perché è consigliato (dal quiz)
+                      if (_reasons.isNotEmpty) ...[
+                        Text(
+                          tr('detail.why'),
+                          style: GoogleFonts.poppins(
+                            color: Colors.amber[600],
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1.2,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        for (final reason in _reasons)
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 6),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Icon(Icons.check_circle, size: 16, color: Color(0xFF25D366)),
+                                const SizedBox(width: 8),
+                                Expanded(
+                                  child: Text(
+                                    reason,
+                                    style: GoogleFonts.poppins(color: Colors.grey[300], fontSize: 13),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        const SizedBox(height: 18),
+                      ],
+
                       // Option C: GALLERY Section
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'GALLERIA FOTO',
+                            tr('detail.gallery'),
                             style: GoogleFonts.poppins(
                               color: Colors.amber[600],
                               fontSize: 13,
@@ -573,7 +620,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                   Text(
-                                  'LIVE INSIGHTS',
+                                  tr('detail.live'),
                                   style: GoogleFonts.poppins(
                                     color: const Color(0xFF0066FF), // Electric Blue
                                     fontSize: 13,
@@ -582,7 +629,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                   ),
                                 ),
                                 Text(
-                                  'Aggiornato 2m fa',
+                                  tr('detail.estimated'),
                                   style: GoogleFonts.poppins(
                                     color: Colors.grey[500],
                                     fontSize: 11,
@@ -606,11 +653,11 @@ class _DetailScreenState extends State<DetailScreen> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              'CROWD AGE',
+                                              tr('detail.crowdAge'),
                                               style: GoogleFonts.poppins(color: Colors.grey[500], fontSize: 10, fontWeight: FontWeight.w500),
                                             ),
                                             Text(
-                                              bar.crowdAge,
+                                              trAge(bar.crowdAge),
                                               style: GoogleFonts.poppins(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
                                               overflow: TextOverflow.ellipsis,
                                             ),
@@ -631,7 +678,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              'GENDER RATIO',
+                                              tr('detail.genderRatio'),
                                               style: GoogleFonts.poppins(color: Colors.grey[500], fontSize: 10, fontWeight: FontWeight.w500),
                                             ),
                                             Text(
@@ -654,7 +701,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Affollamento',
+                                  tr('detail.crowd'),
                                   style: GoogleFonts.poppins(color: Colors.grey[400], fontSize: 12),
                                 ),
                                 Text(
@@ -700,7 +747,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                     const Icon(Icons.done_all, color: Colors.greenAccent, size: 36),
                                     const SizedBox(height: 8),
                                     Text(
-                                      'Grazie per aver aggiornato la community!',
+                                      tr('detail.thanks'),
                                       textAlign: TextAlign.center,
                                       style: GoogleFonts.poppins(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
                                     ),
@@ -715,7 +762,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                       const Icon(Icons.rate_review_outlined, color: Colors.pink, size: 20),
                                       const SizedBox(width: 8),
                                       Text(
-                                        'Sei in questo locale? Sondaggio Live 📣',
+                                        tr('detail.survey'),
                                         style: GoogleFonts.poppins(
                                           color: Colors.white,
                                           fontSize: 13,
@@ -728,7 +775,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                   
                                   // Question 1: Crowd Density slider/selector
                                   Text(
-                                    'Quanto è affollato in questo momento?',
+                                    tr('detail.q1'),
                                     style: GoogleFonts.poppins(color: Colors.grey[400], fontSize: 12),
                                   ),
                                   Slider(
@@ -748,7 +795,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
                                   // Question 2: Vibe / Music type
                                   Text(
-                                    'Che tipo di musica/vibe c\'è?',
+                                    tr('detail.q2'),
                                     style: GoogleFonts.poppins(color: Colors.grey[400], fontSize: 12),
                                   ),
                                   const SizedBox(height: 6),
@@ -769,7 +816,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                             borderRadius: BorderRadius.circular(12),
                                           ),
                                           child: Text(
-                                            music,
+                                            music == 'Nessuna' ? tr('music.opt.Nessuna') : music,
                                             style: GoogleFonts.poppins(color: Colors.white, fontSize: 11, fontWeight: FontWeight.bold),
                                           ),
                                         ),
@@ -780,7 +827,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
                                   // Question 3: Crowd Age
                                   Text(
-                                    'Che tipo di persone frequentano il locale stasera?',
+                                    tr('detail.q3'),
                                     style: GoogleFonts.poppins(color: Colors.grey[400], fontSize: 12),
                                   ),
                                   const SizedBox(height: 6),
@@ -801,7 +848,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                             borderRadius: BorderRadius.circular(12),
                                           ),
                                           child: Text(
-                                            age,
+                                            trAge(age),
                                             style: GoogleFonts.poppins(color: Colors.white, fontSize: 11, fontWeight: FontWeight.bold),
                                           ),
                                         ),
@@ -820,7 +867,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                                       ),
                                       child: Text(
-                                        'Invia Aggiornamento',
+                                        tr('detail.send'),
                                         style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.bold),
                                       ),
                                     ),
@@ -833,7 +880,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
                       // ABOUT THE SPOT Section (matching screenshot 4)
                       Text(
-                        'ABOUT THE SPOT',
+                        tr('detail.about'),
                         style: GoogleFonts.poppins(
                           color: Colors.amber[600],
                           fontSize: 13,
@@ -843,7 +890,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        bar.description,
+                        bar.localDescription,
                         style: GoogleFonts.poppins(
                           fontSize: 14,
                           color: Colors.grey[300],
@@ -858,7 +905,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'RECENSIONI CLIENTE',
+                            tr('detail.reviews'),
                             style: GoogleFonts.poppins(
                               color: Colors.amber[600],
                               fontSize: 13,
@@ -869,7 +916,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           TextButton.icon(
                             icon: const Icon(Icons.rate_review, size: 16, color: Color(0xFF0066FF)),
                             label: Text(
-                              'Scrivi',
+                              tr('detail.write'),
                               style: GoogleFonts.poppins(color: const Color(0xFF0066FF), fontSize: 13, fontWeight: FontWeight.bold),
                             ),
                             onPressed: _openAddReviewDialog,
@@ -886,7 +933,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               ),
                               child: Center(
                                 child: Text(
-                                  'Nessuna recensione ancora. Sii il primo a scriverne una!',
+                                  tr('detail.noReviews'),
                                   style: GoogleFonts.poppins(color: Colors.grey[500], fontSize: 13),
                                 ),
                               ),
@@ -962,7 +1009,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'LOCATION',
+                            tr('detail.location'),
                             style: GoogleFonts.poppins(
                               color: Colors.amber[600],
                               fontSize: 13,
@@ -979,7 +1026,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                     const Icon(Icons.share, color: Color(0xFF25D366), size: 16),
                                     const SizedBox(width: 4),
                                     Text(
-                                      'Condividi',
+                                      tr('detail.share'),
                                       style: GoogleFonts.poppins(
                                         color: const Color(0xFF25D366),
                                         fontSize: 13,
@@ -997,7 +1044,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                     const Icon(Icons.directions, color: Color(0xFF0066FF), size: 16),
                                     const SizedBox(width: 4),
                                     Text(
-                                      'Indicazioni',
+                                      tr('detail.directions'),
                                       style: GoogleFonts.poppins(
                                         color: const Color(0xFF0066FF),
                                         fontSize: 13,
@@ -1071,7 +1118,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 ),
                 icon: const Icon(Icons.calendar_today_outlined, size: 18),
                 label: Text(
-                  'Richiedi un tavolo',
+                  tr('detail.book'),
                   style: GoogleFonts.poppins(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,

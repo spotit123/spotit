@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../l10n/l10n.dart';
 import '../models/bar.dart';
 import '../widgets/bar_card.dart';
 import '../services/opening_hours.dart';
@@ -31,7 +32,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
         backgroundColor: const Color(0xFF090D16),
         elevation: 0,
         title: Text(
-          'I tuoi Preferiti ❤️',
+          tr('fav.title'),
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -43,7 +44,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               onPressed: () => shareOnWhatsApp(plansShareText(favoriteBars)),
               icon: const Icon(Icons.share, size: 16, color: Color(0xFF25D366)),
               label: Text(
-                'Manda agli amici',
+                tr('fav.share'),
                 style: GoogleFonts.poppins(
                   color: const Color(0xFF25D366),
                   fontWeight: FontWeight.bold,
@@ -61,7 +62,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                   Icon(Icons.favorite_border, size: 64, color: Colors.grey[700]),
                   const SizedBox(height: 16),
                   Text(
-                    'Nessun preferito salvato',
+                    tr('fav.empty'),
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
@@ -72,7 +73,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 40),
                     child: Text(
-                      'Aggiungi i tuoi bar preferiti cliccando sull\'icona del cuore sui dettagli o sulla lista.',
+                      tr('fav.emptyHint'),
                       textAlign: TextAlign.center,
                       style: GoogleFonts.poppins(
                         fontSize: 14,

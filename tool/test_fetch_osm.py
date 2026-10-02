@@ -30,6 +30,15 @@ class ToBarTest(unittest.TestCase):
         self.assertNotIn("hasMusic", b["estimated"])  # live_music è un dato OSM
         self.assertIn("Live Music", b["vibeTags"])
         self.assertIn("Con tavoli all'aperto.", b["description"])
+        self.assertEqual(b["descriptions"]["en"], "Pub in Malasaña, on Calle di Prova 5. With outdoor seating. With live music.")
+        self.assertIn("Con terraza.", b["descriptions"]["es"])
+
+    def test_osm_description_is_kept_untranslated(self):
+        el = {"type": "node", "id": 9, "lat": 40.42, "lon": -3.70,
+              "tags": {"amenity": "bar", "name": "Con Descrizione", "description": "Rooftop on the 26th floor."}}
+        b = fo.to_bar(el)
+        self.assertEqual(b["description"], "Rooftop on the 26th floor.")
+        self.assertEqual(b["descriptions"], {})
 
     def test_way_uses_center_and_club_defaults(self):
         b = fo.to_bar(CLUB)

@@ -3,6 +3,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../l10n/l10n.dart';
 import '../models/bar.dart';
 import 'booking_screen.dart';
 
@@ -186,7 +187,7 @@ class _MapScreenState extends State<MapScreen> {
                                   fontSize: 14,
                                 ),
                                 decoration: InputDecoration(
-                                  hintText: 'Cerca locali a Madrid...',
+                                  hintText: tr('map.search'),
                                   hintStyle: GoogleFonts.poppins(
                                     color: Colors.grey[500],
                                     fontSize: 13,
@@ -270,7 +271,7 @@ class _MapScreenState extends State<MapScreen> {
                                 Icon(vibeIcon, size: 12, color: iconColor),
                                 const SizedBox(width: 6),
                                 Text(
-                                  vibe,
+                                  trVibe(vibe),
                                   style: GoogleFonts.poppins(
                                     color: Colors.white,
                                     fontSize: 12,
@@ -346,7 +347,7 @@ class _MapScreenState extends State<MapScreen> {
                                 ),
                                 const SizedBox(height: 2),
                                 Text(
-                                  '${_selectedBar!.musicType} • ${_selectedBar!.vibeTags.first}',
+                                  '${trMusic(_selectedBar!.musicType)} • ${trVibe(_selectedBar!.vibeTags.first)}',
                                   style: GoogleFonts.poppins(
                                     fontSize: 12,
                                     color: Colors.grey[400],
@@ -356,7 +357,7 @@ class _MapScreenState extends State<MapScreen> {
                                 const SizedBox(height: 4),
                                 // Crowd Age & Gender (matching screenshot: e.g. "Gen Z • Students")
                                 Text(
-                                  '${_selectedBar!.crowdAge} • Locals',
+                                  trAge(_selectedBar!.crowdAge),
                                   style: GoogleFonts.poppins(
                                     fontSize: 12,
                                     color: Colors.grey[500],
@@ -393,7 +394,7 @@ class _MapScreenState extends State<MapScreen> {
                           ),
                           icon: const Icon(Icons.calendar_today, size: 16),
                           label: Text(
-                            'Book a Table',
+                            tr('map.book'),
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.bold,
                               fontSize: 14,

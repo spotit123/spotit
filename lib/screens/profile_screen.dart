@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../models/user_profile.dart';
+import '../l10n/l10n.dart';
 import '../models/bar.dart';
+import '../widgets/lang_button.dart';
 import '../services/db_service.dart';
 import 'detail_screen.dart';
 import 'admin_panel_screen.dart';
@@ -67,7 +69,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'Modifica Profilo',
+                  tr('prof.edit'),
                   style: GoogleFonts.poppins(
                     color: Colors.white,
                     fontSize: 20,
@@ -77,13 +79,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const SizedBox(height: 20),
 
                 // Name Field
-                _buildEditField('Nome', nameController, (val) => val!.isEmpty ? 'Inserisci il nome' : null),
+                _buildEditField(tr('prof.name'), nameController, (val) => val!.isEmpty ? tr('prof.errName') : null),
                 // Username Field
-                _buildEditField('Username', usernameController, (val) => val!.isEmpty ? 'Inserisci lo username' : null),
+                _buildEditField(tr('login.username'), usernameController, (val) => val!.isEmpty ? tr('prof.errUsername') : null),
                 // Location Field
-                _buildEditField('Città', locationController, (val) => val!.isEmpty ? 'Inserisci la città' : null),
+                _buildEditField(tr('prof.city'), locationController, (val) => val!.isEmpty ? tr('prof.errCity') : null),
                 // Age Field
-                _buildEditField('Età', ageController, (val) => val!.isEmpty ? 'Inserisci l\'età' : null, keyboardType: TextInputType.number),
+                _buildEditField(tr('prof.age'), ageController, (val) => val!.isEmpty ? tr('prof.errAge') : null, keyboardType: TextInputType.number),
 
                 const SizedBox(height: 24),
                 SizedBox(
@@ -114,7 +116,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                     ),
                     child: Text(
-                      'Salva modifiche',
+                      tr('prof.save'),
                       style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                   ),
@@ -221,7 +223,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   top: MediaQuery.of(context).padding.top + 10,
                   left: 20,
                   child: Text(
-                    'User Profile',
+                    tr('prof.title'),
                     style: GoogleFonts.poppins(
                       color: Colors.white,
                       fontSize: 18,
@@ -284,7 +286,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    '📍 ${profile.location} • ${profile.age} anni',
+                    '📍 ${profile.location} • ${tr('prof.ageYears', {'age': profile.age})}',
                     style: GoogleFonts.poppins(
                       color: Colors.grey[400],
                       fontSize: 13,
@@ -297,24 +299,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SizedBox(height: 20),
 
             // Badges Row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _buildBadge(
-                  label: 'Vibe Master',
-                  icon: Icons.diamond_outlined,
-                  bgColor: Colors.amber.withOpacity(0.12),
-                  iconColor: Colors.amber[600]!,
-                ),
-                const SizedBox(width: 12),
-                _buildBadge(
-                  label: 'Pro Booker',
-                  icon: Icons.verified_user_outlined,
-                  bgColor: Colors.blue.withOpacity(0.12),
-                  iconColor: const Color(0xFF0066FF),
-                ),
-              ],
-            ),
+            // I badge si guadagnano: non sono più uguali per tutti
+            if (profile.favoritesCount >= 3 || profile.bookingsCount >= 3)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (profile.favoritesCount >= 3)
+                    _buildBadge(
+                      label: tr('prof.badgeVibe'),
+                      icon: Icons.diamond_outlined,
+                      bgColor: Colors.amber.withOpacity(0.12),
+                      iconColor: Colors.amber[600]!,
+                    ),
+                  if (profile.favoritesCount >= 3 && profile.bookingsCount >= 3) const SizedBox(width: 12),
+                  if (profile.bookingsCount >= 3)
+                    _buildBadge(
+                      label: tr('prof.badgePro'),
+                      icon: Icons.verified_user_outlined,
+                      bgColor: Colors.blue.withOpacity(0.12),
+                      iconColor: const Color(0xFF0066FF),
+                    ),
+                ],
+              ),
 
             const SizedBox(height: 24),
 
@@ -323,9 +329,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
-                  _buildStatCard(profile.bookingsCount.toString(), 'Bookings'),
+                  _buildStatCard(profile.bookingsCount.toString(), tr('prof.bookings')),
                   const SizedBox(width: 12),
-                  _buildStatCard(favoriteBars.length.toString(), 'Favorites'),
+                  _buildStatCard(favoriteBars.length.toString(), tr('prof.favorites')),
                   const SizedBox(width: 12),
                   _buildStatCard(profile.karma.toString(), 'Karma'),
                 ],
@@ -397,7 +403,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Your Vibe Profile',
+                    tr('prof.vibeProfile'),
                     style: GoogleFonts.poppins(
                       color: Colors.white,
                       fontSize: 16,
@@ -409,11 +415,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     spacing: 8,
                     runSpacing: 8,
                     children: [
-                      _buildVibeTag('Energetic', Icons.local_fire_department, Colors.orange),
-                      _buildVibeTag('Chill', Icons.brightness_3, Colors.blue),
-                      _buildVibeTag('Underground', Icons.home_work_outlined, Colors.purple),
-                      _buildVibeTag('Neon', Icons.wb_twilight_outlined, Colors.pink),
-                      _buildVibeTag('Rooftop', Icons.domain_outlined, Colors.teal),
+                      _buildVibeTag(trVibe('Energetic'), Icons.local_fire_department, Colors.orange),
+                      _buildVibeTag(trVibe('Chill'), Icons.brightness_3, Colors.blue),
+                      _buildVibeTag(trVibe('Underground'), Icons.home_work_outlined, Colors.purple),
+                      _buildVibeTag(trVibe('Neon'), Icons.wb_twilight_outlined, Colors.pink),
+                      _buildVibeTag(trVibe('Rooftop'), Icons.domain_outlined, Colors.teal),
                     ],
                   ),
                 ],
@@ -429,7 +435,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Favorite Spots',
+                    tr('prof.favSpots'),
                     style: GoogleFonts.poppins(
                       color: Colors.white,
                       fontSize: 16,
@@ -437,7 +443,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   Text(
-                    'See All',
+                    tr('prof.seeAll'),
                     style: GoogleFonts.poppins(
                       color: const Color(0xFF0066FF),
                       fontSize: 13,
@@ -463,7 +469,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       child: Center(
                         child: Text(
-                          'Nessun preferito salvato.\nAggiungi i cuoricini nella lista locali!',
+                          tr('prof.noFav'),
                           textAlign: TextAlign.center,
                           style: GoogleFonts.poppins(color: Colors.grey[500], fontSize: 13),
                         ),
@@ -570,6 +576,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     },
                   ),
             const SizedBox(height: 20),
+            // Lingua
+            const Padding(
+              padding: EdgeInsets.only(top: 10),
+              child: Center(child: LangButton()),
+            ),
             // Retake quiz
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -585,7 +596,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   icon: const Icon(Icons.auto_awesome, size: 18),
                   label: Text(
-                    'Rifai il quiz ✨',
+                    tr('prof.retake'),
                     style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                 ),
@@ -604,24 +615,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       builder: (context) => AlertDialog(
                         backgroundColor: const Color(0xFF131B2E),
                         title: Text(
-                          'Disconnetti 🚪',
+                          tr('prof.logoutTitle'),
                           style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.bold),
                         ),
                         content: Text(
-                          'Sei sicuro di voler uscire da SpotIt?',
+                          tr('prof.logoutAsk'),
                           style: GoogleFonts.poppins(color: Colors.grey[400]),
                         ),
                         actions: [
                           TextButton(
                             onPressed: () => Navigator.pop(context),
-                            child: Text('Annulla', style: GoogleFonts.poppins(color: Colors.grey[400])),
+                            child: Text(tr('prof.cancel'), style: GoogleFonts.poppins(color: Colors.grey[400])),
                           ),
                           TextButton(
                             onPressed: () {
                               Navigator.pop(context); // Close dialog
                               widget.onLogout();
                             },
-                            child: Text('Esci', style: GoogleFonts.poppins(color: Colors.redAccent, fontWeight: FontWeight.bold)),
+                            child: Text(tr('prof.logout'), style: GoogleFonts.poppins(color: Colors.redAccent, fontWeight: FontWeight.bold)),
                           ),
                         ],
                       ),
@@ -634,7 +645,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   icon: const Icon(Icons.logout, size: 18),
                   label: Text(
-                    'Log Out',
+                    tr('prof.logout'),
                     style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                 ),

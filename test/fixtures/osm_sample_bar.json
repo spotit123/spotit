@@ -3,6 +3,11 @@
   "name": "Pub di Prova",
   "type": "Pub",
   "description": "Pub a Malasaña, in Calle di Prova 5. Con tavoli all'aperto. Con musica dal vivo.",
+  "descriptions": {
+    "it": "Pub a Malasaña, in Calle di Prova 5. Con tavoli all'aperto. Con musica dal vivo.",
+    "en": "Pub in Malasaña, on Calle di Prova 5. With outdoor seating. With live music.",
+    "es": "Pub en Malasaña, en Calle di Prova 5. Con terraza. Con música en vivo."
+  },
   "rating": 0.0,
   "reviewCount": 0,
   "address": "Calle di Prova 5, Madrid",

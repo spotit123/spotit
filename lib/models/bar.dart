@@ -1,3 +1,4 @@
+import '../l10n/l10n.dart';
 import 'review.dart';
 
 class Bar {
@@ -5,6 +6,9 @@ class Bar {
   final String name;
   final String type;
   final String description;
+
+  /// Descrizioni tradotte (it/en/es), se disponibili. Se manca la lingua si usa [description].
+  final Map<String, String> descriptions;
   double rating; // Modified to non-final so we can dynamically recalculate average rating
   int reviewCount; // Modified to non-final to update dynamically
   final String address;
@@ -36,6 +40,7 @@ class Bar {
     required this.name,
     required this.type,
     required this.description,
+    this.descriptions = const {},
     required this.rating,
     required this.reviewCount,
     required this.address,
@@ -59,12 +64,16 @@ class Bar {
     required this.galleryImages,
   });
 
+  /// Descrizione nella lingua corrente.
+  String get localDescription => descriptions[L10n.code] ?? description;
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
       'name': name,
       'type': type,
       'description': description,
+      'descriptions': descriptions,
       'rating': rating,
       'reviewCount': reviewCount,
       'address': address,
@@ -95,6 +104,9 @@ class Bar {
       name: json['name'] as String,
       type: json['type'] as String,
       description: json['description'] as String,
+      descriptions: json['descriptions'] == null
+          ? const {}
+          : Map<String, String>.from(json['descriptions'] as Map),
       rating: (json['rating'] as num).toDouble(),
       reviewCount: json['reviewCount'] as int,
       address: json['address'] as String,

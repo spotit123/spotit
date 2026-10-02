@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:latlong2/latlong.dart';
+import '../l10n/l10n.dart';
 import '../models/bar.dart';
 import '../models/quiz_answers.dart';
 import '../services/location_service.dart';
@@ -89,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            'Non riesco a leggere la tua posizione. Controlla che il permesso sia attivo.',
+            tr('home.locationError'),
             style: GoogleFonts.poppins(),
           ),
           backgroundColor: Colors.redAccent,
@@ -136,9 +137,12 @@ class _HomeScreenState extends State<HomeScreen> {
     // Con il quiz completato, i locali più adatti a te vengono per primi
     final quiz = widget.quiz;
     final scores = <String, int>{};
+    final reasons = <String, List<String>>{};
     if (quiz != null) {
       for (final bar in filteredBars) {
-        scores[bar.id] = RecommendationService.score(bar, quiz);
+        final m = RecommendationService.match(bar, quiz);
+        scores[bar.id] = m.score;
+        reasons[bar.id] = m.reasons;
       }
       filteredBars.sort((a, b) => scores[b.id]!.compareTo(scores[a.id]!));
     }
@@ -173,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         style: GoogleFonts.poppins(color: Colors.white, fontSize: 14),
                         decoration: InputDecoration(
-                          hintText: 'Cerca bar a Madrid...',
+                          hintText: tr('home.search'),
                           hintStyle: GoogleFonts.poppins(color: Colors.grey[600], fontSize: 13),
                           prefixIcon: const Icon(Icons.search, color: Colors.grey),
                           border: InputBorder.none,
@@ -204,7 +208,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    quiz != null ? 'Consigliati per te ✨' : "What's the mood?",
+                    quiz != null ? tr('home.forYou') : tr('home.mood'),
                     style: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -212,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   Text(
-                    "See all",
+                    tr('home.seeAll'),
                     style: GoogleFonts.poppins(
                       fontSize: 13,
                       fontWeight: FontWeight.bold,
@@ -261,7 +265,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             const SizedBox(width: 8),
                             Text(
-                              mood['name'],
+                              trVibe(mood['name']),
                               style: GoogleFonts.poppins(
                                 color: Colors.white,
                                 fontSize: 13,
@@ -284,9 +288,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 scrollDirection: Axis.horizontal,
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 children: [
-                  _filterChip('🟢 Aperto ora', _openNow, () => setState(() => _openNow = !_openNow)),
-                  _filterChip(_locating ? '📍 Cerco…' : '📍 Vicino a me', _nearMe, _toggleNearMe),
-                  _filterChip('🎶 Con musica', _withMusic, () => setState(() => _withMusic = !_withMusic)),
+                  _filterChip(tr('filter.openNow'), _openNow, () => setState(() => _openNow = !_openNow)),
+                  _filterChip(_locating ? tr('filter.locating') : tr('filter.nearMe'), _nearMe, _toggleNearMe),
+                  _filterChip(tr('filter.music'), _withMusic, () => setState(() => _withMusic = !_withMusic)),
                   for (final level in [1, 2, 3])
                     _filterChip('€' * level, _budget == level,
                         () => setState(() => _budget = _budget == level ? null : level)),
@@ -297,7 +301,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 4, 20, 0),
                 child: Text(
-                  '$hiddenNoHours locali senza orari non vengono mostrati',
+                  tr('home.hiddenNoHours', {'n': hiddenNoHours}),
                   style: GoogleFonts.poppins(fontSize: 11, color: Colors.grey[600]),
                 ),
               ),
@@ -314,7 +318,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Icon(Icons.local_bar_outlined, size: 64, color: Colors.grey[700]),
                           const SizedBox(height: 16),
                           Text(
-                            'Nessun bar trovato',
+                            tr('home.noBars'),
                             style: GoogleFonts.poppins(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
@@ -323,7 +327,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            'Prova ad applicare una vibrazione diversa',
+                            tr('home.noBarsHint'),
                             style: GoogleFonts.poppins(
                               fontSize: 13,
                               color: Colors.grey[600],
@@ -339,6 +343,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         return BarCard(
                           bar: bar,
                           matchScore: scores[bar.id],
+                          reasons: reasons[bar.id] ?? const [],
                           distanceKm: distances[bar.id],
                           openStatus: statuses[bar.id],
                           onTap: () {

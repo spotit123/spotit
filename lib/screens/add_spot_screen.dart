@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../l10n/l10n.dart';
 import '../models/bar.dart';
 
 class AddSpotScreen extends StatefulWidget {
@@ -81,7 +82,7 @@ class _AddSpotScreenState extends State<AddSpotScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            'Nuovo spot "${newBar.name}" aggiunto con successo!',
+            tr('add.added', {'name': newBar.name}),
             style: GoogleFonts.poppins(),
           ),
           backgroundColor: Colors.green[800],
@@ -108,7 +109,7 @@ class _AddSpotScreenState extends State<AddSpotScreen> {
         backgroundColor: const Color(0xFF090D16),
         elevation: 0,
         title: Text(
-          'Aggiungi Nuovo Spot 📍',
+          tr('add.title'),
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -124,7 +125,7 @@ class _AddSpotScreenState extends State<AddSpotScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Dettagli del locale',
+                  tr('add.details'),
                   style: GoogleFonts.poppins(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -135,14 +136,14 @@ class _AddSpotScreenState extends State<AddSpotScreen> {
 
                 // Name
                 _buildTextField(
-                  label: 'Nome locale *',
+                  label: tr('add.name'),
                   controller: _nameController,
-                  validator: (value) => value!.isEmpty ? 'Inserisci il nome del locale' : null,
+                  validator: (value) => value!.isEmpty ? tr('add.nameErr') : null,
                 ),
 
                 // Category Type (Dropdown)
                 Text(
-                  'Tipo di locale *',
+                  tr('add.type'),
                   style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.grey[400]),
                 ),
                 const SizedBox(height: 8),
@@ -178,45 +179,45 @@ class _AddSpotScreenState extends State<AddSpotScreen> {
 
                 // Address
                 _buildTextField(
-                  label: 'Indirizzo *',
+                  label: tr('add.address'),
                   controller: _addressController,
-                  validator: (value) => value!.isEmpty ? 'Inserisci l\'indirizzo' : null,
+                  validator: (value) => value!.isEmpty ? tr('add.addressErr') : null,
                 ),
 
                 // Description
                 _buildTextField(
-                  label: 'Descrizione *',
+                  label: tr('add.desc'),
                   controller: _descriptionController,
                   maxLines: 3,
-                  validator: (value) => value!.isEmpty ? 'Inserisci una breve descrizione' : null,
+                  validator: (value) => value!.isEmpty ? tr('add.descErr') : null,
                 ),
 
                 // Popular Drinks
                 _buildTextField(
-                  label: 'Drink popolari (separati da virgola)',
+                  label: tr('add.drinks'),
                   controller: _drinksController,
-                  hint: 'es. Negroni, Spritz, Gin Tonic',
+                  hint: tr('add.drinksHint'),
                 ),
 
                 // Hours
                 _buildTextField(
-                  label: 'Orari di apertura',
+                  label: tr('add.hours'),
                   controller: _hoursController,
                   hint: 'es. 18:00 - 02:00',
                 ),
 
                 // Phone
                 _buildTextField(
-                  label: 'Telefono',
+                  label: tr('add.phone'),
                   controller: _phoneController,
                   hint: 'es. +34 91 123 45 67',
                 ),
 
                 // Website
                 _buildTextField(
-                  label: 'Sito Web',
+                  label: tr('add.site'),
                   controller: _websiteController,
-                  hint: 'es. www.nomelocale.it',
+                  hint: tr('add.siteHint'),
                 ),
 
                 const SizedBox(height: 20),
@@ -236,7 +237,7 @@ class _AddSpotScreenState extends State<AddSpotScreen> {
                       elevation: 2,
                     ),
                     child: Text(
-                      'Salva locale',
+                      tr('add.save'),
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
