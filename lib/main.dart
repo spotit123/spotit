@@ -1,5 +1,8 @@
+import 'dart:ui' show PlatformDispatcher;
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'l10n/l10n.dart';
 import 'models/bar.dart';
 import 'models/user_profile.dart';
 import 'models/quiz_answers.dart';
@@ -16,6 +19,12 @@ import 'services/google_places_service.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DbService.init();
+  // Lingua: quella scelta dall'utente, altrimenti quella del dispositivo (se supportata)
+  final saved = await DbService.getLang();
+  L10n.lang.value = AppLang.values.firstWhere(
+    (l) => l.name == saved,
+    orElse: () => L10n.detect(PlatformDispatcher.instance.locale.languageCode),
+  );
   runApp(const MyApp());
 }
 
@@ -82,24 +91,32 @@ class _MyAppState extends State<MyApp> {
       );
     }
 
-    return MaterialApp(
-      title: 'SpotIt Madrid',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        primaryColor: const Color(0xFF0066FF), // Electric Blue
-        scaffoldBackgroundColor: const Color(0xFF090D16), // Dark Slate Background
-        colorScheme: const ColorScheme.dark(
-          primary: Color(0xFF0066FF),
-          secondary: Color(0xFFEA580C),
-          surface: Color(0xFF131B2E),
+    return ValueListenableBuilder<AppLang>(
+      valueListenable: L10n.lang,
+      builder: (context, lang, _) => MaterialApp(
+        title: 'SpotIt Madrid',
+        locale: Locale(lang.name),
+        supportedLocales: const [Locale('it'), Locale('en'), Locale('es')],
+        localizationsDelegates: GlobalMaterialLocalizations.delegates,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark().copyWith(
+          primaryColor: const Color(0xFF0066FF), // Electric Blue
+          scaffoldBackgroundColor: const Color(
+            0xFF090D16,
+          ), // Dark Slate Background
+          colorScheme: const ColorScheme.dark(
+            primary: Color(0xFF0066FF),
+            secondary: Color(0xFFEA580C),
+            surface: Color(0xFF131B2E),
+          ),
+          textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
         ),
-        textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
+        home: !_quizDone
+            ? OnboardingQuizScreen(onComplete: _onQuizComplete)
+            : _isLoggedIn
+            ? MainNavigationWrapper(onLogout: _onLogout)
+            : LoginScreen(onLoginSuccess: _onLoginSuccess),
       ),
-      home: !_quizDone
-          ? OnboardingQuizScreen(onComplete: _onQuizComplete)
-          : _isLoggedIn
-              ? MainNavigationWrapper(onLogout: _onLogout)
-              : LoginScreen(onLoginSuccess: _onLoginSuccess),
     );
   }
 }
@@ -107,10 +124,7 @@ class _MyAppState extends State<MyApp> {
 class MainNavigationWrapper extends StatefulWidget {
   final VoidCallback onLogout;
 
-  const MainNavigationWrapper({
-    super.key,
-    required this.onLogout,
-  });
+  const MainNavigationWrapper({super.key, required this.onLogout});
 
   @override
   State<MainNavigationWrapper> createState() => _MainNavigationWrapperState();
@@ -133,7 +147,7 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
     final profile = await DbService.getUserProfile();
     final barsList = await DbService.getBars();
     final quiz = await DbService.getQuiz();
-    
+
     // Auto-update user profile's favoritesCount to match actual favorites list
     final favCount = barsList.where((b) => b.isFavorite).length;
     UserProfile? updatedProfile = profile;
@@ -161,8 +175,8 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
       final googleBar = await GooglePlacesService.fetchRealGoogleData(bar);
       enriched.add(googleBar);
       // Se ci sono cambiamenti reali nei dati scaricati da Google (es. nuove foto o recensioni)
-      if (googleBar.reviewCount != bar.reviewCount || 
-          googleBar.rating != bar.rating || 
+      if (googleBar.reviewCount != bar.reviewCount ||
+          googleBar.rating != bar.rating ||
           googleBar.galleryImages.length != bar.galleryImages.length) {
         changed = true;
       }
@@ -184,7 +198,7 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
       }
     });
     await DbService.saveBars(_bars);
-    
+
     // Dynamic updates of favorites count in profile
     if (_userProfile != null) {
       final favCount = _bars.where((bar) => bar.isFavorite).length;
@@ -239,30 +253,22 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
     }
 
     final List<Widget> screens = [
-      HomeScreen(
-        bars: _bars,
-        quiz: _quiz,
-        onFavoriteToggle: _toggleFavorite,
-      ),
-      MapScreen(
-        bars: _bars,
-        onFavoriteToggle: _toggleFavorite,
-      ),
-      FavoritesScreen(
-        bars: _bars,
-        onFavoriteToggle: _toggleFavorite,
-      ),
+      HomeScreen(bars: _bars, quiz: _quiz, onFavoriteToggle: _toggleFavorite),
+      MapScreen(bars: _bars, onFavoriteToggle: _toggleFavorite),
+      FavoritesScreen(bars: _bars, onFavoriteToggle: _toggleFavorite),
       ProfileScreen(
-        profile: _userProfile ?? UserProfile(
-          name: 'Anonymous',
-          username: '@anonymous',
-          location: 'Madrid',
-          age: 25,
-          bookingsCount: 0,
-          favoritesCount: 0,
-          karma: 4.0,
-          preferredVibes: [],
-        ),
+        profile:
+            _userProfile ??
+            UserProfile(
+              name: 'Anonymous',
+              username: '@anonymous',
+              location: 'Madrid',
+              age: 25,
+              bookingsCount: 0,
+              favoritesCount: 0,
+              karma: 4.0,
+              preferredVibes: [],
+            ),
         bars: _bars,
         onProfileUpdate: _updateProfile,
         onFavoriteToggle: _toggleFavorite,
@@ -272,10 +278,7 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
     ];
 
     return Scaffold(
-      body: IndexedStack(
-        index: _currentIndex,
-        children: screens,
-      ),
+      body: IndexedStack(index: _currentIndex, children: screens),
       // Float shortcut button to Add Spot (Madrid layout)
       floatingActionButton: _currentIndex == 0
           ? FloatingActionButton(
@@ -317,27 +320,33 @@ class _MainNavigationWrapperState extends State<MainNavigationWrapper> {
           backgroundColor: const Color(0xFF131B2E), // Dark bar
           selectedItemColor: const Color(0xFF0066FF), // Electric Blue
           unselectedItemColor: Colors.grey[600],
-          selectedLabelStyle: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 11),
-          unselectedLabelStyle: GoogleFonts.poppins(fontWeight: FontWeight.w500, fontSize: 11),
-          items: const [
+          selectedLabelStyle: GoogleFonts.poppins(
+            fontWeight: FontWeight.w600,
+            fontSize: 11,
+          ),
+          unselectedLabelStyle: GoogleFonts.poppins(
+            fontWeight: FontWeight.w500,
+            fontSize: 11,
+          ),
+          items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.local_bar),
-              label: 'Locali',
+              label: tr('nav.places'),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.map_outlined),
               activeIcon: Icon(Icons.map),
-              label: 'Mappa',
+              label: tr('nav.map'),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.favorite_border),
               activeIcon: Icon(Icons.favorite),
-              label: 'Preferiti',
+              label: tr('nav.favorites'),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person_outline),
               activeIcon: Icon(Icons.person),
-              label: 'Profilo',
+              label: tr('nav.profile'),
             ),
           ],
         ),

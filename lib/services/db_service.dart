@@ -14,6 +14,7 @@ class DbService {
   static const String _keyUsers = 'registered_users';
   static const String _keyQuiz = 'quiz_answers';
   static const String _keyQuizDone = 'quiz_done';
+  static const String _keyLang = 'app_lang';
   static const String _keyBarsVersion = 'bars_data_version';
 
   static SharedPreferences? _prefs;
@@ -137,6 +138,17 @@ class DbService {
   static Future<void> saveUserProfile(UserProfile profile) async {
     final prefs = _prefs ?? await SharedPreferences.getInstance();
     await prefs.setString(_keyProfile, jsonEncode(profile.toJson()));
+  }
+
+  // Lingua scelta dall'utente (null = non ancora scelta)
+  static Future<String?> getLang() async {
+    final prefs = _prefs ?? await SharedPreferences.getInstance();
+    return prefs.getString(_keyLang);
+  }
+
+  static Future<void> saveLang(String code) async {
+    final prefs = _prefs ?? await SharedPreferences.getInstance();
+    await prefs.setString(_keyLang, code);
   }
 
   // Quiz di personalizzazione (legato al dispositivo, non viene cancellato al logout)

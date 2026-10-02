@@ -43,6 +43,8 @@ dependencies:
   http: ^1.2.0
   flutter_map_marker_cluster: ^1.4.0
   geolocator: ^14.1.1
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:

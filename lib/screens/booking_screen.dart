@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../l10n/l10n.dart';
 import '../models/bar.dart';
 import '../models/booking.dart';
 import '../services/db_service.dart';
@@ -64,7 +65,7 @@ class _BookingScreenState extends State<BookingScreen> {
               const Icon(Icons.check_circle_outline, size: 64, color: Colors.green),
               const SizedBox(height: 16),
               Text(
-                'Richiesta salvata 📌',
+                tr('book.savedTitle'),
                 style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: 20,
@@ -73,7 +74,12 @@ class _BookingScreenState extends State<BookingScreen> {
               ),
               const SizedBox(height: 12),
               Text(
-                'Abbiamo salvato la tua richiesta per $_guestCount persone il ${_selectedDate.day}/${_selectedDate.month} alle $_selectedTime da ${widget.bar.name}.\n\nIl locale non è ancora stato avvisato: per confermare il tavolo contattalo direttamente.',
+                tr('book.savedBody', {
+                  'guests': _guestCount,
+                  'date': '${_selectedDate.day}/${_selectedDate.month}',
+                  'time': _selectedTime,
+                  'name': widget.bar.name,
+                }),
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
                   color: Colors.grey[400],
@@ -87,7 +93,7 @@ class _BookingScreenState extends State<BookingScreen> {
                   child: ElevatedButton.icon(
                     onPressed: () => launchUrl(Uri(scheme: 'tel', path: widget.bar.phone.replaceAll(' ', ''))),
                     icon: const Icon(Icons.phone, size: 18),
-                    label: Text('Chiama il locale', style: GoogleFonts.poppins(fontWeight: FontWeight.bold)),
+                    label: Text(tr('book.call'), style: GoogleFonts.poppins(fontWeight: FontWeight.bold)),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF0066FF),
                       foregroundColor: Colors.white,
@@ -101,11 +107,15 @@ class _BookingScreenState extends State<BookingScreen> {
                 width: double.infinity,
                 child: OutlinedButton.icon(
                   onPressed: () => shareOnWhatsApp(
-                    'Ci vediamo da ${widget.bar.name} il ${_selectedDate.day}/${_selectedDate.month} alle $_selectedTime? '
-                    'Siamo in $_guestCount 🍻\n📍 ${widget.bar.address}\n${mapsLink(widget.bar)}',
+                    '${tr('book.whatsappMsg', {
+                      'name': widget.bar.name,
+                      'date': '${_selectedDate.day}/${_selectedDate.month}',
+                      'time': _selectedTime,
+                      'guests': _guestCount,
+                    })}\n📍 ${widget.bar.address}\n${mapsLink(widget.bar)}',
                   ),
                   icon: const Icon(Icons.share, size: 18, color: Color(0xFF25D366)),
-                  label: Text('Avvisa gli amici su WhatsApp',
+                  label: Text(tr('book.whatsapp'),
                       style: GoogleFonts.poppins(color: const Color(0xFF25D366), fontWeight: FontWeight.bold)),
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(color: Color(0xFF25D366)),
@@ -121,7 +131,7 @@ class _BookingScreenState extends State<BookingScreen> {
                     Navigator.pop(context); // Close dialog
                     Navigator.pop(context, true); // Close booking screen and return true
                   },
-                  child: Text('Chiudi', style: GoogleFonts.poppins(color: Colors.grey[400], fontWeight: FontWeight.bold)),
+                  child: Text(tr('book.close'), style: GoogleFonts.poppins(color: Colors.grey[400], fontWeight: FontWeight.bold)),
                 ),
               ),
             ],
@@ -172,7 +182,7 @@ class _BookingScreenState extends State<BookingScreen> {
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
-          'Richiedi un tavolo',
+          tr('book.title'),
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -264,7 +274,7 @@ class _BookingScreenState extends State<BookingScreen> {
                               ),
                               const SizedBox(width: 6),
                               Text(
-                                'Live: ${bar.crowdDensity}% Capacity',
+                                tr('book.crowd', {'n': bar.crowdDensity}),
                                 style: GoogleFonts.poppins(
                                   color: Colors.green,
                                   fontSize: 12,
@@ -282,7 +292,7 @@ class _BookingScreenState extends State<BookingScreen> {
 
               const SizedBox(height: 24),
               Text(
-                'Dettagli della richiesta',
+                tr('book.details'),
                 style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: 15,
@@ -313,7 +323,7 @@ class _BookingScreenState extends State<BookingScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Data',
+                                    tr('book.date'),
                                     style: GoogleFonts.poppins(color: Colors.grey[500], fontSize: 11),
                                   ),
                                   Text(
@@ -375,7 +385,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Seleziona Orario',
+                    tr('book.selectTime'),
                     style: GoogleFonts.poppins(
                       color: Colors.white,
                       fontSize: 15,
@@ -383,7 +393,7 @@ class _BookingScreenState extends State<BookingScreen> {
                     ),
                   ),
                   Text(
-                    'Ore di Picco',
+                    tr('book.peak'),
                     style: GoogleFonts.poppins(
                       color: Colors.pink[400],
                       fontSize: 11,
@@ -433,7 +443,7 @@ class _BookingScreenState extends State<BookingScreen> {
 
               const SizedBox(height: 28),
               Text(
-                'Preferenze',
+                tr('book.prefs'),
                 style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: 15,
@@ -444,7 +454,7 @@ class _BookingScreenState extends State<BookingScreen> {
 
               // Special Requests text field
               Text(
-                'Richieste Speciali',
+                tr('book.special'),
                 style: GoogleFonts.poppins(color: Colors.grey[500], fontSize: 12),
               ),
               const SizedBox(height: 8),
@@ -452,7 +462,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 controller: _requestsController,
                 style: GoogleFonts.poppins(color: Colors.white, fontSize: 14),
                 decoration: InputDecoration(
-                  hintText: 'Scrivi qui le tue richieste (es. tavolo all\'esterno)...',
+                  hintText: tr('book.specialHint'),
                   hintStyle: GoogleFonts.poppins(color: Colors.grey[600], fontSize: 13),
                   filled: true,
                   fillColor: const Color(0xFF131B2E),
@@ -483,7 +493,7 @@ class _BookingScreenState extends State<BookingScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'GRATIS',
+                          tr('book.free'),
                           style: GoogleFonts.poppins(
                             color: Colors.greenAccent[400],
                             fontSize: 18,
@@ -491,7 +501,7 @@ class _BookingScreenState extends State<BookingScreen> {
                           ),
                         ),
                         Text(
-                          'Nessun costo',
+                          tr('book.noCost'),
                           style: GoogleFonts.poppins(
                             color: Colors.grey[500],
                             fontSize: 11,
@@ -512,7 +522,7 @@ class _BookingScreenState extends State<BookingScreen> {
                       ),
                       icon: const Icon(Icons.confirmation_num_outlined, size: 18),
                       label: Text(
-                        'Conferma',
+                        tr('book.confirm'),
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.bold,
                           fontSize: 15,

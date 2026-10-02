@@ -1,3 +1,5 @@
+import '../l10n/l10n.dart';
+
 // Legge gli orari dei locali (testo tipo "Lun-Ven 18:00-02:00; Sab 12:00-03:00")
 // e dice se un locale è aperto in un certo momento.
 
@@ -21,7 +23,6 @@ class _Interval {
   bool get overnight => end <= start;
 }
 
-const _dayNames = ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'];
 const _dayKeys = ['lun', 'mar', 'mer', 'gio', 'ven', 'sab', 'dom'];
 
 final _token = RegExp(
@@ -103,13 +104,13 @@ OpenStatus openStatus(Map<String, String> openingHours, DateTime now) {
   // Aperto da una fascia che è iniziata ieri sera e finisce oggi
   for (final i in week[yesterday] ?? const <_Interval>[]) {
     if (i.overnight && minute < i.end) {
-      return OpenStatus(OpenState.open, 'Aperto · chiude alle ${_hhmm(i.end)}');
+      return OpenStatus(OpenState.open, tr('open.until', {'t': _hhmm(i.end)}));
     }
   }
   // Aperto da una fascia di oggi
   for (final i in week[today] ?? const <_Interval>[]) {
     final isOpen = i.overnight ? minute >= i.start : (minute >= i.start && minute < i.end);
-    if (isOpen) return OpenStatus(OpenState.open, 'Aperto · chiude alle ${_hhmm(i.end)}');
+    if (isOpen) return OpenStatus(OpenState.open, tr('open.until', {'t': _hhmm(i.end)}));
   }
 
   // Chiuso: cerca la prossima apertura nei prossimi 7 giorni
@@ -120,13 +121,14 @@ OpenStatus openStatus(Map<String, String> openingHours, DateTime now) {
         if (offset > 0 || i.start > minute) i.start,
     ]..sort();
     if (starts.isNotEmpty) {
-      final when = offset == 0
-          ? 'alle'
+      final t = _hhmm(starts.first);
+      final label = offset == 0
+          ? tr('open.at', {'t': t})
           : offset == 1
-              ? 'domani alle'
-              : '${_dayNames[day]} alle';
-      return OpenStatus(OpenState.closed, 'Chiuso · apre $when ${_hhmm(starts.first)}');
+              ? tr('open.tomorrow', {'t': t})
+              : tr('open.day', {'d': trDay(day), 't': t});
+      return OpenStatus(OpenState.closed, label);
     }
   }
-  return const OpenStatus(OpenState.closed, 'Chiuso');
+  return OpenStatus(OpenState.closed, tr('open.closed'));
 }

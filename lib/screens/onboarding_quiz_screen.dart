@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../l10n/l10n.dart';
+import '../widgets/lang_button.dart';
 import '../models/quiz_answers.dart';
 
 class _Option {
@@ -20,50 +22,22 @@ class _Question {
       {this.multi = false});
 }
 
-const _questions = <_Question>[
-  _Question('who', '👋', 'Chi sei?', 'Così capiamo che serata fa per te', [
-    _Option('🎓', 'Erasmus', 'erasmus'),
-    _Option('🧳', 'Turista', 'tourist'),
-    _Option('🏠', 'Local', 'local'),
-    _Option('💼', 'Lavoro qui', 'worker'),
-  ]),
-  _Question('ageGroup', '🎂', 'Quanti anni hai?', 'Ti mostriamo posti con gente come te', [
-    _Option('🎒', '18 – 22', '18-22'),
-    _Option('🎧', '23 – 27', '23-27'),
-    _Option('🥂', '28 – 35', '28-35'),
-    _Option('🍷', '36 +', '36+'),
-  ]),
-  _Question('company', '👯', 'Con chi esci stasera?', 'Un bar per due non è un bar per dieci', [
-    _Option('🧍', 'Da solo', 'solo'),
-    _Option('💑', 'In coppia', 'couple'),
-    _Option('👫', '2 o 3 amici', 'friends'),
-    _Option('🎉', 'Gruppo grande', 'group'),
-  ]),
-  _Question('goal', '🍻', 'Cosa cerchi?', 'Scegli il programma della serata', [
-    _Option('🍺', 'Solo bere', 'drink'),
-    _Option('🍽️', 'Mangiare e bere', 'eat'),
-    _Option('🌇', 'Rooftop con vista', 'rooftop'),
-    _Option('💃', 'Ballare e far festa', 'dance'),
-  ]),
-  _Question('vibe', '✨', 'Che vibe vuoi?', 'L\'atmosfera fa la differenza', [
-    _Option('🔥', 'Energia alta', 'Energetic'),
-    _Option('🌙', 'Chill', 'Chill'),
-    _Option('🕵️', 'Underground', 'Underground'),
-    _Option('💜', 'Neon', 'Neon'),
-  ]),
-  _Question('music', '🎶', 'Che musica ti piace?', 'Puoi sceglierne fino a 3', [
-    _Option('🎸', 'Indie / Rock', 'indie'),
-    _Option('🎷', 'Jazz', 'jazz'),
-    _Option('🎤', 'Pop / Reggaeton', 'pop'),
-    _Option('🎧', 'Elettronica', 'electronic'),
-    _Option('🤷', 'Mi adatto', 'any'),
-  ], multi: true),
-  _Question('budget', '💶', 'Quanto vuoi spendere?', 'A drink, più o meno', [
-    _Option('💶', 'Economico  €', '1'),
-    _Option('💶💶', 'Nella media  €€', '2'),
-    _Option('💎', 'Si vive una volta  €€€', '3'),
-  ]),
-];
+List<_Question> _buildQuestions() {
+  _Option o(String emoji, String qid, String value) => _Option(emoji, tr('q.$qid.$value'), value);
+  _Question q(String id, String emoji, List<_Option> options, {bool multi = false}) =>
+      _Question(id, emoji, tr('q.$id.t'), tr('q.$id.s'), options, multi: multi);
+  return [
+    q('who', '👋', [o('🎓', 'who', 'erasmus'), o('🧳', 'who', 'tourist'), o('🏠', 'who', 'local'), o('💼', 'who', 'worker')]),
+    q('ageGroup', '🎂', [o('🎒', 'ageGroup', '18-22'), o('🎧', 'ageGroup', '23-27'), o('🥂', 'ageGroup', '28-35'), o('🍷', 'ageGroup', '36+')]),
+    q('company', '👯', [o('🧍', 'company', 'solo'), o('💑', 'company', 'couple'), o('👫', 'company', 'friends'), o('🎉', 'company', 'group')]),
+    q('goal', '🍻', [o('🍺', 'goal', 'drink'), o('🍽️', 'goal', 'eat'), o('🌇', 'goal', 'rooftop'), o('💃', 'goal', 'dance')]),
+    q('vibe', '✨', [o('🔥', 'vibe', 'Energetic'), o('🌙', 'vibe', 'Chill'), o('🕵️', 'vibe', 'Underground'), o('💜', 'vibe', 'Neon')]),
+    q('music', '🎶', [
+      o('🎸', 'music', 'indie'), o('🎷', 'music', 'jazz'), o('🎤', 'music', 'pop'), o('🎧', 'music', 'electronic'), o('🤷', 'music', 'any'),
+    ], multi: true),
+    q('budget', '💶', [o('💶', 'budget', '1'), o('💶💶', 'budget', '2'), o('💎', 'budget', '3')]),
+  ];
+}
 
 /// Quiz di personalizzazione a schermate, pensato per il primo avvio.
 /// Chiama [onComplete] con le risposte, oppure con `null` se l'utente salta.
@@ -81,6 +55,9 @@ class _OnboardingQuizScreenState extends State<OnboardingQuizScreen> {
   int _step = 0;
   final Map<String, String> _single = {};
   final List<String> _music = [];
+
+  // Ricalcolato a ogni uso, così segue la lingua se cambia durante il quiz
+  List<_Question> get _questions => _buildQuestions();
 
   _Question get _q => _questions[_step];
 
@@ -154,9 +131,10 @@ class _OnboardingQuizScreenState extends State<OnboardingQuizScreen> {
                       ),
                     ),
                   ),
+                  const LangButton(),
                   TextButton(
                     onPressed: () => widget.onComplete(null),
-                    child: Text('Salta',
+                    child: Text(tr('quiz.skip'),
                         style: GoogleFonts.poppins(color: Colors.grey[500], fontSize: 13)),
                   ),
                 ],
@@ -194,7 +172,7 @@ class _OnboardingQuizScreenState extends State<OnboardingQuizScreen> {
                       disabledBackgroundColor: const Color(0xFF1E293B),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                     ),
-                    child: Text('Avanti',
+                    child: Text(tr('quiz.next'),
                         style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 15)),
                   ),
                 ),

@@ -15,6 +15,7 @@ lib/                      <- tutto il codice dell'app (linguaggio Dart, framewor
   screens/                <- le schermate intere (login, home, mappa, dettaglio, profilo...)
   widgets/                <- pezzi di schermata riutilizzabili (BarCard = la card di un locale)
   utils/                  <- piccole funzioni di aiuto (geo.dart = distanze)
+  l10n/                   <- le traduzioni (italiano, inglese, spagnolo)
 assets/data/malasana_bars.json   <- i 60 locali scaricati da OpenStreetMap
 tool/                     <- script Python che scaricano i dati (non fanno parte dell'app)
 test/                     <- test automatici: verificano che il codice faccia quello che promette
@@ -86,6 +87,38 @@ Costruisce un testo (nome, indirizzo, link a Google Maps, link al sito) e apre
 - Nel dettaglio di un locale: pulsante **Condividi**.
 - Nei Preferiti: **Manda agli amici** invia la lista numerata ("dove andiamo stasera?").
 
+## 2b. Cosa abbiamo fatto nel Blocco B
+
+### Le lingue (`lib/l10n/`)
+- **`strings_*.dart`** contengono tutte le frasi dell'app in un dizionario:
+  `'open.until': ['Aperto · chiude alle {t}', 'Open · closes at {t}', 'Abierto · cierra a las {t}']`.
+  Le tre voci sono italiano, inglese, spagnolo. `{t}` è un segnaposto.
+- **`tr('open.until', {'t': '02:30'})`** (in `l10n.dart`) restituisce la frase nella lingua corrente e
+  sostituisce i segnaposto. Nel codice non c'è più testo scritto a mano: c'è `tr('chiave')`.
+- **La lingua**: all'avvio si usa quella scelta dall'utente (salvata con `DbService.saveLang`),
+  altrimenti quella del dispositivo se è it/en/es, altrimenti l'inglese.
+- **`L10n.lang`** è un `ValueNotifier`: un contenitore che avvisa chi lo ascolta quando cambia.
+  `main.dart` lo ascolta con `ValueListenableBuilder` e ridisegna l'app. `LangButton` (il piccolo
+  "EN ▾") fa la stessa cosa per ridisegnarsi da solo.
+- I dati che arrivano da fuori (tipo di locale, musica, età, vibe) si traducono con `trType`,
+  `trMusic`, `trAge`, `trVibe`. Se un valore non è nel dizionario resta com'è: niente crash.
+- Le **descrizioni** dei locali sono generate in 3 lingue da `tool/fetch_osm.py`
+  (campo `descriptions`). Se manca la lingua si usa quella italiana (`Bar.localDescription`).
+- **Test** (`test/l10n_test.dart`): ogni frase ha 3 lingue non vuote; i segnaposto sono uguali
+  nelle 3 lingue; ogni chiave usata nel codice esiste nel dizionario.
+
+### "Perché è per te" (`recommendation_service.dart`)
+`RecommendationService.match(bar, quiz)` restituisce un oggetto `Match` con il punteggio **e** la
+lista dei motivi: ogni criterio che dà punti aggiunge anche una frase ("Vibe Chill, come volevi").
+I motivi sono ordinati per peso: la card mostra i primi due, il dettaglio li mostra tutti.
+Idea da imparare: **calcolare il risultato e la spiegazione insieme**, nello stesso punto, così non
+possono andare fuori sincrono.
+
+### Un bug interessante (da studiare)
+Il pulsante lingua restava su "ES" anche con l'app già in inglese. Causa: era un widget `const`
+(creato una volta sola) e Flutter salta il ridisegno dei widget identici. Soluzione: farlo
+ascoltare `L10n.lang` con `ValueListenableBuilder`.
+
 ## 3. Concetti di programmazione che trovi nel codice
 
 | Concetto | Dove lo vedi | In parole semplici |
@@ -97,7 +130,9 @@ Costruisce un testo (nome, indirizzo, link a Google Maps, link al sito) e apre
 | **`List.where / map / sort`** | filtri nella home | `where` tiene gli elementi giusti, `map` li trasforma, `sort` li ordina. |
 | **JSON** | `Bar.fromJson / toJson` | Testo strutturato per salvare e scambiare dati. |
 | **Test** | cartella `test/` | `expect(risultato, atteso)`: se il codice cambia e rompe qualcosa, il test diventa rosso. |
-| **Enum** | `OpenState` | Un insieme chiuso di valori possibili (`open`, `closed`, `unknown`). |
+| **Enum** | `OpenState`, `AppLang` | Un insieme chiuso di valori possibili (`open`, `closed`, `unknown`). |
+| **ValueNotifier** | `L10n.lang` | Un valore che avvisa chi lo ascolta quando cambia: base di molte funzioni "reattive". |
+| **Record `(int, String)`** | `scored` in `match()` | Una coppia di valori senza dover creare una classe. |
 
 ## 4. Come provare sul tuo computer
 Servono Flutter (flutter.dev) e Chrome.
@@ -114,9 +149,10 @@ flutter analyze          # cerca errori e cattive abitudini
 3. In `home_screen.dart` aggiungi un filtro "Pub" che mostri solo i locali con `type == 'Pub'`.
 4. In `barShareText` aggiungi gli orari del locale nel messaggio WhatsApp.
 5. (Più difficile) Fai comparire "Aperto ora" anche nelle card della mappa.
+6. Aggiungi il **francese**: una colonna in ogni riga dei dizionari, `AppLang.fr`, e il test ti dice cosa manca.
+7. Aggiungi un motivo nuovo in `match()`, per esempio "Aperto fino a tardi" se chiude dopo le 03:00.
 
 ## 6. Cose ancora da fare (non è finito!)
-- **Blocco B:** inglese/spagnolo, spiegazione del perché un locale è consigliato.
 - **Blocco C:** account veri, recensioni e foto condivise → serve un server (es. Supabase).
 - **Blocco D:** trasformare il sito in app per iPhone/Android (serve un Mac o un servizio
   cloud per la build iOS).

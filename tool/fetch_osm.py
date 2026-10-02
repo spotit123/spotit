@@ -86,6 +86,41 @@ def kind_of(tags):
     return "Bar"
 
 
+KIND_NAMES = {  # tipo (italiano, come nei dati) -> (inglese, spagnolo)
+    "Discoteca": ("Nightclub", "Discoteca"),
+    "Pub": ("Pub", "Pub"),
+    "Birreria all'aperto": ("Beer garden", "Cervecería al aire libre"),
+    "Cocktail bar": ("Cocktail bar", "Coctelería"),
+    "Enoteca / Vermuteria": ("Wine & vermouth bar", "Vinoteca / Vermutería"),
+    "Taberna & Tapas": ("Tavern & tapas", "Taberna y tapas"),
+    "Bar": ("Bar", "Bar"),
+}
+
+
+def describe(kind, street, tags):
+    """Descrizione generata nelle tre lingue (usata solo se OSM non ha una descrizione)."""
+    en_kind, es_kind = KIND_NAMES.get(kind, (kind, kind))
+    cuisine = (tags.get("cuisine") or "").replace(";", ", ").replace("_", " ")
+    outdoor = tags.get("outdoor_seating") == "yes"
+    live = tags.get("live_music") == "yes" or tags.get("music") == "yes"
+    it = [f"{kind} a Malasaña, in {street}."]
+    en = [f"{en_kind} in Malasaña, on {street}."]
+    es = [f"{es_kind} en Malasaña, en {street}."]
+    if outdoor:
+        it.append("Con tavoli all'aperto.")
+        en.append("With outdoor seating.")
+        es.append("Con terraza.")
+    if live:
+        it.append("Con musica dal vivo.")
+        en.append("With live music.")
+        es.append("Con música en vivo.")
+    if cuisine:
+        it.append(f"Cucina: {cuisine}.")
+        en.append(f"Cuisine: {cuisine}.")
+        es.append(f"Cocina: {cuisine}.")
+    return {"it": " ".join(it), "en": " ".join(en), "es": " ".join(es)}
+
+
 def hours(tags):
     raw = tags.get("opening_hours")
     if not raw:
@@ -138,22 +173,18 @@ def to_bar(el):
         tag_list.append("Chill")
     tag_list = list(dict.fromkeys(tag_list))
 
-    description = tags.get("description:it") or tags.get("description") or ""
-    if not description:
-        parts = [f"{kind} a Malasaña, in {street_address(tags).replace(', Madrid', '')}."]
-        if tags.get("outdoor_seating") == "yes":
-            parts.append("Con tavoli all'aperto.")
-        if music_tag:
-            parts.append("Con musica dal vivo.")
-        if tags.get("cuisine"):
-            parts.append(f"Cucina: {tags['cuisine'].replace(';', ', ').replace('_', ' ')}.")
-        description = " ".join(parts)
+    street = street_address(tags).replace(", Madrid", "")
+    osm_description = tags.get("description:it") or tags.get("description") or ""
+    generated = describe(kind, street, tags)
+    description = osm_description or generated["it"]
 
     return {
         "id": f"osm_{el['type']}_{el['id']}",
         "name": name,
         "type": kind,
         "description": description,
+        # Traduzioni: presenti solo quando la descrizione è generata da noi
+        "descriptions": {} if osm_description else generated,
         "rating": 0.0,
         "reviewCount": 0,
         "address": street_address(tags),

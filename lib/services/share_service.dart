@@ -1,4 +1,5 @@
 import 'package:url_launcher/url_launcher.dart';
+import '../l10n/l10n.dart';
 import '../models/bar.dart';
 
 const siteUrl = 'https://spotit123.github.io/spotit/';
@@ -9,25 +10,25 @@ String mapsLink(Bar bar) =>
 /// Messaggio per un solo locale, pronto da incollare in una chat.
 String barShareText(Bar bar) {
   final lines = <String>[
-    'Che ne dici di ${bar.name}? 🍻',
+    tr('share.bar', {'name': bar.name}),
     '📍 ${bar.address}',
     mapsLink(bar),
     '',
-    'Trovato su SpotIt Madrid: $siteUrl',
+    tr('share.found', {'url': siteUrl}),
   ];
   return lines.join('\n');
 }
 
 /// Messaggio con più locali tra cui scegliere ("dove andiamo stasera?").
 String plansShareText(List<Bar> bars) {
-  final lines = <String>['Dove andiamo stasera? Ecco le mie idee 👇', ''];
+  final lines = <String>[tr('share.plan'), ''];
   for (var i = 0; i < bars.length; i++) {
     lines.add('${i + 1}. ${bars[i].name} - ${bars[i].address}');
     lines.add('   ${mapsLink(bars[i])}');
   }
   lines
     ..add('')
-    ..add('Trovati su SpotIt Madrid: $siteUrl');
+    ..add(tr('share.foundMany', {'url': siteUrl}));
   return lines.join('\n');
 }
 
